@@ -1,0 +1,94 @@
+/* === HEADER === */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f4f0e1;
+    position: relative; /* para posicionar o ícone de login relativo ao header */
+  }
+  
+  /* === LOGO === */
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  /* === TÍTULO (h1) === */
+  header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    flex: 1; /* ocupa espaço entre logo e menu */
+  }
+  
+  /* === MENU === */
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* === IMAGEM FIXA LATERAL === */
+  .vaca1 {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 650px;
+    height: auto;
+    z-index: 1;
+  }
+  
+  /* === TEXTO AO LADO DA IMAGEM === */
+  .texto1 {
+    margin-left: 670px; /* um pouco mais que a largura da imagem */
+    padding: 20px;
+    max-width: 600px;
+    text-align: justify;
+  }
+  
+  /* === ÍCONE DE LOGIN === */
+  .icone-login {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+  
+  .icone-login img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+  }
+  
+  .icone-login:hover img {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  /* ==== ÍCONE IFPE ===*/
+.logo-ifpe {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+  }
+
+.texto-fim{
+  background-color: #7e593b;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  margin: 0;
+  text-align:right;
+  line-height: 1.4;
+  color: #f4f0e1;
+
+  }
