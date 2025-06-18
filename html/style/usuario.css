@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header verde com ícone */
+  header.topo {
+    background-color: #7d9e7f;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+  }
+  
+  .icone-usuario {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  
+  /* Sub-header com título, logo e busca */
+  section.cabecalho {
+    background-color: #f4f0e1;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo-ifpe {
+    width: 160px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .cabecalho {
+    font-size: 1.1em;
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
+  }
+  
+  form.busca {
+    display: flex;
+    align-items: center;
+  }
+  
+  form.busca input {
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  form.busca button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form.busca img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Menu */
+  nav.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  nav.menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  /* Conteúdo */
+  main.conteudo {
+    padding: 20px;
+  }
+  
+  section.movimentacoes {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  article.linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+
+  /*cabecalho da parte do aluno*/
+
+  section.cabecalho-2 {
+    background-color: #f4f0e1;
+    display: flex;
+    align-items:center;
+    justify-content:first baseline;
+    padding: 10px 20px;
+  }
+
+  .painel {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .menu-lateral {
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    font-family: sans-serif;
+  }
+  
+  .menu-lateral h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    background-color: #8aa587;
+    color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .menu-lateral ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-lateral li {
+    border-bottom: 1px solid #d1e2d0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+  }
+  
+  .menu-lateral a {
+    text-decoration: none;
+    color: #222;
+  }
+  
+  .menu-lateral a {
+    text-decoration: none;
+    color: #222;
+    display: inline-block; /* necessário para o transform funcionar */
+    transition: transform 0.2s ease, color 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.menu-lateral a:hover {
+    transform: scale(1.04);
+    color: #4a6b4d; /* opcional: muda um pouco a cor no hover também */
+}
