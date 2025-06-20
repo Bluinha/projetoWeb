@@ -18,10 +18,10 @@ if ($email && $senha) {
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
         if ($usuario['tipo_usuario'] === 'professor') {
-            header("Location: professor.html");
+            header("Location:  ../html/aluno/area_professor.html");
             exit();
         } elseif ($usuario['tipo_usuario'] === 'aluno') {
-            header("Location: aluno.html");
+            header("Location:  ../html/aluno/area_comum_aluno.html");
             exit();
         } else {
             echo "Tipo de usuário inválido.";
