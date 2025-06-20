@@ -11,11 +11,13 @@ if (isset($_POST['nome'])) {
     $stmt->bindValue(':nome', $nome);
     $stmt->bindValue(':descarte', $descarte, PDO::PARAM_INT);
 
+    //Retorne a pagina de casdastro com uma mensagem de erro ou de sucesso
     if ($stmt->execute()) {
-        echo "<p>Vaca inserida com sucesso!</p>";
+        header("Location:../html/aluno/area_comum_aluno.php?msg=sucesso&secao=cadastro");
+        exit;
     } else {
-        echo "<p>Erro ao inserir a vaca.</p>";
-        print_r($stmt->errorInfo()); 
+        header("Location:../html/aluno/area_comum_aluno.php?msg=sucesso");
+        exit;
     }
 }
 ?>

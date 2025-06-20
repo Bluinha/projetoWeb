@@ -21,7 +21,7 @@ if ($email && $senha) {
             header("Location:  ../html/aluno/area_professor.html");
             exit();
         } elseif ($usuario['tipo_usuario'] === 'aluno') {
-            header("Location:  ../html/aluno/area_comum_aluno.html");
+            header("Location:  ../html/aluno/area_comum_aluno.php");
             exit();
         } else {
             echo "Tipo de usuário inválido.";
