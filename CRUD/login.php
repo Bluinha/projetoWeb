@@ -11,7 +11,7 @@ if ($email && $senha) {
     $stmt->execute();
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && password_verify($senha, $usuario['senha'])) {
+    if ($usuario && $senha === $usuario['senha']){
         // Login válido
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nome'] = $usuario['nome'];
