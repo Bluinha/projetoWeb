@@ -11,14 +11,15 @@ if ($email && $senha) {
     $stmt->execute();
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($usuario && $senha === $usuario['senha']){
+    if ($usuario && $senha === $usuario['senha'])
+{
         // Login válido
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
         if ($usuario['tipo_usuario'] === 'professor') {
-            header("Location:  ../html/aluno/area_professor.html");
+            header("Location:  ../html/professor/area_professor.html");
             exit();
         } elseif ($usuario['tipo_usuario'] === 'aluno') {
             header("Location:  ../html/aluno/area_comum_aluno.php");

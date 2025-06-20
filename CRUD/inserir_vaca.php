@@ -16,7 +16,7 @@ if (isset($_POST['nome'])) {
         header("Location:../html/aluno/area_comum_aluno.php?msg=sucesso&secao=cadastro");
         exit;
     } else {
-        header("Location:../html/aluno/area_comum_aluno.php?msg=sucesso");
+        header("Location:../html/aluno/area_comum_aluno.php?msg=erro&secao=cadastro");
         exit;
     }
 }
