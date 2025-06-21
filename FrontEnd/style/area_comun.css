@@ -135,3 +135,27 @@
     padding: 20px;
   }
   
+.tabela-vacas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: sans-serif;
+}
+
+.tabela-vacas th,
+.tabela-vacas td {
+  padding: 12px 16px; /* Espaçamento para facilitar leitura */
+  text-align: left;
+}
+
+.tabela-vacas thead {
+  background-color: #e0e0e0; /* Cinza claro no cabeçalho */
+}
+
+.tabela-vacas tbody tr:nth-child(even) {
+  background-color: #f5f5f5; /* Alternância de cor para facilitar leitura */
+}
+
+.tabela-vacas tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* Branco */
+}

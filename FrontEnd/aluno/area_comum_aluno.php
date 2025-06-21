@@ -49,20 +49,19 @@
     <!--listas das vacas-->
     <section id="lista" class="conteudo card-form" style="display: none;">
       <h3>Lista de vacas</h3>
-      <div id="tabela-vacas">
-        <?php
-        include("../../BackEnd/conexao.php"); // ajuste o caminho se necessário
-
-        $stmt = $banco->query("SELECT * FROM vacas");
-        $vacas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($vacas as $vaca) {
-          echo "<p>ID: {$vaca['id_vaca']} - Nome: {$vaca['nome']} - Descarte: {$vaca['descarte']}</p>";
-        }
-        ?>
-      </div>
+      <table class="tabela-vacas" id="id-tabela-vacas">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descarte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php require("../../BackEnd/listar_vacas.phplistar_vacas.php")?>
+        </tbody>
+      </table>
     </section>
-
 
     <!--cadastrando vaca-->
     <section id="cadastro" class="conteudo card-form" style="display: none;">
@@ -74,6 +73,7 @@
         <button type="submit" class="btn">Cadastrar</button>
       </form>
     </section>
+
     <!---editar a vaca-->
     <section id="editar" class="conteudo card-form" style="display: none;">
       <h3>Editar vaca</h3>
@@ -101,40 +101,40 @@
 
         <button type="submit" class="btn">Atualizar</button>
       </form>
+    </section>
 
-      <!--quantidade de leite-->
-      <section id="producao" class="conteudo card-form" style="display: none;">
-        <h3>Produção de leite</h3>
+    <!--quantidade de leite-->
+    <section id="producao" class="conteudo card-form" style="display: none;">
+      <h3>Produção de leite</h3>
 
-        <form method="POST" action="../php/registrar_producao.php"> <!--amarração-->
-          <label for="vaca">Vaca:</label>
-          <select id="vaca" name="vaca">
-            <!-- PHP vai popular aqui -->
-            <option value="1">Mimosa</option>
-          </select>
+      <form method="POST" action="../php/registrar_producao.php"> <!--amarração-->
+        <label for="vaca">Vaca:</label>
+        <select id="vaca" name="vaca">
+          <!-- PHP vai popular aqui -->
+          <option value="1">Mimosa</option>
+        </select>
 
-          <label for="data">Data:</label>
-          <input type="date" id="data" name="data">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data">
 
-          <label for="quantidade">Quantidade (litros):</label>
-          <input type="number" id="quantidade" name="quantidade" step="0.1">
+        <label for="quantidade">Quantidade (litros):</label>
+        <input type="number" id="quantidade" name="quantidade" step="0.1">
 
-          <button type="submit" class="btn">Registrar</button>
-        </form>
+        <button type="submit" class="btn">Registrar</button>
+      </form>
+    </section>
+
+    <!--relatorio-->
+    <section id="relatorios" class="conteudo card-form" style="display: none;">
+      <h3>Relatórios</h3>
+
+      <section id="graficos-relatorio">
+        <!-- Aqui será inserido um gráfico futuramente -->
+        <canvas id="graficoLeite" width="400" height="200"></canvas> <!---tem que ver como o php faz isso, e amarrar/substituir aqui -->
       </section>
 
-      <!--relatorio-->
-      <section id="relatorios" class="conteudo card-form" style="display: none;">
-        <h3>Relatórios</h3>
-
-        <section id="graficos-relatorio">
-          <!-- Aqui será inserido um gráfico futuramente -->
-          <canvas id="graficoLeite" width="400" height="200"></canvas> <!---tem que ver como o php faz isso, e amarrar/substituir aqui -->
-        </section>
-
-        <button onclick="gerarPDF()" class="btn">Baixar PDF</button> <!---isso de gerar pdf, tem q fazer no javascript cria com o nome relatorio.js-->
-      </section>
-
+      <button onclick="gerarPDF()" class="btn">Baixar PDF</button> <!---isso de gerar pdf, tem q fazer no javascript cria com o nome relatorio.js-->
+    </section>
 
   </main>
 
@@ -145,13 +145,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="../js/relatorio.js"></script>
-  
-  <script>
-  const mensagemCadastro = {
-    tipo: "<?php echo $_GET['msg'] ?? ''; ?>",
-    secao: "<?php echo $_GET['secao'] ?? ''; ?>"
-  };
-  </script>
+
 </body>
 
 </html>

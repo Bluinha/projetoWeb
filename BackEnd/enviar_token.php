@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+require('conexao.php');
 
 if (!empty($_POST['email'])) {
     $email = $_POST['email'];
@@ -23,12 +23,10 @@ if (!empty($_POST['email'])) {
         $stmt->bindValue(':data_expiracao', $data_expiracao);
         $stmt->execute();
 
-        // Enviar email com link (aqui exemplo básico, você pode usar PHPMailer para algo mais robusto)
         $link = "http://seusite.com/resetar_senha.php?token=$token";
         $assunto = "Recuperação de senha";
         $mensagem = "Clique no link para redefinir sua senha: $link";
 
-        // função mail simples (certifique-se de que o servidor suporta)
         mail($email, $assunto, $mensagem);
 
         echo "Email enviado com instruções para recuperação.";
