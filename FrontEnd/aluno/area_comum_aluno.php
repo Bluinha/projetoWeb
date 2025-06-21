@@ -58,7 +58,7 @@
           </tr>
         </thead>
         <tbody>
-          <?php require("../../BackEnd/listar_vacas.phplistar_vacas.php")?>
+          <?php require("../../BackEnd/listar_vacas.php")?>
         </tbody>
       </table>
     </section>
