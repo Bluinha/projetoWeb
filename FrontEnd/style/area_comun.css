@@ -138,6 +138,7 @@
     padding: 20px;
 }
 
+/* =================== TABELA DE VACAS =================== */
 .tabela-vacas {
     width: 100%;
     border-collapse: collapse;
@@ -165,4 +166,58 @@
 .tabela-vacas tbody tr:nth-child(odd) {
     background-color: #ffffff;
     /* Branco */
+}
+
+/* ===================== CADASTRO DE VACAS ===================== */
+
+#cadastro {
+  padding: 20px;
+  background-color: #f4f0e1;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+/* Título */
+#cadastro h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Mensagem */
+.mensagem {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Formulário */
+#cadastro form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Campo de texto */
+#cadastro input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Botão */
+#cadastro .btn {
+  padding: 10px;
+  background-color: #a3754c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }

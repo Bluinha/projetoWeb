@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -66,6 +69,7 @@
     <!--cadastrando vaca-->
     <section id="cadastro" class="conteudo card-form" style="display: none;">
       <h3>Cadastro de vaca</h3>
+      <?php include('../mensagem.php')?>
       <!--form de inserir a vaca-->
       <form method="POST" action="../../BackEnd/inserir_vaca.php">
         <label for="nome">Nome</label>

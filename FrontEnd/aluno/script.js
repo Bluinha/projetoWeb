@@ -10,3 +10,12 @@ function mostrarSecao(id) {
   }
 
 }
+
+//faz com que fiquemos na mesma sessão, mesmo após uma mensagem de erro ou bem sucedido
+window.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const secao = urlParams.get('secao');
+  if (secao) {
+    mostrarSecao(secao);
+  }
+});

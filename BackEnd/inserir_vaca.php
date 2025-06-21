@@ -14,10 +14,12 @@ if (isset($_POST['nome'])) {
 
     //Retorne a pagina de casdastro com uma mensagem de erro ou de sucesso
     if ($stmt->execute()) {
-        header("Location:../html/aluno/area_comum_aluno.php?msg=sucesso&secao=cadastro");
+        $_SESSION['mensagem'] =  "Animal adicionado com Sucesso";
+        header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro");
         exit;
     } else {
-        header("Location:../html/aluno/area_comum_aluno.php?msg=erro&secao=cadastro");
+         $_SESSION['mensagem'] =  "Erro ao adicionar animal";
+        header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro");
         exit;
     }
 }
