@@ -51,7 +51,7 @@
       <h3>Lista de vacas</h3>
       <div id="tabela-vacas">
         <?php
-        include("../../CRUD/conexao.php"); // ajuste o caminho se necessário
+        include("../../BackEnd/conexao.php"); // ajuste o caminho se necessário
 
         $stmt = $banco->query("SELECT * FROM vacas");
         $vacas = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,7 +68,7 @@
     <section id="cadastro" class="conteudo card-form" style="display: none;">
       <h3>Cadastro de vaca</h3>
       <!--form de inserir a vaca-->
-      <form method="POST" action="../../CRUD/inserir_vaca.php">
+      <form method="POST" action="../../BackEnd/inserir_vaca.php">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca">
         <button type="submit" class="btn">Cadastrar</button>
@@ -79,13 +79,13 @@
       <h3>Editar vaca</h3>
 
       <!-- Lista de vacas para selecionar -->
-      <form method="POST" action="../../CRUD/atualizar_vaca.php"> <!---amarração-->
+      <form method="POST" action="../../BackEnd/atualizar_vaca.php"> <!---amarração-->
         <label for="id_vaca">Escolha a vaca:</label>
         <select id="id_vaca" name="id_vaca">
           <!-- ex php, mas não se isso tá muito certo. é só simulando  -->
           <?php
           /*
-        include("../../CRUD/listar_vaca.php");
+        include("../../BackEnd/listar_vaca.php");
         while ($vaca = mysqli_fetch_assoc($resultado)) {
           echo "<option value='{$vaca['id']}'>{$vaca['nome']}</option>";
         }

@@ -1,6 +1,6 @@
 <?php
 $root = "root";
-$sua_senha = ""; // ou coloque a senha se você possuir
+$sua_senha = ""; 
 $nome_banco = "cql_ifpe";
 
 try {

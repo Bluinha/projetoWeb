@@ -1,3 +1,9 @@
+/* === Garantindo que o site ocupe a tela toda === */
+body,html{
+  margin:0;
+  height: 100%;
+}
+
 /* === HEADER === */
 header {
     display: flex;

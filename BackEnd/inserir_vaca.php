@@ -1,5 +1,6 @@
 <?php
-include('conexao.php'); // Conexão com o banco de dados
+session_start();
+require('conexao.php'); // Conexão com o banco de dados
 
 if (isset($_POST['nome'])) {
     // Pegue os dados enviados pelo formulário

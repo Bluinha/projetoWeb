@@ -1,3 +1,6 @@
+<<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,8 +18,9 @@
                 Login
             </h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <?php include('mensagem.php')?>
 
-            <form action="../CRUD/login.php" method="POST">
+            <form action="../BackEnd/logar.php" method="POST">
                 <label for="email">E-mail</label>
                 <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required autofocus />
 
