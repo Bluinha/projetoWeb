@@ -18,7 +18,7 @@ if (isset($_POST['nome'])) {
         header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro");
         exit;
     } else {
-         $_SESSION['mensagem'] =  "Erro ao adicionar animal";
+        $_SESSION['mensagem'] =  "Erro ao adicionar animal";
         header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro");
         exit;
     }

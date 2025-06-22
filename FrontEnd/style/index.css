@@ -1,101 +1,167 @@
+/* === Inicio das correções do css === */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+:root {
+  --fonte-padrao: font-family: "Merriweather", serif;
+  --cor-header: white;
+  --decoracao-header: linear-gradient(to right, #94BD09, #508FF6);
+  --cor-destaque1:  #6a9806;
+  --cor-destaque2: #508FF6;
+}
 
 /* === Garantindo que o site ocupe a tela toda === */
-body,html{
-  margin:0;
+body,
+html {
+  margin: 0;
   height: 100%;
+}
+
+body{
+  font-family: var(--fonte-padrao);
+  font-size: 18px;
+}
+
+/*degrade no inicio da tela*/
+.faixa-superior{
+  height: 10px;
+  background: var(--decoracao-header);
 }
 
 /* === HEADER === */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 20px;
-    background-color: #f4f0e1;
-    position: relative; /* para posicionar o ícone de login relativo ao header */
-  }
-  
-  /* === LOGO === */
-  .logo {
-    width: 120px;
-    height: auto;
-    margin-right: 20px;
-  }
-  
-  /* === TÍTULO (h1) === */
-  header h1 {
-    font-size: 1.8rem;
-    margin: 0;
-    flex: 1; /* ocupa espaço entre logo e menu */
-  }
-  
-  /* === MENU === */
-  .menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .menu li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
-  
-  /* === IMAGEM FIXA LATERAL === */
-  .vaca1 {
-    position: fixed;
-    top: 180px;
-    left: 0;
-    width: 650px;
-    height: auto;
-    z-index: 1;
-  }
-  
-  /* === TEXTO AO LADO DA IMAGEM === */
-  .texto1 {
-    margin-left: 670px; /* um pouco mais que a largura da imagem */
-    padding: 20px;
-    max-width: 600px;
-    text-align: justify;
-  }
-  
-  /* === ÍCONE DE LOGIN === */
-  .icone-login {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-  }
-  
-  .icone-login img {
-    width: 32px;
-    height: 32px;
-    transition: transform 0.2s ease;
-  }
-  
-  .icone-login:hover img {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: var(--cor-header);
+  width: 100%;
+  box-sizing: border-box;
+  gap: 20px;
+}
 
-  /* ==== ÍCONE IFPE ===*/
+/*configurando a fonte do nome do site CQL*/
+.barlow-regular {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.texto-logo {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.texto-logo h1 {
+  margin: 0;
+  font-size: 48px;
+  letter-spacing: 10px;
+}
+
+.texto-logo h2 {
+  font-size: 20px;
+  margin: 0px;
+}
+
+/* === LOGO === */
+.logo-container .logo {
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+}
+
+/* === MENU === */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.menu li a:hover {
+  color: var(--cor-destaque1);
+  transform: scale(1.1);
+}
+
+/*==botão de login==*/
+.area-login {
+  display: flex;
+  align-items: center;
+}
+
+.icone-login {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--cor-destaque1);
+  font-weight: bold;
+  gap: 5px;
+  transition: transform 0.2s ease; 
+}
+
+.icone-login img {
+  transition: transform 0.2s ease;
+  width: 48px;
+  height: 48px;
+}
+
+.icone-login:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* === Fim das correções do css === */
+
+/* === IMAGEM FIXA LATERAL === */
+.vaca1 {
+  position: fixed;
+  top: 180px;
+  left: 0;
+  width: 650px;
+  height: auto;
+  z-index: 1;
+}
+
+/* === TEXTO AO LADO DA IMAGEM === */
+.texto1 {
+  margin-left: 670px;
+  /* um pouco mais que a largura da imagem */
+  padding: 20px;
+  max-width: 600px;
+  text-align: justify;
+}
+
+
+/* ==== ÍCONE IFPE ===*/
 .logo-ifpe {
   width: 200px;
   height: auto;
   margin-right: 20px;
-  }
+}
 
-.texto-fim{
+.texto-fim {
   background-color: #7e593b;
   padding: 10px 20px;
   font-size: 1.1em;
   margin: 0;
-  text-align:right;
+  text-align: right;
   line-height: 1.4;
   color: #f4f0e1;
 
-  }
+}
