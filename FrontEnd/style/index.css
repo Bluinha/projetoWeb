@@ -1,20 +1,20 @@
-/* === Inicio das correções do css === */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
 
 :root {
   --fonte-padrao: font-family: "Merriweather", serif;
   --cor-header: white;
   --decoracao-header: linear-gradient(to right, #94BD09, #508FF6);
-  --cor-destaque1:  #6a9806;
+  --cor-destaque1:  #94BD09;
   --cor-destaque2: #508FF6;
 }
 
 /* === Garantindo que o site ocupe a tela toda === */
 body,
 html {
+  min-height: 100vh;
   margin: 0;
-  height: 100%;
 }
 
 body{
@@ -126,42 +126,42 @@ header {
   cursor: pointer;
 }
 
-/* === Fim das correções do css === */
+main {
+  display: flex;
+}
 
-/* === IMAGEM FIXA LATERAL === */
-.vaca1 {
-  position: fixed;
-  top: 180px;
-  left: 0;
-  width: 650px;
-  height: auto;
-  z-index: 1;
+main section {
+  height: 100vh;
+  width: 50%;
+  padding: 30px;
 }
 
 /* === TEXTO AO LADO DA IMAGEM === */
-.texto1 {
-  margin-left: 670px;
-  /* um pouco mais que a largura da imagem */
-  padding: 20px;
-  max-width: 600px;
+.texto1{
+  height: 100%;
+  color: white;
+  background-color: var(--cor-destaque1);
   text-align: justify;
 }
 
-
-/* ==== ÍCONE IFPE ===*/
-.logo-ifpe {
-  width: 200px;
-  height: auto;
-  margin-right: 20px;
+/*=== aba de infos do ifpe ===*/
+.texto-fim {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(80, 143, 246, 0.5); /* azul com 50% opacidade */
+  font-size: 16px;
+  color: black;
+  max-height: 140px; /* altura reduzida */
+  box-sizing: border-box;
 }
 
-.texto-fim {
-  background-color: #7e593b;
-  padding: 10px 20px;
-  font-size: 1.1em;
-  margin: 0;
-  text-align: right;
+.ifpe-info {
+  max-width: 70%;
   line-height: 1.4;
-  color: #f4f0e1;
+}
 
+.logo-ifpe {
+  width: 120px;
+  height: auto;
 }
