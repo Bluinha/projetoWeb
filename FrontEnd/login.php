@@ -22,7 +22,7 @@ session_start();
 
             <form action="../BackEnd/logar.php" method="POST">
                 <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required autofocus />
+                <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required autofocus/>
 
                 <label for="senha">Senha</label>
                 <input id="senha" name="senha" type="password" placeholder="Digite sua senha" required />

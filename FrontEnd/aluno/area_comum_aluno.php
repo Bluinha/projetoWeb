@@ -17,13 +17,6 @@ session_start();
 
   <!--  perfil -->
   <header class="topo">
-    <a href="perfil_aluno.html" title="Ir para perfil">
-      <img src="../img/login2.png" class="icone-usuario" alt="Login" />
-    </a>
-  </header>
-
-  <!-- cabeçalho -->
-  <section class="cabecalho-2">
     <figure>
       <img src="../img/ifpe-removebg-preview.png" alt="Logo IFPE" class="logo-ifpe">
     </figure>
@@ -32,6 +25,9 @@ session_start();
         Físico-Químico do Leite
       </h1>
     </hgroup>
+    <img src="../img/login2.png" class="icone-usuario" alt="Login" />
+  </header>
+
   </section>
 
   <!-- a parte dos comandos -->
@@ -131,24 +127,14 @@ session_start();
     <!--relatorio-->
     <section id="relatorios" class="conteudo card-form" style="display: none;">
       <h3>Relatórios</h3>
-
-      <section id="graficos-relatorio">
-        <!-- Aqui será inserido um gráfico futuramente -->
-        <canvas id="graficoLeite" width="400" height="200"></canvas> <!---tem que ver como o php faz isso, e amarrar/substituir aqui -->
-      </section>
-
-      <button onclick="gerarPDF()" class="btn">Baixar PDF</button> <!---isso de gerar pdf, tem q fazer no javascript cria com o nome relatorio.js-->
+      <!--Configurar o inserir relatorio-->
+      <button onclick="gerarPDF()" class="btn">Inserir Relatório</button> 
     </section>
 
   </main>
 
   <!-- fiz essa parte de java para ver como ficava, mas qualquer coisa pode mudar etc, esse negocio funciona como o frame. vi que usar frame não era muito semnatico  -->
   <script src="script.js"></script>
-
-  <!---isso aqui embaixo são as bibliotecas para gerar o pdf-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="../js/relatorio.js"></script>
 
 </body>
 
