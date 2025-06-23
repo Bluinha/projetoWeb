@@ -19,7 +19,7 @@ html {
 
 body{
   font-family: var(--fonte-padrao);
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /*degrade no inicio da tela*/
@@ -133,19 +133,23 @@ main {
 main section {
   height: 100vh;
   width: 50%;
-  padding: 30px;
+  padding: 0px;
 }
 
 /* === TEXTO AO LADO DA IMAGEM === */
 .texto1{
+  box-sizing: border-box; /*evita que o padding quebre tudo, nao remover*/
+  padding: 50px;
   height: 100%;
   color: white;
   background-color: var(--cor-destaque1);
   text-align: justify;
 }
 
+
 /*=== aba de infos do ifpe ===*/
 .texto-fim {
+  padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -156,6 +160,10 @@ main section {
   box-sizing: border-box;
 }
 
+.texto1 h2{
+  margin:0px;
+}
+
 .ifpe-info {
   max-width: 70%;
   line-height: 1.4;
@@ -164,4 +172,14 @@ main section {
 .logo-ifpe {
   width: 120px;
   height: auto;
+}
+
+footer{
+  box-sizing: border-box;
+  padding:30px;
+  background-color:rgba(80, 143, 246, 0.5) ;
+}
+
+footer p{
+  margin: 0px;
 }
