@@ -31,7 +31,7 @@ html {
 
 body{
   font-family: var(--fonte-padrao);
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px); /*deixa o tamanho da fonte responsivo*/
   opacity: 0;
   animation: cairSuave 0.8s ease-out forwards;
 }
@@ -214,7 +214,6 @@ section figure{
   background-color: rgba(80, 143, 246, 0.5); /* azul com 50% opacidade */
   font-size: 16px;
   color: black;
-  max-height: 140px; /* altura reduzida */
   box-sizing: border-box;
 }
 
@@ -240,4 +239,59 @@ footer{
 
 footer p{
   margin: 0px;
+}
+
+/*== RESPONSIVIDADE PARA TELAS MENORES ==*/
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #scrool-section,
+  .texto1 {
+    width: 100%;
+    height: auto;
+    position: static;
+    overflow: visible;
+  }
+
+  #scrool-section {
+    scroll-snap-type: none;
+  }
+
+  #scrool-section figure {
+    height: auto;
+  }
+
+  .texto1 {
+    padding: 20px;
+  }
+
+  .texto-fim {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .ifpe-info {
+    max-width: 100%;
+  }
+
+  .logo-ifpe {
+    width: 80px;
+  }
 }

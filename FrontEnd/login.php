@@ -14,7 +14,7 @@ session_start();
     <main class="page">
         <section class="formLogin" aria-label="Formulário de Login">
             <h1>
-                <img src="img/iconelog.png" alt="Ícone de Login" class="icone-login">
+                <img src="imgs/loginPag.png" alt="Ícone de Login" class="icone-login">
                 Login
             </h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
