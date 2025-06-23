@@ -10,6 +10,18 @@
   --cor-destaque2: #508FF6;
 }
 
+/*== Animação de entrada em cascata ==*/
+@keyframes cairSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* === Garantindo que o site ocupe a tela toda === */
 body,
 html {
@@ -20,6 +32,8 @@ html {
 body{
   font-family: var(--fonte-padrao);
   font-size: 20px;
+  opacity: 0;
+  animation: cairSuave 0.8s ease-out forwards;
 }
 
 /*degrade no inicio da tela*/
@@ -128,21 +142,65 @@ header {
 
 main {
   display: flex;
+  height: 100vh;
+  overflow: hidden; 
 }
 
-main section {
-  height: 100vh;
+/* === SECCAO DE IMAGENS === */
+section figure{
+  margin:0px;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*== EFEITOS DAS IMAGENS PASSANDO ==*/
+#scrool-section {
   width: 50%;
-  padding: 0px;
+  height: 100vh; /* mesma altura do main */
+  overflow-y: scroll; /* o segredo está aqui */
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+}
+
+#scrool-section figure {
+  flex: 0 0 100vh;
+  scroll-snap-align: start;
+  margin: 0;
+  height: 100vh;
+}
+
+
+#scrool-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*== ESCONDE A BARRA DE SCROOL ==*/
+#scrool-section::-webkit-scrollbar {
+  display: none;
+}
+
+#scrool-section {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
 /* === TEXTO AO LADO DA IMAGEM === */
 .texto1{
-  box-sizing: border-box; /*evita que o padding quebre tudo, nao remover*/
-  padding: 50px;
-  height: 100%;
-  color: white;
+  width: 50%;
+  position: sticky; /*permite o scroll, deixa o texto parado*/
+  top: 0;
+  height: 100vh;
   background-color: var(--cor-destaque1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  box-sizing: border-box; /*evita que o padding quebre tudo, nao remover*/
+  color: white;
   text-align: justify;
 }
 
