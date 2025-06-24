@@ -1,0 +1,279 @@
+/* === RESET BÁSICO === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(80, 143, 246, 0.2);
+  font-size: clamp(14px, 1.2vw, 16px);
+}
+
+/* === CONTAINER GERAL === */
+.painel {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* === MENU LATERAL === */
+.menu-lateral {
+  background-color: #fff;
+  padding: 20px;
+  width: 200px;
+}
+
+.menu-lateral h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 20px;
+  background-color: var(--cor-destaque1);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-lateral li {
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #c8dfca;
+}
+
+.menu-lateral a {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s;
+}
+
+.menu-lateral a:hover {
+  transform: scale(1.04);
+  color: #4a6b4d;
+}
+
+/* === ÁREA PRINCIPAL === */
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 7px;
+  gap: 10px;
+}
+
+/* === TABELA DE VACAS === */
+.tabela-vacas {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 16px;
+  font-family: "Merriweather", serif;
+  font-size: clamp(13px, 1.2vw, 16px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabela-vacas thead {
+  background-color: var(--cor-destaque1);
+  color: white;
+}
+
+.tabela-vacas th,
+.tabela-vacas td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.tabela-vacas tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabela-vacas tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.tabela-vacas tbody tr:hover {
+  background-color: rgba(80, 143, 246, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* === COMPONENTE PADRÃO DE BLOCO (cadastro, editar, produção, relatórios) === */
+.bloco-pagina {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  max-width: 650px;
+  margin: 30px auto;
+}
+
+.bloco-pagina h3 {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* === MENSAGEM DE SUCESSO === */
+.mensagem {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* === FORMULÁRIOS PADRÃO === */
+.form-padrao {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-padrao label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-padrao input,
+.form-padrao select {
+  width: 100%;
+  padding: 12px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Campo específico para inputs do cadastro */
+#cadastro input[type="text"] {
+  padding: 10px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* === BOTÕES === */
+.btn {
+  width: 100%;
+  background-color: var(--cor-destaque1);
+  color: #fff;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: var(--cor-destaque1);
+}
+
+/* Botão com hover diferente em relatórios */
+#relatorios .btn:hover {
+  transform: scale(1.03);
+  background-color: #7ba51e;
+}
+
+/* === RELATÓRIOS === */
+.lista-relatorios {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.relatorio-item {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(12px, 1vw, 14px);
+}
+
+.relatorio-item:hover {
+  background-color: #f4f4f4;
+}
+
+.relatorio-item span {
+  flex: 1;
+}
+
+.relatorio-item a {
+  background-color: var(--cor-destaque1);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu-lateral h2 {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .conteudo {
+    padding: 15px;
+  }
+
+  .tabela-vacas th,
+  .tabela-vacas td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .tabela-vacas {
+    font-size: 14px;
+  }
+
+  .bloco-pagina {
+    padding: 10px;
+    margin: 15px 5px;
+  }
+
+  .bloco-pagina h3 {
+    font-size: 16px;
+  }
+
+  .btn,
+  #relatorios .btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .relatorio-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .relatorio-item a {
+    align-self: flex-end;
+  }
+}
