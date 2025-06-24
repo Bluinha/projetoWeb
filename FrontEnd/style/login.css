@@ -30,7 +30,7 @@ body {
     animation: cairSuave 0.8s ease-out forwards;
 }
 
-.page {
+.pagina {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ body {
     padding: 20px;
 }
 
-.formLogin {
+.caixa-login {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,8 +51,7 @@ body {
     height: 500px;
 }
 
-
-.formLogin h1 {
+.caixa-login h1 {
     margin: 0 0 10px 0;
     font-weight: 600;
     font-size: 1.3em;
@@ -70,14 +69,14 @@ body {
     margin-right: 5px;
 }
 
-.formLogin label {
+.caixa-login label {
     display: block;
     margin-top: 10px;
     font-size: 1em;
     font-weight: bold;
 }
 
-.formLogin input {
+.caixa-login input {
     width: 100%;
     padding: 10px;
     font-size: 1em;
@@ -88,11 +87,11 @@ body {
     transition: border 0.2s;
 }
 
-.formLogin input:focus {
+.caixa-login input:focus {
     border: 1px solid #6e8b3d;
 }
 
-.formLogin a {
+.caixa-login a {
     display: block;
     margin: 15px auto;
     font-size: 0.9em;
@@ -101,16 +100,17 @@ body {
     text-align: center;
 }
 
-.formLogin p{
-    font-size: clamp(14px, 2vw, 16px); ;
+.caixa-login p {
+    font-size: clamp(14px, 2vw, 16px);
 }
-.formLogin a:hover,
-.formLogin a:focus {
+
+.caixa-login a:hover,
+.caixa-login a:focus {
     color: #000;
     outline: none;
 }
 
-.btn {
+.botao {
     width: 100%;
     margin: 0 auto;
     background-color: #94BD09;
@@ -124,17 +124,17 @@ body {
     transition: transform 0.2s ease, background-color 0.2s;
 }
 
-.btn:hover {
+.botao:hover {
     transform: scale(1.05);
     background-color: #7ba507;
 }
 
 @media (max-width: 500px) {
-    .formLogin {
+    .caixa-login {
         padding: 20px;
     }
 
-    .formLogin h1 {
+    .caixa-login h1 {
         font-size: 1.1em;
     }
 }

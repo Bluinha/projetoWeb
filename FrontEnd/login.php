@@ -8,11 +8,12 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style/login.css">
 </head>
 <body>
-    <main class="page">
-        <section class="formLogin" aria-label="Formulário de Login">
+    <main class="pagina">
+        <section class="caixa-login" aria-label="Formulário de Login">
             <h1>
                 <img src="imgs/loginPag.png" alt="Ícone de Login" class="icone-login">
                 Login
@@ -29,10 +30,9 @@ session_start();
 
                 <a href="esqueci.html">Esqueci minha senha</a>
 
-                <button type="submit" class="btn">Acessar</button>
+                <button type="submit" class="botao">Acessar</button>
             </form>
         </section>
     </main>
 </body>
 </html>
-
