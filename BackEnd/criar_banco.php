@@ -2,7 +2,7 @@
 require(__DIR__ . '/conexao_sem_banco.php');
 
 // Agora seu código para criar banco, por exemplo:
-$stmt = $banco->prepare("CREATE DATABASE IF NOT EXISTS cql_ifpe");
+$stmt = $banco->prepare("CREATE DATABASE IF NOT EXISTS cql_ifpe1");
 
 if ($stmt->execute()) {
     echo "Banco criado com sucesso.";

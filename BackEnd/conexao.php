@@ -1,7 +1,7 @@
 <?php
 $root = "root";
 $sua_senha = ""; 
-$nome_banco = "cql_ifpe";
+$nome_banco = "cql_ifpe1";
 
 try {
     $banco = new PDO("mysql:host=localhost;dbname=$nome_banco;charset=utf8", $root, $sua_senha);

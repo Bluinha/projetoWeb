@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../style/usuario.css" />
   <link rel="stylesheet" href="../style/professor.css" />
   <link rel="stylesheet" href="../style/variaveis.css" />
+  <link rel="stylesheet" href="../style/abas_professor.css" />
 </head>
 
 <body>
@@ -24,40 +25,47 @@
     </div>
 
     <div class="caixa-perfil">
-      <button><img src="../imgs/perfil.png" alt="perfil aluno botão"></button>
-      <button><img src="../imgs/sair.png" alt="logout botão"></button>
+      <button type="button">
+        <img src="../imgs/perfil.png" alt="Botão perfil">
+      </button>
+
+      <a href="../logout.php" onclick="return confirmarSaida();">
+        <img src="../imgs/sair.png" alt="Botão sair" style="width: 32px; height: auto;">
+      </a>
     </div>
   </header>
   <div class="faixa-decorada"></div>
 
-  <!----- Negocio para linkar com php --->
-  <form class="busca" action="#" method="get">
-    <input type="search" placeholder="Buscar..." name="q">
-    <button type="submit"><img src="../img/lupa.png" alt="Buscar" class="lupa"></button>
-  </form>
-  </section>
-  <!---Colocar as referencias para de fato o menu pegar é só substituir o #-->
-  <nav class="menu">
-    <ul>
-      <li><a href="#">Vacas</a></li>
-      <li><a href="#">Alunos</a></li>
-      <li><a href="#">Relatórios</a></li>
-    </ul>
+  <nav aria-label="Seções principais">
+    <button class="tablink" onclick="abrirAba(event, 'alertas')">Alertas</button>
+    <button class="tablink" onclick="abrirAba(event, 'alunos')">Alunos</button>
+    <button class="tablink" onclick="abrirAba(event, 'relatorios')">Relatórios</button>
   </nav>
-
-  <main class="conteudo">
-    <section class="movimentações">
-      <article class="linha">
-        <span>Última Movimentação</span>
-        <span>00:00</span>
+  
+  <main>
+    <section id="alertas" class="aba-conteudo">
+      <h2>Alertas</h2>
+      <article id="conteudo-alertas">
+        <!-- PHP aqui -->
       </article>
-      <hr>
-      <article class="linha"><span>&nbsp;</span></article>
-      <hr>
-      <article class="linha"><span>&nbsp;</span></article>
-      <hr>
+    </section>
+  
+    <section id="alunos" class="aba-conteudo" style="display:none">
+      <h2>Alunos</h2>
+      <article id="conteudo-alunos">
+        <!-- PHP aqui -->
+      </article>
+    </section>
+  
+    <section id="relatorios" class="aba-conteudo" style="display:none">
+      <h2>Relatórios</h2>
+      <article id="conteudo-relatorio">
+        <!-- PHP aqui -->
+      </article>
     </section>
   </main>
-</body>
 
+  <script src="script.js"></script>
+  <script src="../../script_sair.js"></script>
+</body>
 </html>
