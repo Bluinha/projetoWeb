@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../style/usuario.css" />
   <link rel="shortcut icon" href="../img/vaquinhaa.png" type="image/x-icon" />
   <title>Página do Professor</title>
+  <link rel="stylesheet" href="../style/usuario.css" />
+  <link rel="stylesheet" href="../style/professor.css" />
+  <link rel="stylesheet" href="../style/variaveis.css" />
 </head>
+
 <body>
+  <!-- cabeçalho -->
+  <div class="faixa-decorada"></div>
+  <header id="menu">
+    <div class="logo-container">
+      <img src="../imgs/iconePagPreto.png" alt="Logo do projeto" class="logo" />
+      <div class="texto-logo">
+        <h1 class="barlow-regular">CQL</h1>
+        <h2 class="barlow-regular">Controle de Qualidade do Leite</h2>
+      </div>
+    </div>
 
-  <header class="topo">
-      <img src="../img/login2.png" class="icone-usuario" alt="Login" />
+    <div class="caixa-perfil">
+      <button><img src="../imgs/perfil.png" alt="perfil aluno botão"></button>
+      <button><img src="../imgs/sair.png" alt="logout botão"></button>
+    </div>
   </header>
+  <div class="faixa-decorada"></div>
 
-  <section class="cabecalho">
-    <figure>
-      <img src="../img/ifpe-removebg-preview.png" alt="'Logo IFPE" class="logo-ifpe">
-    </figure>
-    
-    <hgroup>
-      <h1>PIBIC - Controle de Qualidade<br>
-      Físico-Químico do Leite
-      </h1>
-  
-    </hgroup>
-   
-    <!----- Negocio para linkar com php --->
-    <form class="busca" action="#" method="get">
-      <input type="search" placeholder="Buscar..." name="q">
-      <button type="submit"><img src="../img/lupa.png" alt="Buscar" class="lupa"></button>
-    </form>
+  <!----- Negocio para linkar com php --->
+  <form class="busca" action="#" method="get">
+    <input type="search" placeholder="Buscar..." name="q">
+    <button type="submit"><img src="../img/lupa.png" alt="Buscar" class="lupa"></button>
+  </form>
   </section>
-<!---Colocar as referencias para de fato o menu pegar é só substituir o #-->
+  <!---Colocar as referencias para de fato o menu pegar é só substituir o #-->
   <nav class="menu">
     <ul>
       <li><a href="#">Vacas</a></li>
@@ -54,4 +59,5 @@
     </section>
   </main>
 </body>
+
 </html>
