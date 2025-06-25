@@ -1,0 +1,133 @@
+/*== Animação de entrada em cascata ==*/
+@keyframes cairSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Garantindo que o site ocupe a tela toda === */
+body,
+html {
+  min-height: 100vh;
+  margin: 0;
+}
+
+body {
+  font-family: var(--fonte-padrao);
+  font-size: clamp(16px, 2vw, 20px);
+  /*deixa o tamanho da fonte responsivo*/
+  opacity: 0;
+  animation: cairSuave 0.8s ease-out forwards;
+}
+
+/*== DEGRADE NO DO CABEÇALHO ==*/
+.faixa-decorada {
+  height: 10px;
+  background: var(--decoracao-header);
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: var(--cor-header);
+  width: 100%;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+/*configurando a fonte do nome do site CQL*/
+.barlow-regular {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.texto-logo {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.texto-logo h1 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 48px);
+  /* mínimo 28px, ideal 5vw, máximo 48px */
+  letter-spacing: 10px;
+}
+
+.texto-logo h2 {
+  font-size: clamp(14px, 2vw, 20px);
+  /* mínimo 14px, ideal 2vw, máximo 20px */
+  margin: 0;
+}
+
+
+/* === LOGO === */
+.logo-container .logo {
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+}
+
+/*== BOTÕES DE PERFIL E LOGOUT==*/
+.caixa-perfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.caixa-perfil button {
+  /*remove as configs originais do botão*/
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.caixa-perfil button img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
+}
+
+.caixa-perfil button:hover img {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+
+/*== RESPONSIVIDADE DO HEADER PARA TELAS MENORES ==*/
+@media (max-width: 768px) {
+
+  .logo-container .logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .faixa-decorada {
+    height: 5px;
+  }
+
+  .caixa-perfil img {
+    width: 36px;
+    height: 36px;
+  }
+
+}

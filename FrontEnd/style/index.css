@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*== Animação de entrada em cascata ==*/
+@keyframes cairSuave {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Garantindo que o site ocupe a tela toda === */
+body,
+html {
+  min-height: 100vh;
+  margin: 0;
+}
+
+body{
+  font-family: var(--fonte-padrao);
+  font-size: clamp(16px, 2vw, 20px); /*deixa o tamanho da fonte responsivo*/
+  opacity: 0;
+  animation: cairSuave 0.8s ease-out forwards;
+}
+
+/*degrade no inicio da tela*/
+.faixa-superior{
+  height: 10px;
+  background: var(--decoracao-header);
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: var(--cor-header);
+  width: 100%;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+/*configurando a fonte do nome do site CQL*/
+.barlow-regular {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.texto-logo {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.texto-logo h1 {
+  margin: 0;
+  font-size: 48px;
+  letter-spacing: 10px;
+}
+
+.texto-logo h2 {
+  font-size: 20px;
+  margin: 0px;
+}
+
+/* === LOGO === */
+.logo-container .logo {
+  object-fit: contain;
+  width: 100px;
+  height: auto;
+}
+
+/* === MENU === */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li a {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.menu li a:hover {
+  color: var(--cor-destaque1);
+  transform: scale(1.1);
+}
+
+/*==botão de login==*/
+.area-login {
+  display: flex;
+  align-items: center;
+}
+
+.icone-login {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--cor-destaque1);
+  font-weight: bold;
+  gap: 5px;
+  transition: transform 0.2s ease; 
+}
+
+.icone-login img {
+  transition: transform 0.2s ease;
+  width: 48px;
+  height: 48px;
+}
+
+.icone-login:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+/* === SECCAO DE IMAGENS === */
+section figure{
+  margin:0px;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*== EFEITOS DAS IMAGENS PASSANDO ==*/
+#scrool-section {
+  width: 50%;
+  height: 100vh; /* mesma altura do main */
+  overflow-y: scroll; /* o segredo está aqui */
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+}
+
+#scrool-section figure {
+  flex: 0 0 100vh;
+  scroll-snap-align: start;
+  margin: 0;
+  height: 100vh;
+}
+
+
+#scrool-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*== ESCONDE A BARRA DE SCROOL ==*/
+#scrool-section::-webkit-scrollbar {
+  display: none;
+}
+
+#scrool-section {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* === TEXTO AO LADO DA IMAGEM === */
+.texto1{
+  width: 50%;
+  position: sticky; /*permite o scroll, deixa o texto parado*/
+  top: 0;
+  height: 100vh;
+  background-color: var(--cor-destaque1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  box-sizing: border-box; /*evita que o padding quebre tudo, nao remover*/
+  color: white;
+  text-align: justify;
+}
+
+
+/*=== aba de infos do ifpe ===*/
+.texto-fim {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(80, 143, 246, 0.5); /* azul com 50% opacidade */
+  font-size: 16px;
+  color: black;
+  box-sizing: border-box;
+}
+
+.texto1 h2{
+  margin:0px;
+}
+
+.ifpe-info {
+  max-width: 70%;
+  line-height: 1.4;
+}
+
+.logo-ifpe {
+  width: 120px;
+  height: auto;
+}
+
+footer{
+  box-sizing: border-box;
+  padding:30px;
+  background-color:rgba(80, 143, 246, 0.5) ;
+}
+
+footer p{
+  margin: 0px;
+}
+
+/*== RESPONSIVIDADE PARA TELAS MENORES ==*/
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  main {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #scrool-section,
+  .texto1 {
+    width: 100%;
+    height: auto;
+    position: static;
+    overflow: visible;
+  }
+
+  #scrool-section {
+    scroll-snap-type: none;
+  }
+
+  #scrool-section figure {
+    height: auto;
+  }
+
+  .texto1 {
+    padding: 20px;
+  }
+
+  .texto-fim {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .ifpe-info {
+    max-width: 100%;
+  }
+
+  .logo-ifpe {
+    width: 80px;
+  }
+}
+
