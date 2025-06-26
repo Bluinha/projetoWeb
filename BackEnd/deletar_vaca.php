@@ -11,7 +11,7 @@ if (!$id_vaca) {
 
 try {
     $stmt = $banco->prepare("DELETE FROM vacas WHERE id_vaca = :id");
-    $stmt->bindParam(':id', $id_vaca);
+    $stmt->bindValue(':id', $id_vaca, PDO::PARAM_INT);
     $stmt->execute();
     
     echo json_encode(['success' => true]);

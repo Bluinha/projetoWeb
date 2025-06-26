@@ -50,53 +50,16 @@ session_start();
       <nav class="menu-lateral">
         <h2>Comandos</h2>
         <ul>
-          <li><a href="#" onclick="mostrarSecao('producao')">Produção de leite</a></li>
           <li><a href="#" onclick="mostrarSecao('lista')">Vacas</a></li>
+          <li><a href="#" onclick="mostrarSecao('producao')">Produção de leite</a></li>
           <li><a href="#" onclick="mostrarSecao('teste_mastite')">Teste de Mastite</a></li>
           <li><a href="#" onclick="mostrarSecao('relatorios')">Relatórios</a></li>
         </ul>
       </nav>
 
-
-      <!--listas das Produção de leite-->
-      <section id="producao" class="conteudo">
-        <h3>Lista de Produção de leite</h3>
-        <input type="text" id="buscaProducao" placeholder="Buscar por nome..." onkeyup="filtrarProducao()" class="input-busca">
-        <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
-        <table class="tabela" id="id-tabela-producao">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>ID Vaca</th>
-              <th>Quantidade</th>
-              <th>Data</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php require("../../BackEnd/listar_producao_leite.php") ?>
-          </tbody>
-        </table>
-      </section>
-
-      <!--cadastro de quantidade de leite-->
-      <section id="cadastro_producao" class="conteudo bloco-pagina">
-        <h3>Produção de leite</h3>
-        <?php include('../mensagem.php') ?>
-         <!--form de inserir produção de leite-->
-        <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
-          <label for="vaca">Vaca:</label>
-          <select id="vaca_producao" name="id_vaca">
-            <option value="1">Mimosa</option>
-          </select>
-          <label for="data">Data:</label>
-          <input type="date" id="data" name="data">
-          <label for="quantidade">Quantidade (litros):</label>
-          <input type="number" id="quantidade" name="quantidade" step="0.1">
-          <button type="submit" class="btn">Cadastrar</button>
-        </form>
-      </section>
-
+      <?php if (isset($_SESSION['mensagem'])): ?>
+        <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
+      <?php unset($_SESSION['mensagem']); endif; ?>
 
       <!-- seções para serem exibidas dinamicamente -->
       <!--listas das vacas-->
@@ -127,9 +90,52 @@ session_start();
         <form class="form-padrao" method="POST" action="../../BackEnd/inserir_vaca.php">
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca">
-          <button type="submit" class="btn" id="botao_cadastro">Cadastrar</button>
+          <button type="submit" class="btn">Cadastrar</button>
         </form>
       </section>
+
+      <!--listas das Produção de leite-->
+      <section id="producao" class="conteudo">
+        <h3>Lista de Produção de leite</h3>
+        <input type="text" id="buscaProducao" placeholder="Buscar por nome..." onkeyup="filtrarProducao()" class="input-busca">
+        <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
+        <table class="tabela" id="id-tabela-producao">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ID Vaca</th>
+              <th>Quantidade</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php require("../../BackEnd/listar_producao_leite.php") ?>
+          </tbody>
+        </table>
+      </section>
+
+      <!--cadastro de quantidade de leite-->
+      <section id="cadastro_producao" class="conteudo bloco-pagina">
+        <h3>Produção de leite</h3>
+        <?php include('../mensagem.php') ?>
+         <!--form de inserir produção de leite-->
+        <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
+          <label for="vaca_producao">Vaca:</label>
+          <select id="vaca_producao" name="id_vaca">
+            <option value="1">Alicate</option>
+            <option value="2">Chuvisco</option>
+            <option value="3">Chichita</option>
+            <option value="4">Muriçoca</option>
+          </select>
+          <label for="data">Data:</label>
+          <input type="date" id="data" name="data">
+          <label for="quantidade">Quantidade (litros):</label>
+          <input type="number" id="quantidade" name="quantidade" step="0.1">
+          <button type="submit" class="btn">Cadastrar</button>
+        </form>
+      </section>
+
 
       <!--listas dos testes de mastite-->
       <section id="teste_mastite" class="conteudo">
@@ -161,9 +167,12 @@ session_start();
         <h3>Cadastro de Teste de Mastite</h3>
         <?php include('../mensagem.php') ?>
         <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_teste_mastite.php">
-            <label for="vaca">Vaca:</label>
+            <label for="vaca_teste">Vaca:</label>
             <select id="vaca_teste" name="id_vaca" required>
-                <option value="1">Mimosa</option>
+                <option value="1">Alicate</option>
+                <option value="2">Chuvisco</option>
+                <option value="3">Chichita</option>
+                <option value="4">Muriçoca</option>
             </select>
 
             <label for="data">Data do Teste:</label>
@@ -307,7 +316,7 @@ session_start();
         if(confirm('Tem certeza que deseja excluir esta vaca?')) {
             const row = button.closest('tr');
             
-            fetch('../../BackEnd/excluir_vaca.php', {
+            fetch('../../BackEnd/deletar_vaca.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -356,54 +365,61 @@ session_start();
     }
 
     function editarProducao(button) {
-    const row = button.closest('tr');
-    const id = row.getAttribute('data-id');
-    const quantidadeCell = row.querySelector('.quantidade-producao');
-    const dataCell = row.querySelector('.data-producao');
+    const row = button.closest('tr');
+    const id = row.getAttribute('data-id');
+    // CORREÇÃO: Usar a classe correta para a célula de quantidade
+    const quantidadeCell = row.querySelector('.quantidade-producao'); 
+    const dataCell = row.querySelector('.data-producao');
 
-    const qtdAtual = quantidadeCell.textContent;
-    const dataAtual = dataCell.textContent;
+    const qtdAtual = quantidadeCell.textContent;
+    const dataAtual = dataCell.textContent;
 
-    quantidadeCell.innerHTML = `<input type="number" class="input-edicao" value="${qtdAtual}" step="0.1">`;
-    dataCell.innerHTML = `<input type="date" class="input-edicao" value="${dataAtual}">`;
+    quantidadeCell.innerHTML = `<input type="number" class="input-edicao" value="${qtdAtual}" step="0.1">`;
+    dataCell.innerHTML = `<input type="date" class="input-edicao" value="${dataAtual}">`;
 
-      button.textContent = 'Salvar';
-      button.classList.remove('btn-editar');
-      button.classList.add('btn-salvar');
-      button.onclick = function () {
-          const novaQtd = quantidadeCell.querySelector('input').value;
-          const novaData = dataCell.querySelector('input').value;
-          salvarEdicaoProducao(id, novaQtd, novaData, row, button);
-      };
-    }
+      button.textContent = 'Salvar';
+      button.classList.remove('btn-editar');
+      button.classList.add('btn-salvar');
+      button.onclick = function () {
+          const novaQtd = quantidadeCell.querySelector('input').value;
+          const novaData = dataCell.querySelector('input').value;
+          salvarEdicaoProducao(id, novaQtd, novaData, row, button);
+      };
+    }
 
-    function salvarEdicaoProducao(id, novaQtd, novaData, row, button) {
-    fetch('../../BackEnd/atualizar_producao.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `id_producao=${id}&quantidade=${encodeURIComponent(novaQtd)}&data=${encodeURIComponent(novaData)}`
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                row.querySelector('.quantidade-producao').textContent = novaQtd;
-                row.querySelector('.data-producao').textContent = novaData;
-                button.textContent = 'Editar';
-                button.classList.remove('btn-salvar');
-                button.classList.add('btn-editar');
-                button.onclick = function () { editarProducao(button); };
-            } else {
-                alert('Erro ao atualizar: ' + data.message);
-            }
-        });
-    }
+    function salvarEdicaoProducao(id, novaQtd, novaData, row, button) {
+      const idVaca = row.getAttribute('data-id-vaca'); // pegar id da vaca da linha
+      
+      fetch('../../BackEnd/atualizar_producao_leite.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `id_producao=${id}&id_vaca=${idVaca}&quantidade=${encodeURIComponent(novaQtd)}&data=${encodeURIComponent(novaData)}`
+      })
+      .then(res => res.json())
+      .then(data => {
+          if (data.success) {
+              row.querySelector('.quantidade-producao').textContent = novaQtd + ' L';
+              row.querySelector('.data-producao').textContent = novaData;
+              button.textContent = 'Editar';
+              button.classList.remove('btn-salvar');
+              button.classList.add('btn-editar');
+              button.onclick = function () { editarProducao(button); };
+          } else {
+              alert('Erro ao atualizar: ' + data.message);
+          }
+      })
+      .catch(error => {
+          alert('Erro na requisição: ' + error);
+      });
+    }
+
 
     function excluirProducao(id, button) {
     if (confirm('Tem certeza que deseja excluir essa produção?')) {
         const row = button.closest('tr');
-        fetch('../../BackEnd/excluir_producao.php', {
+        fetch('../../BackEnd/excluir_producao_leite.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -473,7 +489,7 @@ session_start();
     }
 
     function salvarEdicaoTeste(id, resultado, cruzes, tratamento, row, button) {
-      fetch('../../BackEnd/atualizar_teste.php', {
+      fetch('../../BackEnd/atualizar_teste_mastite.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -499,7 +515,7 @@ session_start();
     function excluirTeste(id, button) {
       if (confirm('Tem certeza que deseja excluir este teste?')) {
         const row = button.closest('tr');
-        fetch('../../BackEnd/excluir_teste.php', {
+        fetch('../../BackEnd/excluir_teste_mastite.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -516,6 +532,31 @@ session_start();
         });
       }
     }
+
+    function mostrarSecao(secao) {
+      // Esconde todas as seções
+      document.querySelectorAll('.conteudo').forEach(function(sec) {
+          sec.style.display = 'none';
+      });
+
+      // Mostra a seção desejada
+      const secaoAlvo = document.getElementById(secao);
+      secaoAlvo.style.display = 'block';
+
+      // Se houver uma mensagem global, move ela para o topo da seção ativa
+      const mensagem = document.getElementById('mensagem-global');
+      if (mensagem && secaoAlvo) {
+          secaoAlvo.prepend(mensagem);
+      }
+
+      // Remove a mensagem se ainda existir após 4 segundos
+      if (mensagem) {
+          setTimeout(() => {
+              mensagem.remove();
+          }, 5000);
+      }
+    }
+
     // Garante que a seção correta está visível mesmo se houver atraso no carregamento
     window.onload = function() {
     const params = new URLSearchParams(window.location.search);
@@ -525,6 +566,7 @@ session_start();
       } else {
           mostrarSecao('lista');
       }
+
     };
     </script>
 </body>

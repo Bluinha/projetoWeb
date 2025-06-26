@@ -29,7 +29,7 @@ session_start();
                 <label for="senha">Senha</label>
                 <input id="senha" name="senha" type="password" placeholder="Digite sua senha" required />
 
-                <a href="esqueci.html">Esqueci minha senha</a>
+                <a href="esqueci.php">Esqueci minha senha</a>
 
                 <button type="submit" class="btn">Acessar</button>
             </form>

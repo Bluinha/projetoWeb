@@ -1,36 +1,31 @@
 <?php
-require("../../BackEnd/conexao.php");
+    require_once 'conexao.php'; 
 
-try {
-    $stmt = $banco->query("
-        SELECT t.*, v.nome as nome_vaca 
-        FROM teste_mastite t
-        JOIN vacas v ON t.id_vaca = v.id_vaca
-        ORDER BY t.data DESC
-    ");
-    $testes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    try {
+        $stmt = $banco->query("SELECT tm.id_teste, tm.id_vaca, v.nome AS nome_vaca, tm.data, tm.resultado, tm.quantas_cruzes, tm.ubere, tm.tratamento, tm.observacoes 
+                                FROM teste_mastite tm 
+                                JOIN vacas v ON tm.id_vaca = v.id_vaca 
+                                ORDER BY tm.data DESC");
+        $testes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if (count($testes) > 0) {
         foreach ($testes as $teste) {
-            echo "<tr data-id='{$teste['id_teste']}'>";
-            echo "<td>{$teste['id_teste']}</td>";
-            echo "<td>{$teste['nome_vaca']} (ID: {$teste['id_vaca']})</td>";
-            echo "<td>" . date('d/m/Y', strtotime($teste['data'])) . "</td>";
-            echo "<td>" . ($teste['resultado'] ? 'Positivo' : 'Negativo') . "</td>";
-            echo "<td>{$teste['quantas_cruzes']}</td>";
-            echo "<td>{$teste['ubere']}</td>";
-            echo "<td>{$teste['tratamento']}</td>";
-            echo "<td>{$teste['observacoes']}</td>";
-            echo "<td class='acoes'>";
-            echo "<button class='btn-editar' onclick='editarTeste(this)'>Editar</button>";
-            echo "<button class='btn-excluir' onclick='excluirTeste({$teste['id_teste']}, this)'>Excluir</button>";
+            echo "<tr data-id=\"{$teste['id_teste']}\">"; 
+            echo "<td>" . htmlspecialchars($teste['id_teste']) . "</td>";
+            echo "<td>" . htmlspecialchars($teste['nome_vaca']) . " (ID: " . htmlspecialchars($teste['id_vaca']) . ")</td>"; 
+            echo "<td>" . htmlspecialchars($teste['data']) . "</td>";
+            echo "<td class=\"resultado-teste\">" . htmlspecialchars(ucfirst($teste['resultado'])) . "</td>"; 
+            echo "<td class=\"cruzes-teste\">" . htmlspecialchars($teste['quantas_cruzes']) . "</td>"; 
+            echo "<td>" . htmlspecialchars($teste['ubere']) . "</td>";
+            echo "<td class=\"tratamento-teste\">" . htmlspecialchars($teste['tratamento']) . "</td>"; 
+            echo "<td class=\"observacoes-teste\">" . htmlspecialchars($teste['observacoes']) . "</td>"; // <-- ADICIONADA CLASSE AQUI
+            echo "<td>";
+            echo "<button onclick=\"editarTeste(this)\" class=\"btn-editar\">Editar</button>";
+            echo "<button onclick=\"excluirTeste({$teste['id_teste']}, this)\" class=\"btn-excluir\">Excluir</button>";
             echo "</td>";
             echo "</tr>";
         }
-    } else {
-        echo "<tr><td colspan='9'><strong>Nenhum teste de mastite registrado</strong></td></tr>";
+    } catch (PDOException $e) {
+        echo "<tr><td colspan='9'>Erro ao carregar testes de mastite: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
     }
-} catch (PDOException $e) {
-    echo "<tr><td colspan='9'><strong>Erro ao carregar testes de mastite: " . $e->getMessage() . "</strong></td></tr>";
-}
-?>
+    ?>
+    

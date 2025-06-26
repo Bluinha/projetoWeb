@@ -1,10 +1,10 @@
-<?php 
+<?php
 if (isset($_SESSION['mensagem'])):
 ?>
-<div class="msg-alerta" role="alert">
-    <?= $_SESSION['mensagem']; ?>
-</div>  
-<?php 
+<p class="mensagem" role="alert">
+    <?= $_SESSION['mensagem']; ?> 
+</p>
+<?php
     unset($_SESSION['mensagem']);
     endif;
 ?>
