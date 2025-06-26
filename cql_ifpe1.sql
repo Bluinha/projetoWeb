@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/06/2025 às 20:40
+-- Tempo de geração: 26/06/2025 às 22:51
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -111,7 +111,65 @@ INSERT INTO `historico_vacas` (`id_historico`, `id_vaca`, `data`, `producao_leit
 (54, 4, '2025-03-25', NULL, 'negativo', 'Nenhum', '', NULL),
 (55, 5, '2025-03-25', NULL, 'negativo', 'Nenhum', '', NULL),
 (56, 6, '2025-03-25', NULL, 'negativo', 'Nenhum', '', NULL),
-(57, 7, '2025-03-25', NULL, 'negativo', 'Nenhum', '', NULL);
+(57, 7, '2025-03-25', NULL, 'negativo', 'Nenhum', '', NULL),
+(58, 12, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vaca3\" cadastrada com descarte = 0', 'Inserção'),
+(59, 1, '2025-06-25', 6.00, NULL, NULL, NULL, NULL),
+(60, 1, '2025-06-25', 6.00, NULL, NULL, NULL, NULL),
+(61, 1, '2025-06-25', NULL, 'positivo', '', '', NULL),
+(62, 13, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vaquinha2\" cadastrada com descarte = 0', 'Inserção'),
+(63, 1, '2025-06-25', 8.00, NULL, NULL, NULL, NULL),
+(64, 1, '2025-06-25', 10.00, NULL, NULL, NULL, NULL),
+(65, 1, '2025-06-25', 12.00, NULL, NULL, NULL, NULL),
+(66, 1, '2025-06-25', 12.00, NULL, NULL, NULL, NULL),
+(67, 14, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vaca007\" cadastrada com descarte = 0', 'Inserção'),
+(68, 15, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vaca55\" cadastrada com descarte = 0', 'Inserção'),
+(69, 1, '2025-06-25', 15.00, NULL, NULL, NULL, NULL),
+(70, 16, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vacaquinha33\" cadastrada com descarte = 0', 'Inserção'),
+(71, 1, '2025-06-25', 14.00, NULL, NULL, NULL, NULL),
+(72, 1, '2025-06-23', 20.00, NULL, NULL, NULL, NULL),
+(73, 1, '2025-05-26', 17.00, NULL, NULL, NULL, NULL),
+(74, NULL, '2025-06-25', NULL, NULL, NULL, 'Vaca \"vacaa\" cadastrada com descarte = 0', 'Inserção'),
+(75, 2, '2025-06-26', 30.00, NULL, NULL, NULL, NULL),
+(76, 4, '2025-06-26', NULL, 'positivo', '', '', NULL),
+(77, 2, '2025-06-26', 2.00, NULL, NULL, NULL, NULL),
+(78, 2, '2025-06-26', 4.00, NULL, NULL, NULL, NULL),
+(79, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"vaca653\" cadastrada com descarte = 0', 'Inserção'),
+(80, 2, '2025-06-26', 7.00, NULL, NULL, NULL, NULL),
+(81, 2, '2025-06-26', 24.00, NULL, NULL, NULL, NULL),
+(82, 2, '2025-06-26', 24.00, NULL, NULL, NULL, NULL),
+(83, 1, '2025-06-26', 14.00, NULL, NULL, NULL, NULL),
+(84, 2, '2025-06-26', 12.00, NULL, NULL, NULL, NULL),
+(85, 4, '2025-06-26', 16.00, NULL, NULL, NULL, NULL),
+(86, 3, '2025-06-26', 19.00, NULL, NULL, NULL, NULL),
+(87, 2, '2025-06-26', 13.00, NULL, NULL, NULL, NULL),
+(88, 3, '2025-06-26', 25.00, NULL, NULL, NULL, NULL),
+(89, 3, '2025-06-26', 25.00, NULL, NULL, NULL, NULL),
+(90, 3, '2025-06-26', 16.00, NULL, NULL, NULL, NULL),
+(91, 2, '2025-06-26', NULL, 'positivo', '', '', NULL),
+(92, 2, '2025-06-26', NULL, 'positivo', '', '', NULL),
+(93, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"vaca76\" cadastrada com descarte = 0', 'Inserção'),
+(94, 2, '2025-06-26', 12.00, NULL, NULL, NULL, NULL),
+(95, 2, '2025-06-26', 12.00, NULL, NULL, NULL, NULL),
+(96, 2, '2025-06-26', 23.00, NULL, NULL, NULL, NULL),
+(97, 2, '2025-06-26', NULL, 'positivo', '', '', NULL),
+(98, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"pintada\" cadastrada com descarte = 0', 'Inserção'),
+(99, 2, '2025-06-26', 13.00, NULL, NULL, NULL, NULL),
+(100, 2, '2025-06-26', 12.00, NULL, NULL, NULL, NULL),
+(101, 3, '2025-06-26', 17.00, NULL, NULL, NULL, NULL),
+(102, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"coca\" cadastrada com descarte = 0', 'Inserção'),
+(103, 1, '2025-06-26', 15.00, NULL, NULL, NULL, NULL),
+(104, 2, '2025-06-26', 24.00, NULL, NULL, NULL, NULL),
+(105, 3, '2025-06-26', 17.00, NULL, NULL, NULL, NULL),
+(106, 3, '2025-06-26', 16.00, NULL, NULL, NULL, NULL),
+(107, 2, '2025-06-26', NULL, 'negativo', '', '', NULL),
+(108, 3, '2025-06-26', 15.00, NULL, NULL, NULL, NULL),
+(109, 3, '2025-06-26', 19.00, NULL, NULL, NULL, NULL),
+(110, 2, '2025-06-26', 4.00, NULL, NULL, NULL, NULL),
+(111, 2, '2025-06-26', NULL, 'negativo', '', '', NULL),
+(112, 3, '2025-06-26', NULL, 'negativo', '', '', NULL),
+(113, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"vaca654\" cadastrada com descarte = 0', 'Inserção'),
+(114, 3, '2025-06-26', 19.00, NULL, NULL, NULL, NULL),
+(115, 4, '2025-06-26', NULL, 'negativo', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -156,7 +214,39 @@ INSERT INTO `producao_leite` (`id_producao`, `id_vaca`, `quantidade`, `data`) VA
 (23, 6, 10.00, '2025-02-14'),
 (24, 4, 7.00, '2025-02-14'),
 (25, 7, 13.00, '2025-02-14'),
-(26, 2, 12.00, '2025-03-12');
+(26, 2, 12.00, '2025-03-12'),
+(27, 1, 6.00, '2025-06-25'),
+(28, 1, 6.00, '2025-06-25'),
+(29, 1, 8.00, '2025-06-25'),
+(30, 1, 10.00, '2025-06-25'),
+(31, 1, 12.00, '2025-06-25'),
+(32, 1, 12.00, '2025-06-25'),
+(33, 1, 15.00, '2025-06-25'),
+(34, 1, 14.00, '2025-06-25'),
+(35, 1, 20.00, '2025-06-23'),
+(36, 1, 17.00, '2025-05-26'),
+(37, 2, 30.00, '2025-06-26'),
+(38, 2, 2.00, '2025-06-26'),
+(39, 2, 4.00, '2025-06-26'),
+(40, 2, 7.00, '2025-06-26'),
+(41, 2, 24.00, '2025-06-26'),
+(42, 2, 24.00, '2025-06-26'),
+(43, 1, 14.00, '2025-06-26'),
+(44, 2, 12.00, '2025-06-26'),
+(45, 4, 16.00, '2025-06-26'),
+(49, 3, 25.00, '2025-06-26'),
+(50, 3, 16.00, '2025-06-26'),
+(51, 2, 12.00, '2025-06-26'),
+(52, 2, 12.00, '2025-06-26'),
+(53, 2, 23.00, '2025-06-26'),
+(55, 2, 12.00, '2025-06-26'),
+(56, 3, 17.00, '2025-06-26'),
+(57, 1, 15.00, '2025-06-26'),
+(58, 2, 24.00, '2025-06-26'),
+(59, 3, 17.00, '2025-06-26'),
+(60, 3, 16.00, '2025-06-26'),
+(61, 3, 15.00, '2025-06-26'),
+(62, 3, 12.00, '2025-06-26');
 
 --
 -- Acionadores `producao_leite`
@@ -181,6 +271,30 @@ CREATE TABLE `recuperacao_senha` (
   `token` varchar(255) NOT NULL,
   `data_expiracao` datetime NOT NULL,
   `usado` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `recuperacao_senha`
+--
+
+INSERT INTO `recuperacao_senha` (`id_recuperação`, `id_usuario`, `token`, `data_expiracao`, `usado`) VALUES
+(1, 3, 'a667a004031a15f42eef269341d8afa7', '2025-06-26 21:39:21', 0),
+(2, 3, '3a95fcebece9e4a1a487d93806f28911', '2025-06-26 21:42:20', 0),
+(3, 3, '9714486c9ce85a51faf7aa2ec20445ed', '2025-06-26 21:46:14', 0),
+(4, 3, '02a935d9705117f7ede561e931f1759c', '2025-06-26 21:56:23', 0),
+(5, 3, '42fe111165d88854e050d8702b5f7ad5', '2025-06-26 22:09:15', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `relatorios`
+--
+
+CREATE TABLE `relatorios` (
+  `id_relatorio` int(11) NOT NULL,
+  `nome_arquivo` varchar(255) NOT NULL,
+  `caminho_arquivo` varchar(255) NOT NULL,
+  `data_upload` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -232,7 +346,12 @@ INSERT INTO `teste_mastite` (`id_teste`, `id_vaca`, `data`, `resultado`, `quanta
 (25, 4, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
 (26, 5, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
 (27, 6, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(28, 7, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', '');
+(28, 7, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(29, 1, '2025-06-25', 'positivo', 2, 'D.D, T.E', '', ''),
+(33, 2, '2025-06-26', 'positivo', 1, 'D.D', '', ''),
+(34, 2, '2025-06-26', 'negativo', 0, '', '', ''),
+(35, 2, '2025-06-26', 'negativo', 0, '', '', ''),
+(36, 3, '2025-06-26', 'negativo', 0, '', '', '');
 
 --
 -- Acionadores `teste_mastite`
@@ -264,10 +383,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nome`, `email`, `senha`, `tipo_usuario`) VALUES
-(1, 'Cecília Helena', 'chsna@discente.ifpe.edu.br', '123senha', 'aluno'),
-(2, 'Isabela de França', 'ifl1@discente.ifpe.edu.br', '3467tobias', 'aluno'),
-(3, 'Vitória Melo', 'mvms4@discente.ifpe.edu.br', 'bobflor666', 'professor'),
-(4, 'Alexia Alves', 'ajdsa@discente.ifpe.edu.br', 'granger1474', 'aluno');
+(1, 'Cecília Helena', 'chsna@discente.ifpe.edu.br', '$2y$10$mVTmG2AISbQogZzbUjGRdO9Kh0j6P9NLTnja1xdZ6Iz37GfKw/4yq', 'aluno'),
+(2, 'Isabela de França', 'ifl1@discente.ifpe.edu.br', '$2y$10$rkHPA4T1wncPzKEQlGBOneNENEJqyrmBEI03UUoZomR91NERHcH4.', 'aluno'),
+(3, 'Vitória Melo', 'mvms4@discente.ifpe.edu.br', '$2y$10$WVPO7UaXCczfAODdvCt8m.i.OiylHGabbSHAYqzDXtYcLSaafw1mO', 'professor'),
+(4, 'Alexia Alves', 'ajdsa@discente.ifpe.edu.br', '$2y$10$NimEkKa5fliewp/OpZcgPeSjQUAAjh/o/fYZGLPZV8C85EyggCDCS', 'aluno');
 
 -- --------------------------------------------------------
 
@@ -293,7 +412,12 @@ INSERT INTO `vacas` (`id_vaca`, `nome`, `descarte`) VALUES
 (5, 'Morena', 0),
 (6, 'Mococa', 0),
 (7, 'Tanajura', 0),
-(11, 'vaquinha', 0);
+(11, 'vaquinha', 0),
+(12, 'vaca3', 0),
+(13, 'vaquinha2', 0),
+(14, 'vaca007', 0),
+(15, 'vaca55', 0),
+(16, 'vacaquinha33', 0);
 
 --
 -- Acionadores `vacas`
@@ -339,6 +463,12 @@ ALTER TABLE `recuperacao_senha`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Índices de tabela `relatorios`
+--
+ALTER TABLE `relatorios`
+  ADD PRIMARY KEY (`id_relatorio`);
+
+--
 -- Índices de tabela `teste_mastite`
 --
 ALTER TABLE `teste_mastite`
@@ -372,25 +502,31 @@ ALTER TABLE `alertas`
 -- AUTO_INCREMENT de tabela `historico_vacas`
 --
 ALTER TABLE `historico_vacas`
-  MODIFY `id_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT de tabela `producao_leite`
 --
 ALTER TABLE `producao_leite`
-  MODIFY `id_producao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_producao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `recuperacao_senha`
 --
 ALTER TABLE `recuperacao_senha`
-  MODIFY `id_recuperação` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recuperação` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `relatorios`
+--
+ALTER TABLE `relatorios`
+  MODIFY `id_relatorio` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `teste_mastite`
 --
 ALTER TABLE `teste_mastite`
-  MODIFY `id_teste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_teste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -402,7 +538,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `vacas`
 --
 ALTER TABLE `vacas`
-  MODIFY `id_vaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_vaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restrições para tabelas despejadas
