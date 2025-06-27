@@ -111,8 +111,6 @@ header {
   cursor: pointer;
 }
 
-
-
 /*== RESPONSIVIDADE DO HEADER PARA TELAS MENORES ==*/
 @media (max-width: 768px) {
 

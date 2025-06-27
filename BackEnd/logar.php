@@ -15,6 +15,7 @@ if ($email && $senha) {
         // Login válido
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['email'] = $usuario['email'];
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
         if ($usuario['tipo_usuario'] === 'professor') {

@@ -56,6 +56,52 @@ body {
   color: #4a6b4d;
 }
 
+/*== CAIXA DE PERFIL E TOOLTIP ==*/
+.caixa-perfil {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.info-do-usuario {
+  position: absolute;
+  top: 58px; /* <-- AGORA FUNCIONA */
+  right: 0;
+  background-color: rgba(28, 28, 30, 0.95);
+  padding: 14px 18px;
+  border-radius: 12px;
+  min-width: 220px;
+  font-size: 14px;
+  z-index: 999;
+  text-align: left;
+  color: #f2f2f2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  animation: aparecerPerfil 0.3s ease;
+}
+
+.info-do-usuario p {
+  margin: 6px 0;
+}
+
+.info-do-usuario p:first-child {
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff; 
+}
+.info-do-usuario p:last-child {
+  font-size: 13px;
+  color: #c5c5c5; 
+}
+
+@keyframes aparecerPerfil {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
 /* === ÁREA PRINCIPAL === */
 .conteudo {
   flex: 1;

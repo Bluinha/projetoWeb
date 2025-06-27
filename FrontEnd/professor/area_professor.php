@@ -25,15 +25,24 @@ session_start();
         <h2 class="barlow-regular">Controle de Qualidade do Leite</h2>
       </div>
     </div>
+    <!-- Caixa de perfil expandida -->
 
     <div class="caixa-perfil">
-      <button type="button">
-        <img src="../imgs/perfil.png" alt="Botão perfil">
+      <!-- Botão que abre o menu -->
+      <button id="btnPerfil" title="<?php echo htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); ?>">
+        <img src="../imgs/perfil.png" alt="Perfil de <?php echo htmlspecialchars($_SESSION['nome'] ?? 'usuário'); ?>">
       </button>
 
-      <a href="../../FrontEnd/logout.php" onclick="return confirmarSaida();">
-        <img src="../imgs/sair.png" alt="Botão sair" style="width: 32px; height: auto;">
-      </a>
+      <!-- Caixa de informações personalizada -->
+      <section id="menuPerfil" class="info-do-usuario" style="display: none;">
+        <p><strong><?php echo htmlspecialchars($_SESSION['nome'] ?? 'Sem nome'); ?></strong></p>
+        <p><?php echo htmlspecialchars($_SESSION['email'] ?? 'Sem email'); ?></p>
+      </section>
+
+      <!-- Botão de sair -->
+      <button title="Sair" onclick="if(confirmarSaida()) location.href='../../FrontEnd/logout.php'">
+        <img src="../imgs/sair.png" alt="Botão sair">
+      </button>
     </div>
   </header>
   <div class="faixa-decorada"></div>
