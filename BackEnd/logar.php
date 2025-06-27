@@ -18,7 +18,7 @@ if ($email && $senha) {
         $_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 
         if ($usuario['tipo_usuario'] === 'professor') {
-            header("Location:  ../FrontEnd/professor/area_professor.html");
+            header("Location:  ../FrontEnd/professor/area_professor.php");
             exit();
         } elseif ($usuario['tipo_usuario'] === 'aluno') {
             header("Location:  ../FrontEnd/aluno/area_comum_aluno.php");

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../../BackEnd/criar_alerta.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
