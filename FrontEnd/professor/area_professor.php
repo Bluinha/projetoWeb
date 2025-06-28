@@ -10,8 +10,6 @@ session_start();
   <link rel="shortcut icon" href="../imgs/IconeProjeto.png" type="image/x-icon" />
   <title>Página do Professor</title>
   <link rel="stylesheet" href="../style/usuario.css" />
-  <link rel="stylesheet" href="../style/professor.css" />
-  <link rel="stylesheet" href="../style/variaveis.css" />
 </head>
 
 <body>
@@ -47,14 +45,14 @@ session_start();
   </header>
   <div class="faixa-decorada"></div>
 
-  <nav aria-label="Seções principais">
-    <button class="tablink" onclick="abrirAba(event, 'alertas')">Alertas</button>
-    <button class="tablink" onclick="abrirAba(event, 'alunos')">Alunos</button>
-    <button class="tablink" onclick="abrirAba(event, 'relatorios')">Relatórios</button>
+  <nav aria-label="Seções principais" class="menu-professor">
+    <button class="btn" onclick="abrirAba(event, 'alertas')">Alertas</button>
+    <button class="btn" onclick="abrirAba(event, 'alunos')">Alunos</button>
+    <button class="btn" onclick="abrirAba(event, 'relatorios')">Relatórios</button>
   </nav>
 
   <main>
-    <section id="alertas" class="aba-conteudo">
+    <section id="alertas" class="conteudo">
       <h2>Alertas</h2>
       <article id="conteudo-alertas">
         <table class="tabela" id="id-alertas">
@@ -72,9 +70,9 @@ session_start();
       </article>
     </section>
 
-    <section id="alunos" class="aba-conteudo" style="display:none">
+    <section id="alunos" class="conteudo" style="display:none">
       <h2>Alunos</h2>
-      <button class="btn-adicionar" onclick="abrirFormularioCadastro()">
+      <button class="btn" onclick="abrirFormularioCadastro()">
         Cadastrar Novo Aluno
       </button>
       <article id="conteudo-alunos">
@@ -96,7 +94,7 @@ session_start();
       </article>
     </section>
 
-    <section id="relatorios" class="aba-conteudo" style="display:none">
+    <section id="relatorios" class="conteudo" style="display:none">
       <h2>Relatórios</h2>
       <article id="conteudo-relatorio">
         <!-- PHP aqui -->

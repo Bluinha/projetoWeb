@@ -3,6 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
 
+:root {
+  --fonte-padrao: "Merriweather", serif; 
+  --cor-header: white;
+  --decoracao-header: linear-gradient(to right, #94BD09, #508FF6);
+  --cor-fundo: rgba(80, 143, 246, 0.5); /*azul com 50% opacidade*/
+  --cor-destaque1:  #94BD09;
+  --cor-destaque2: #508FF6;
+  --cor-botao-excluir:#d32f2fd3;
+}
 
 /*== animação ==*/
 /* efeito de queda suave para elementos que aparecem na página. */

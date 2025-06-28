@@ -9,22 +9,9 @@ include("../../BackEnd/criar_alerta.php");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../style/variaveis.css" />
   <link rel="stylesheet" href="../style/usuario.css" />
-  <link rel="stylesheet" href="../style/aluno.css" />
   <link rel="shortcut icon" href="../imgs/IconeProjeto.png" type="image/x-icon" />
   <title>Página do Aluno</title>
-  <style>
-    /* Garante que todas as seções estejam escondidas por padrão */
-    .conteudo {
-      display: none;
-    }
-
-    /* Mostra apenas a lista inicialmente */
-    #lista {
-      display: block;
-    }
-  </style>
 </head>
 
 <body>
@@ -60,10 +47,10 @@ include("../../BackEnd/criar_alerta.php");
   </header>
   <div class="faixa-decorada"></div>
 
-  <!-- parte dos comandos -->
-  <main class="painel">
 
-    <nav class="menu-lateral">
+  <main class="painel">
+    <!-- parte dos comandos -->
+    <nav class="menu-aluno">
       <h2>Comandos</h2>
       <ul>
         <li><a href="#" onclick="mostrarSecao('lista')">Vacas</a></li>
@@ -73,14 +60,13 @@ include("../../BackEnd/criar_alerta.php");
       </ul>
     </nav>
 
-    <?php if (isset($_SESSION['mensagem'])): ?>
-      <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
-    <?php unset($_SESSION['mensagem']);
-    endif; ?>
-
     <!-- seções para serem exibidas dinamicamente -->
     <!--listas das vacas-->
     <section id="lista" class="conteudo">
+      <?php if (isset($_SESSION['mensagem'])): ?>
+        <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
+      <?php unset($_SESSION['mensagem']);
+      endif; ?>
       <h3>Lista de vacas</h3>
       <input type="text" id="buscaVaca" placeholder="Buscar por nome..." onkeyup="filtrarVacas()" class="input-busca">
       <button onclick="mostrarSecao('cadastro')" class="btn">Cadastrar Nova Vaca</button>
