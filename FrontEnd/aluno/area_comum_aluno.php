@@ -49,7 +49,7 @@ session_start();
 
   <main class="painel">
     <!-- parte dos comandos -->
-    <nav class="menu-aluno">
+    <nav class="menu-lateral">
       <h2>Comandos</h2>
       <ul>
         <li><a href="#" onclick="mostrarSecao('lista')">Vacas</a></li>
