@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
         $link = "http://localhost/projetoWeb/FrontEnd/resetar_senha.php?token=$token";
 
         $mail = new PHPMailer(true);
+        $mail->CharSet = 'UTF-8';
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';

@@ -62,7 +62,6 @@ html {
 body {
   background-color: rgba(80, 143, 246, 0.2);
   font-family: var(--fonte-padrao);
-  font-size: clamp(16px, 2vw, 20px);
   /*deixa o tamanho da fonte responsivo*/
   opacity: 0;
   animation: cairSuave 0.8s ease-out forwards;
@@ -164,29 +163,22 @@ header {
   }
 }
 
-/*== CAIXA DE CONTEUDO DA PAGINA==*/
+/* === CONTAINER GERAL === */
 .painel {
   display: flex;
   min-height: 100vh;
 }
-/*== MENU SUPERIOR DA PAGINA DO PROFESSOR ==*/
-.menu-professor {
-    display: flex;
-    gap: 20px;
-    margin: 20px;
-    justify-content: center;
-}
 
-/*== MENU LATERAL DA PAGINA DO ALUNO ==*/
-.menu-aluno {
+/* === MENU LATERAL === */
+.menu-lateral {
   background-color: #fff;
   padding: 20px;
   width: 200px;
+  font-size: 1.1em;
 }
 
-.menu-aluno h2 {
+.menu-lateral h2 {
   font-size: clamp(18px, 2vw, 24px);
-  /*torna a fonte responsiva*/
   margin-bottom: 20px;
   background-color: var(--cor-destaque1);
   color: #fff;
@@ -195,22 +187,19 @@ header {
   text-align: center;
 }
 
-.menu-aluno ul {
-  /*remove os estilos padrão das listas*/
+.menu-lateral ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.menu-aluno li {
-  /*adiciona espaçamento e uma linha entre os elementos*/
+.menu-lateral li {
   margin-bottom: 12px;
   padding-bottom: 5px;
   border-bottom: 1px solid #c8dfca;
 }
 
-.menu-aluno a {
-  /*remove a decoração padrão dos links e adiciona uma animação*/
+.menu-lateral a {
   text-decoration: none;
   color: #222;
   font-weight: bold;
@@ -218,9 +207,55 @@ header {
   transition: transform 0.2s ease, color 0.2s;
 }
 
-.menu-aluno a:hover {
+.menu-lateral a:hover {
   transform: scale(1.04);
   color: #4a6b4d;
+}
+
+/*== CAIXA DE PERFIL E TOOLTIP ==*/
+.caixa-perfil {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.info-do-usuario {
+  position: absolute;
+  top: 58px; /* <-- AGORA FUNCIONA */
+  right: 0;
+  background-color: rgba(28, 28, 30, 0.95);
+  padding: 14px 18px;
+  border-radius: 12px;
+  min-width: 220px;
+  font-size: 14px;
+  z-index: 999;
+  text-align: left;
+  color: #f2f2f2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  animation: aparecerPerfil 0.3s ease;
+}
+
+.info-do-usuario p {
+  margin: 6px 0;
+}
+
+.info-do-usuario p:first-child {
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff; 
+}
+.info-do-usuario p:last-child {
+  font-size: 13px;
+  color: #c5c5c5; 
+}
+
+@keyframes aparecerPerfil {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
 /* === ÁREA PRINCIPAL === */
@@ -236,26 +271,7 @@ header {
   gap: 10px;
 }
 
-.conteudo h2 {
-  text-align: center;
-}
-
-/* === COMPONENTE PADRÃO DE BLOCO (cadastro, editar, produção, relatórios) === */
-.bloco-pagina {
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  max-width: 650px;
-  margin: 30px auto;
-}
-
-.bloco-pagina h3 {
-  font-size: clamp(16px, 2vw, 20px);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* === TABELAS === */
+/* === TABELA === */
 .tabela {
   width: 100%;
   border-collapse: separate;
@@ -290,6 +306,21 @@ header {
 .tabela tbody tr:hover {
   background-color: rgba(80, 143, 246, 0.1);
   transition: background-color 0.3s ease;
+}
+
+/* === COMPONENTE PADRÃO DE BLOCO (cadastro, editar, produção, relatórios) === */
+.bloco-pagina {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  max-width: 650px;
+  margin: 30px auto;
+}
+
+.bloco-pagina h3 {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* === MENSAGEM DE SUCESSO === */
@@ -336,27 +367,6 @@ header {
   border-radius: 5px;
 }
 
-/* === BOTÕES GENERICOS === */
-.btn {
-  padding: 12px 20px;
-  background-color: var(--cor-destaque1);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover {
-  background-color: var(--cor-destaque2);
-  animation: botaoHover 0.3s ease forwards;
-}
-
-.btn:active {
-  animation: botaoClick 0.2s ease forwards;
-}
-
 /*== BOTÕES DO HEADER ==*/
 .caixa-perfil button {
   /*remove os estilos padrão do botão, menos o cursor pointer*/
@@ -373,103 +383,130 @@ header {
   animation: botaoClick 0.2s ease forwards;
 }
 
-/*== BOTÕES DO CRUD ==*/
-.btn-editar,
-.btn-salvar,
-.btn-excluir {
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  margin: 0 2px;
+/* === BOTÕES === */
+.btn {
+    padding: 12px 20px;
+    background-color:var(--cor-destaque1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background-color:var(--cor-destaque2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo para todos os botões de ação */
+.btn-editar, .btn-salvar, .btn-excluir {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin: 0 2px;
 }
 
 /* Botão Editar */
 .btn-editar {
-  background-color: var(--cor-destaque2);
-  color: white;
+    background-color: var(--cor-destaque2); 
+    color: white;
 }
 
 .btn-editar:hover {
-  background-color: var(--cor-destaque2);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-destaque2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Botão Salvar */
 .btn-salvar {
-  background-color: var(--cor-destaque1);
-  color: white;
+    background-color: var(--cor-destaque1); 
+    color: white;
 }
 
 .btn-salvar:hover {
-  background-color: var(--cor-destaque1);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-destaque1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Botão Excluir (se aplicável) */
 .btn-excluir {
-  background-color: red;
-  color: white;
+    background-color: red; 
+    color: white;
 }
 
 .btn-excluir:hover {
-  background-color: var(--cor-botao-excluir);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-botao-excluir);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Efeito ao clicar */
-.btn-editar:active,
-.btn-salvar:active,
-.btn-excluir:active {
-  transform: translateY(0);
-  box-shadow: none;
+.btn-editar:active, .btn-salvar:active, .btn-excluir:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-/*== INPUTS DE EDIÇÃO ==*/
+/* Estilo para o input durante edição */
 .input-edicao {
-  padding: 5px 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 80%;
-  font-size: 14px;
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 80%;
+    font-size: 14px;
 }
 
 .input-edicao:focus {
-  outline: none;
-  border-color: #2196F3;
-  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+/* Botão com hover diferente em relatórios */
+#relatorios .btn:hover {
+  transform: scale(1.03);
+  background-color: #7ba51e;
 }
 
 /* === BARRA DE BUSCA === */
 .input-busca {
-  flex: 1;
-  max-width: 400px;
-  padding: 12px 50px;
-  font-size: 14px;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: #f8f9fa;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    max-width: 400px;
+    padding: 12px 50px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .input-busca:focus {
-  outline: none;
-  border-color: var(--cor-destaque2);
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+    outline: none;
+    border-color:var(--cor-destaque2);
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
 }
 
 .input-busca::placeholder {
-  color: #9e9e9e;
-  opacity: 1;
+    color: #9e9e9e;
+    opacity: 1;
 }
+
 
 /* === RELATÓRIOS === */
 .lista-relatorios {
@@ -483,7 +520,7 @@ header {
   background-color: #ffffff;
   padding: 12px 16px;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -505,4 +542,56 @@ header {
   border-radius: 4px;
   font-size: 12px;
   text-decoration: none;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .menu-lateral {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu-lateral h2 {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .conteudo {
+    padding: 15px;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .tabela {
+    font-size: 14px;
+  }
+
+  .bloco-pagina {
+    padding: 10px;
+    margin: 15px 5px;
+  }
+
+  .bloco-pagina h3 {
+    font-size: 16px;
+  }
+
+  .btn,
+  #relatorios .btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .relatorio-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .relatorio-item a {
+    align-self: flex-end;
+  }
 }

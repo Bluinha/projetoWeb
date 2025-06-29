@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("../../BackEnd/criar_alerta.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,7 +8,7 @@ include("../../BackEnd/criar_alerta.php");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../style/usuario.css" />
+  <link rel="stylesheet" href="../style/usuarios.css" />
   <link rel="shortcut icon" href="../imgs/IconeProjeto.png" type="image/x-icon" />
   <title>Página do Aluno</title>
 </head>
@@ -25,6 +24,7 @@ include("../../BackEnd/criar_alerta.php");
         <h2 class="barlow-regular">Controle de Qualidade do Leite</h2>
       </div>
     </div>
+    <!-- Caixa de perfil expandida -->
 
     <div class="caixa-perfil">
       <!-- Botão que abre o menu -->
@@ -43,7 +43,6 @@ include("../../BackEnd/criar_alerta.php");
         <img src="../imgs/sair.png" alt="Botão sair">
       </button>
     </div>
-
   </header>
   <div class="faixa-decorada"></div>
 
@@ -221,11 +220,12 @@ include("../../BackEnd/criar_alerta.php");
 
     <!--relatorio-->
     <section id="relatorios" class="conteudo bloco-pagina">
-      <h3>Relatórios</h3>
-      <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="arquivo" required>
+    <h3>Envio de Relatórios</h3>
+    <form action="../../BackEnd/upload_relatorio.php" method="POST" enctype="multipart/form-data">
+        <label for="arquivo_relatorio">Selecione o arquivo do relatório:</label>
+        <input type="file" name="arquivo" id="arquivo_relatorio" required>
         <button type="submit" class="btn">Enviar Relatório</button>
-      </form>
+    </form>
     </section>
 
 

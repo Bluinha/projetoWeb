@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('conexao.php');
 
 // Se o formulário foi enviado
@@ -15,11 +16,17 @@ if (isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['tipo_usuario
     $stmt->bindValue(':tipo_usuario', $tipo_usuario);
 
     if ($stmt->execute()) {
-        echo "<p>Usuário cadastrado com sucesso!</p>";
+        $_SESSION['mensagem'] = "Aluno adicionado com Sucesso";
+        session_write_close(); 
+        header("Location:../FrontEnd/professor/area_professor.php?secao=cadastro_aluno");
+        exit;
     } else {
-        echo "<p>Erro ao cadastrar o usuário.</p>";
-        print_r($stmt->errorInfo()); 
+        $_SESSION['mensagem'] = "Erro ao adicionar aluno";
+        session_write_close(); 
+        header("Location:../FrontEnd/professor/area_professor.php?secao=cadastro_aluno");
+        exit; // Termina a execução do script
     }
 }
 
 ?>
+
