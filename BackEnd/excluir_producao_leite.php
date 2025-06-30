@@ -1,20 +1,27 @@
 <?php
-include('conexao.php');
 
-// Se o formulário foi enviado
-if (isset($_POST['id_producao'])) {
-    $id = $_POST['id_producao'];
+require('conexao.php'); 
+header('Content-Type: application/json');
 
-    $stmt = $banco->prepare("DELETE FROM producao_leite WHERE id_producao = :id");
+$id_producao = $_POST['id_producao'] ?? null;
 
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-    if ($stmt->execute()) {
-        echo "<p>Dados excluídos com sucesso!</p>";
-    } else {
-        echo "<p>Erro ao excluir os dados.</p>";
-        print_r($stmt->errorInfo()); 
-    }
+if (!$id_producao) {
+    echo json_encode(['success' => false, 'message' => 'ID da produção não fornecido.']);
+    exit;
 }
 
+try {
+    $stmt = $banco->prepare("DELETE FROM producao_leite WHERE id_producao = :id");
+    $stmt->bindValue(':id', $id_producao, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    if ($stmt->rowCount() > 0) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Nenhum registro encontrado com este ID.']);
+    }
+
+} catch (PDOException $e) {
+    echo json_encode(['success' => false, 'message' => 'Erro no banco de dados: ' . $e->getMessage()]);
+}
 ?>
