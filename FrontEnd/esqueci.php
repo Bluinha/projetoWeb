@@ -3,7 +3,7 @@ require '../BackEnd/PHPMailer-master/src/PHPMailer.php';
 require '../BackEnd/PHPMailer-master/src/SMTP.php';
 require '../BackEnd/PHPMailer-master/src/Exception.php';
 require '../BackEnd/conexao.php';
- 
+include("../BackEnd/criar_alerta.php");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
         $link = "http://localhost/projetoWeb/FrontEnd/resetar_senha.php?token=$token";
 
         $mail = new PHPMailer(true);
-        $mail->CharSet = 'UTF-8';
+        $mail->CharSet = 'UTF-8'; // Mantendo a melhoria do novo código
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
@@ -58,42 +58,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
     $mensagem = "Informe um email válido.";
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recuperar Senha</title>
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style/variaveis.css">
-  <link rel="stylesheet" href="style/login.css">
+  <link rel="stylesheet" href="style/variaveis.css" />
+  <link rel="stylesheet" href="style/login.css" />
 </head>
 <body>
-  <main class="pagina">
-    <section class="caixa-login">
-      <h1>Recuperar Senha</h1>
-      <p>Digite o e-mail cadastrado para receber um link de redefinição de senha.</p>
-
+  <main class="fundo-login"> <section class="caixa-login">
+      <figure class="imagem-vaca"> <img src="imgs/vacalogin.png" alt="Imagem decorativa de vacas" />
+      </figure>
+      <h1 class="titulo-recuperacao">Recuperar Senha</h1> <p>Digite o e-mail cadastrado para receber um link de redefinição de senha.</p>
       <?php if (!empty($mensagem)): ?>
-        <p style="color: green; font-weight: bold;">
-          <?php echo htmlspecialchars($mensagem); ?>
-        </p>
-      <?php endif; ?>
-
-      <form method="POST" action=""> 
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-
+        <p class="mensagem"><?php echo htmlspecialchars($mensagem); ?></p> <?php endif; ?>
+      <form method="POST"> <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
         <button type="submit" class="btn">Enviar Link</button>
       </form>
-
-      <nav>
-        <a href="login.php">Voltar para login</a>
-      </nav>
+      <nav><a href="login.php">Voltar para login</a></nav>
     </section>
   </main>
 </body>
 </html>
-
-

@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
 
-:root {
-  --fonte-padrao: "Merriweather", serif; 
-  --cor-header: white;
-  --decoracao-header: linear-gradient(to right, #94BD09, #508FF6);
-  --cor-fundo: rgba(80, 143, 246, 0.5); /*azul com 50% opacidade*/
-  --cor-destaque1:  #94BD09;
-  --cor-destaque2: #508FF6;
-  --cor-botao-excluir:#d32f2fd3;
+:root { /* aqui a gente define variáveis que podem ser usadas em todo o css */
+  --fonte-padrao: "Barlow Semi Condensed", sans-serif; /* define a fonte principal do site */
+  --cor-header: white; /* cor do fundo do cabeçalho */
+  --decoracao-header: linear-gradient(to right, #94BD09, #508FF6); /* gradiente de cor pra faixa decorativa */
+  --cor-fundo: rgba(80, 143, 246, 0.5); /* azul com 50% de opacidade */
+  --cor-destaque1: #94BD09; /* cor verde principal pros destaques */
+  --cor-destaque2: #508FF6; /* cor azul secundária pros destaques */
+  --cor-botao-excluir:#d32f2fd3; /* cor pro botão de excluir */
 }
 
 /*== animação ==*/
@@ -30,10 +30,10 @@
 /* === geral === */
 /* ajustes básicos para html e body, garantindo altura mínima e controle de rolagem. */
 html, body {
-    min-height: 100vh;
-    margin: 0;
+    min-height: 100vh; /* altura mínima da página é 100% da tela */
+    margin: 0; /* remove margem padrão do navegador */
     overflow: hidden; /* pra que o conteúdo-principal gerencie a rolagem. */
-    will-change: auto;
+    will-change: auto; /* ajuda na performance de animações */
 }
 
 /* gerencia a rolagem da página principal. */
@@ -47,59 +47,59 @@ html, body {
 
 /* estilos globais para o corpo do documento. */
 body {
-    font-family: 'Barlow Semi Condensed', sans-serif; 
-    font-size: clamp(16px, 2vw, 20px);
+    font-family: 'Barlow Semi Condensed', sans-serif; /* aplica a fonte principal */
+    font-size: clamp(16px, 2vw, 20px); /* tamanho da fonte responsivo */
     opacity: 0;
     animation: cairSuave 0.8s ease-out forwards; /* aplica a animação de queda. */
-    color: #333; 
-    background-color: #f9f9f9; 
+    color: #333; /* cor padrão do texto */
+    background-color: #f9f9f9; /* cor de fundo do body */
 }
 
 /* padding superior para o header fixo e a barra de acessibilidade. */
 main#conteudo {
-    padding-top: 130px; 
+    padding-top: 130px; /* espaço pra deixar o cabeçalho e a barra de acessibilidade visíveis */
 }
 
 
 /* === acessibilidade === */
 /* barra de atalhos de acessibilidade fixa no topo da página. */
 .acessibilidade {
-    background-color: transparent; /* para pegar o gradiente. */
-    background-image: linear-gradient(to right, #94BD09, #508FF6); 
-    display: flex;
+    background-color: transparent; /* pra pegar o gradiente. */
+    background-image: linear-gradient(to right, #94BD09, #508FF6); /* fundo com gradiente */
+    display: flex; /* organiza os itens em linha */
     flex-wrap: wrap; /* quebra os links em várias linhas. */
     gap: 10px; /* espaçamento entre os links. */
     justify-content: center; /* centraliza os links. */
-    font-size: 0.9em;
+    font-size: 0.9em; /* tamanho da fonte */
     padding: 5px 10px; /* padding para a barra. */
-    position: fixed; /* posição FIXA para ficar sempre no topo do VIEWPORT. */
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: fixed; /* posição FIXA para ficar sempre no topo da tela. */
+    top: 0; /* alinhado ao topo */
+    left: 0; /* alinhado à esquerda */
+    width: 100%; /* largura total */
     z-index: 1002; /* z-index MAIS ALTO para garantir que fique por cima de TUDO. */
     box-sizing: border-box;
-    transition: all 0.3s ease; /* transição para suavizar aparição/desaparição se for controlada por JS. */
+    transition: all 0.3s ease; /* transição pra suavizar se o top mudar */
     font-family: 'Barlow Semi Condensed', sans-serif; /* fonte igual à da barra de navegação. */
-    text-transform: uppercase; /* caixa alta para os textos. */
+    text-transform: uppercase; /* texto em caixa alta. */
 }
 
 /* estilo dos links de acessibilidade. */
 .acessibilidade a {
-    color: white; 
-    text-decoration: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    color: white; /* cor do texto */
+    text-decoration: none; /* remove sublinhado */
+    padding: 4px 8px; /* espaço interno */
+    border-radius: 4px; /* bordas arredondadas */
+    transition: background-color 0.3s ease; /* transição no fundo */
 }
 
 /* efeito ao passar o mouse sobre os links de acessibilidade. */
 .acessibilidade a:hover {
-    background-color: rgba(0, 0, 0, 0.15); /* um pouco mais escuro no hover para contrastar com o gradiente. */
+    background-color: rgba(0, 0, 0, 0.15); /* um pouco mais escuro no hover */
 }
 
 /* estilo para quando o link de acessibilidade está focado. */
-.acessibilidade a:focus { 
-    outline: 2px solid yellow; /* contorno amarelo para indicar foco. */
+.acessibilidade a:focus {
+    outline: 2px solid yellow; /* contorno amarelo pra indicar foco. */
     background-color: rgba(0, 0, 0, 0.25); /* cor de fundo mais escura ao focar. */
 }
 
@@ -124,11 +124,11 @@ header {
     width: 100%;
     box-sizing: border-box;
     position: relative; /* mantido relative para os pseudo-elementos. */
-    min-height: 90px; /* aumentado o tamanho da barra de navegação. */
-    position: fixed; /* garante que fique fixa no viewport. */
+    min-height: 90px; /* tamanho da barra de navegação. */
+    position: fixed; /* garante que fique fixa na tela. */
     top: 30px; /* ajustado para ficar abaixo da barra de acessibilidade (aprox. 30px de altura). */
     left: 0; /* garante que se estenda por toda a largura. */
-    z-index: 1000; /* garante que ela fique sobreposta ao conteúdo (abaixo da acessibilidade). */
+    z-index: 1000; /* garante que ela fique por cima do conteúdo. */
     display: flex; /* layout flexível para logo, navegação e login. */
     align-items: center; /* alinha os itens verticalmente. */
     justify-content: space-between; /* espaça logo, nav, login horizontalmente. */
@@ -141,23 +141,23 @@ header {
 
 /* faixa superior decorativa do cabeçalho. */
 header::before {
-    content: "";
-    position: absolute;
+    content: ""; /* necessário para pseudo-elemento */
+    position: absolute; /* posicionamento absoluto dentro do header */
     left: 0;
     width: 100%;
-    height: 8px;
-    top: 0;
-    background: var(--decoracao-header); /* usa a variável definida em variaveis.css. */
+    height: 8px; /* altura da faixa */
+    top: 0; /* alinhado ao topo do header */
+    background: var(--decoracao-header); /* usa a variável definida */
 }
 
 /* faixa inferior decorativa do cabeçalho. */
 header::after {
-    content: "";
-    position: absolute;
+    content: ""; /* necessário para pseudo-elemento */
+    position: absolute; /* posicionamento absoluto dentro do header */
     left: 0;
     width: 100%;
-    height: 8px;
-    bottom: 0;
+    height: 8px; /* altura da faixa */
+    bottom: 0; /* alinhado ao rodapé do header */
     background: var(--decoracao-header); /* as duas faixas agora usam a mesma variável. */
 }
 
@@ -168,7 +168,7 @@ header::after {
     align-items: center;
     gap: 10px;
     flex-shrink: 0; /* impede que o logo encolha. */
-    flex-basis: auto; 
+    flex-basis: auto;
 }
 
 /* container para os textos do logo (CQL e Controle de Qualidade do Leite). */
@@ -186,7 +186,7 @@ header::after {
     letter-spacing: 5px;
     font-weight: 500;
     color: #333;
-    font-family: 'Barlow Semi Condensed', sans-serif; 
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
 }
 
 /* estilo do subtítulo (Controle de Qualidade do Leite). */
@@ -195,7 +195,7 @@ header::after {
     font-size: 14px;
     color: #666;
     font-weight: 400;
-    font-family: 'Barlow Semi Condensed', sans-serif; 
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
 }
 
 /* estilo da imagem do logo. */
@@ -211,7 +211,7 @@ header::after {
     flex-grow: 1; /* permite que a navegação ocupe o espaço restante. */
     display: flex;
     justify-content: center; /* centraliza o menu dentro da nav. */
-    flex-basis: auto; 
+    flex-basis: auto;
 }
 
 /* lista de itens do menu de navegação. */
@@ -226,19 +226,19 @@ header::after {
 /* estilo dos links do menu. */
 .menu li a {
     display: inline-block;
-    transition: color 0.2s ease, transform 0.2s ease;
-    text-decoration: none;
-    font-weight: normal; 
+    transition: color 0.2s ease, transform 0.2s ease; /* transição pra cor e escala */
+    text-decoration: none; /* remove sublinhado */
+    font-weight: normal;
     color: #000000; /* preto por padrão. */
     font-size: 1.1em;
-    font-family: 'Barlow Semi Condensed', sans-serif; 
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
     text-transform: uppercase; /* caixa alta para os textos da barra de navegação. */
 }
 
 /* efeito ao passar o mouse sobre os links do menu. */
 .menu li a:hover {
-    color: #94bd09; 
-    transform: scale(1.05);
+    color: #94bd09; /* cor verde no hover */
+    transform: scale(1.05); /* aumenta um pouco no hover */
 }
 
 /* === LOGIN === */
@@ -247,7 +247,7 @@ header::after {
     display: flex;
     align-items: center;
     flex-shrink: 0; /* impede que a área de login encolha. */
-    flex-basis: auto; 
+    flex-basis: auto;
 }
 
 /* estilo do link de login. */
@@ -256,14 +256,14 @@ header::after {
     align-items: center;
     text-decoration: none;
     color: #000000; /* texto de login preto por padrão. */
-    font-weight: normal; 
+    font-weight: normal;
     gap: 0px;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease; /* transição pra escala e cor */
     padding: 5px 10px;
     border-radius: 5px;
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
     text-transform: uppercase; /* caixa alta. */
-    font-size: 1.1em; 
+    font-size: 1.1em;
 }
 
 /* estilo do texto dentro do link de login. */
@@ -274,25 +274,25 @@ header::after {
 
 /* efeito ao passar o mouse sobre o link de login. */
 .icone-login:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* aumenta um pouco no hover */
     cursor: pointer;
     color: #94bd09; /* texto de login verde no hover. */
 }
 
 /* garante que o texto do span também fique verde no hover. */
 .icone-login:hover span {
-    color: #94bd09; 
+    color: #94bd09;
 }
 
 
 /* === TÍTULOS GERAIS (H2) === */
 /* estilo geral para todos os títulos de segundo nível (h2). */
 h2 {
-    font-family: 'Edu SA Hand', cursive; 
-    text-transform: none; 
-    font-size: clamp(2.2rem, 5vw, 3.5rem); 
-    letter-spacing: 0; 
-    font-weight: 400; /* peso padrão para a fonte edu sa hand. */
+    font-family: 'Edu SA Hand', cursive; /* fonte edu sa hand */
+    text-transform: none; /* não aplica caixa alta */
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* tamanho da fonte responsivo */
+    letter-spacing: 0;
+    font-weight: 400; /* peso padrão da fonte */
 }
 
 /* === INTRODUÇÃO (Seção Principal) === */
@@ -300,19 +300,19 @@ h2 {
 .introducao {
     display: flex;
     flex-direction: column; /* coloca a imagem principal e o texto abaixo dela. */
-    justify-content: center; /* centraliza o conteúdo verticalmente dentro da seção. */
+    justify-content: center; /* centraliza o conteúdo verticalmente. */
     align-items: center; /* centraliza o conteúdo horizontalmente. */
-    min-height: 80vh; /* altura mínima para que haja espaço para a imagem e o texto. */
+    min-height: 80vh; /* altura mínima pra ter espaço pra imagem e texto. */
     padding: 40px 20px;
-    background: transparent; /* garante que não há cor de fundo nesta seção. */
+    background: transparent; /* sem cor de fundo nessa seção. */
     box-sizing: border-box;
-    max-width: 900px; /* largura máxima para o conteúdo da introdução. */
-    margin: 0 auto; /* centraliza a própria seção de introdução na página. */
+    max-width: 900px; /* largura máxima pro conteúdo da introdução. */
+    margin: 0 auto; /* centraliza a própria seção na página. */
 }
 
 /* container da imagem principal na seção de introdução. */
 .introducao-imagem-container {
-    width: 100%; 
+    width: 100%;
     max-width: 500px; /* diminui o tamanho da imagem 'sobreoprojeto.png'. */
     margin-bottom: 30px; /* espaço entre a imagem e o texto. */
 }
@@ -321,19 +321,19 @@ h2 {
 .introducao-imagem-principal {
     width: 100%;
     height: auto;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
 /* container de texto na seção de introdução. */
 .introducao-texto {
     text-align: center;
-    color: #048beb; /* cor do texto azul #048beb. */
-    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semicondensed. */
+    color: #048beb; /* cor do texto azul. */
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
 }
 
 /* título na seção de introdução. */
 .introducao-texto h2 {
-    color: #048beb; /* cor azul #048beb para o título da introdução. */
+    color: #048beb; /* cor azul para o título da introdução. */
     margin-bottom: 15px;
 }
 
@@ -357,19 +357,19 @@ h2 {
 /* === SERVIÇOS OFERECIDOS (O QUE FAZEMOS?) === */
 /* container para os cartões de serviços/funcionalidades. */
 .servicos-oferecidos {
-    display: grid;
+    display: grid; /* layout em grid */
     justify-content: center; /* centraliza o conteúdo do grid (os cartões). */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* colunas responsivas */
+    gap: 30px; /* espaçamento entre os cartões */
     padding: 80px 5%;
-    background-color: transparent; 
+    background-color: transparent;
     max-width: 1000px; /* largura máxima para a seção de serviços. */
     margin: 0 auto; /* centraliza a seção de serviços. */
 }
 
 /* título da seção "o que fazemos?". */
 .titulo-servicos {
-    color: #ff66c4; 
+    color: #ff66c4; /* cor rosa */
     text-align: center;
     margin-bottom: 40px; /* espaço abaixo do título. */
     grid-column: 1 / -1; /* faz o título ocupar todas as colunas do grid. */
@@ -380,20 +380,20 @@ h2 {
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* para centralizar o conteúdo do cartão. */
-    flex-direction: column; /* para empilhar imagem, título e parágrafo. */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* transição pra hover */
+    display: flex; /* pra centralizar o conteúdo do cartão. */
+    flex-direction: column; /* pra empilhar imagem, título e parágrafo. */
     justify-content: flex-start; /* alinha o conteúdo ao topo do cartão. */
     align-items: center; /* centraliza horizontalmente o conteúdo. */
-    color: white; 
-    min-height: 320px; /* altura mínima para o cartão, ajuste conforme o conteúdo. */
+    color: white;
+    min-height: 320px; /* altura mínima para o cartão. */
 }
 
 /* efeito ao passar o mouse sobre o cartão de serviço. */
 .cartao-servico:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px); /* sobe um pouco no hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* sombra mais forte no hover */
 }
 
 /* classe antiga para ícones, agora oculta. */
@@ -403,36 +403,36 @@ h2 {
 
 /* estilo para a imagem da vaca dentro do cartão de serviço. */
 .icone-vaca-servico {
-    width: 100%; 
-    max-width: 150px; 
+    width: 100%;
+    max-width: 150px;
     height: auto;
     margin-bottom: 20px; /* espaço abaixo da imagem. */
-    margin-top: 0; 
+    margin-top: 0;
 }
 
 /* imagem da vaca dentro do cartão de serviço. */
 .icone-vaca-servico img {
     width: 100%;
     height: auto;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
 /* títulos dos cartões de serviço. */
 .cartao-servico h3 {
     margin-bottom: 15px;
-    color: white; 
+    color: white;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
-    margin-top: 0; 
-    font-family: 'Matangi', sans-serif; 
-    font-weight: normal; 
-    text-transform: uppercase; 
+    margin-top: 0;
+    font-family: 'Matangi', sans-serif; /* fonte matangi */
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 /* parágrafos dos cartões de serviço. */
 .cartao-servico p {
     color: rgba(255, 255, 255, 0.9); /* texto do parágrafo ligeiramente transparente. */
-    font-family: 'Barlow Semi Condensed', sans-serif; 
-    text-transform: uppercase; 
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
+    text-transform: uppercase;
     text-align: justify; /* justifica o texto dos parágrafos. */
 }
 
@@ -456,7 +456,7 @@ h2 {
     display: flex;
     justify-content: space-around;
     padding: 60px 5%;
-    background-color: #048beb; 
+    background-color: #048beb; /* fundo azul */
     color: white;
     text-align: center;
     flex-wrap: wrap; /* permite que os itens quebrem linha. */
@@ -471,9 +471,9 @@ h2 {
 
 /* título da seção "sobre o leite". */
 .sobre-leite h2 {
-    color: white; 
+    color: white;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* sombra no texto */
 }
 
 /* parágrafos na seção "sobre o leite". */
@@ -482,7 +482,7 @@ h2 {
     margin-bottom: 15px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
-    font-family: 'Barlow Semi Condensed', sans-serif; 
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
     text-align: justify; /* justifica o texto dos parágrafos. */
 }
 
@@ -515,11 +515,11 @@ h2 {
 .secao-proposito {
     display: flex;
     flex-direction: column; /* coloca a imagem principal e o texto abaixo dela. */
-    justify-content: center; /* centraliza o conteúdo verticalmente dentro da seção. */
+    justify-content: center; /* centraliza o conteúdo verticalmente. */
     align-items: center; /* centraliza o conteúdo horizontalmente. */
-    min-height: 80vh; /* altura mínima para que haja espaço para a imagem e o texto. */
+    min-height: 80vh; /* altura mínima pra ter espaço pra imagem e texto. */
     padding: 40px 20px;
-    background: transparent; /* garante que não há cor de fundo nesta seção. */
+    background: transparent; /* sem cor de fundo nessa seção. */
     box-sizing: border-box;
     max-width: 900px; /* largura máxima para o conteúdo da seção. */
     margin: 0 auto; /* centraliza a própria seção na página. */
@@ -527,7 +527,7 @@ h2 {
 
 /* container da imagem na seção "nosso propósito". */
 .container-imagem-proposito {
-    width: 100%; 
+    width: 100%;
     max-width: 500px; /* tamanho similar à imagem da introdução. */
     margin-bottom: 30px; /* espaço entre a imagem e o texto. */
 }
@@ -536,19 +536,19 @@ h2 {
 .imagem-principal-proposito {
     width: 100%;
     height: auto;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
 /* container de texto na seção "nosso propósito". */
 .texto-conteudo-proposito {
     text-align: center;
-    color: #94bd09; 
-    font-family: 'Barlow Semi Condensed', sans-serif; 
+    color: #94bd09; /* cor verde */
+    font-family: 'Barlow Semi Condensed', sans-serif; /* fonte barlow semi condensed. */
 }
 
 /* título na seção "nosso propósito". */
 .texto-conteudo-proposito h2 {
-    color: #94bd09;
+    color: #94bd09; /* cor verde */
     margin-bottom: 15px;
 }
 
@@ -567,7 +567,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(80, 143, 246, 0.5);
+    background-color: rgba(80, 143, 246, 0.5); /* fundo azul com opacidade */
     font-size: 16px;
     color: black;
     box-sizing: border-box;
@@ -589,7 +589,7 @@ h2 {
 footer {
     box-sizing: border-box;
     padding: 30px;
-    background-color: rgba(80, 143, 246, 0.5);
+    background-color: rgba(80, 143, 246, 0.5); /* fundo azul com opacidade */
 }
 
 /* parágrafo dentro do rodapé. */
@@ -602,15 +602,15 @@ footer p {
 @media (max-width: 768px) {
     /* ajustes do cabeçalho em telas menores. */
     header {
-        flex-direction: column;
-        height: auto;
+        flex-direction: column; /* itens do cabeçalho em coluna */
+        height: auto; /* altura automática */
         padding-bottom: 10px;
         padding-top: 10px;
-        gap: 15px; 
+        gap: 15px;
     }
     /* faixas decorativas do cabeçalho em telas menores. */
     header::before, header::after {
-        height: 5px;
+        height: 5px; /* faixas mais finas */
     }
 
     /* alinhamento dos elementos do cabeçalho em mobile. */
@@ -618,7 +618,7 @@ footer p {
     header .navegacao-principal,
     header .area-login {
         width: 100%;
-        justify-content: center;
+        justify-content: center; /* centraliza */
         margin: 0;
     }
 
@@ -648,7 +648,7 @@ footer p {
     /* introdução responsiva. */
     .introducao {
         padding: 20px;
-        min-height: auto;
+        min-height: auto; /* altura mínima automática */
     }
 
     /* container da imagem da introdução responsivo. */
@@ -673,24 +673,24 @@ footer p {
 
     /* seção de serviços oferecidos responsiva. */
     .servicos-oferecidos {
-        padding: 40px 5%; /* menos padding em mobile. */
+        padding: 40px 5%;
     }
 
     /* título da seção de serviços responsivo. */
     .titulo-servicos {
-        font-size: 1.8rem; /* tamanho menor em mobile. */
+        font-size: 1.8rem;
         margin-bottom: 20px;
     }
 
     /* cartão de serviço responsivo. */
     .cartao-servico {
-        min-height: 250px; 
+        min-height: 250px;
         padding: 30px 20px;
     }
 
     /* imagem da vaca nos cartões de serviço responsiva. */
     .icone-vaca-servico {
-        max-width: 100px; 
+        max-width: 100px;
     }
 
     /* título do cartão de serviço responsivo. */
@@ -727,7 +727,7 @@ footer p {
     }
 
     /* ajustes gerais de layout em colunas para seções. */
-    .secao-proposito { 
+    .secao-proposito {
         flex-direction: column;
         padding: 60px 5%;
     }

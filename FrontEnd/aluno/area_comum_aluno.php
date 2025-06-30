@@ -14,7 +14,6 @@ session_start();
 </head>
 
 <body>
-  <!-- cabeçalho -->
   <div class="faixa-decorada"></div>
   <header id="menu">
     <div class="logo-container">
@@ -24,21 +23,16 @@ session_start();
         <h2 class="barlow-regular">Controle de Qualidade do Leite</h2>
       </div>
     </div>
-    <!-- Caixa de perfil expandida -->
-
     <div class="caixa-perfil">
-      <!-- Botão que abre o menu -->
       <button id="btnPerfil" title="<?php echo htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); ?>">
         <img src="../imgs/perfil.png" alt="Perfil de <?php echo htmlspecialchars($_SESSION['nome'] ?? 'usuário'); ?>">
       </button>
 
-      <!-- Caixa de informações personalizada -->
       <section id="menuPerfil" class="info-do-usuario" style="display: none;">
         <p><strong><?php echo htmlspecialchars($_SESSION['nome'] ?? 'Sem nome'); ?></strong></p>
         <p><?php echo htmlspecialchars($_SESSION['email'] ?? 'Sem email'); ?></p>
       </section>
 
-      <!-- Botão de sair -->
       <button title="Sair" onclick="if(confirmarSaida()) location.href='../../FrontEnd/logout.php'">
         <img src="../imgs/sair.png" alt="Botão sair">
       </button>
@@ -48,7 +42,6 @@ session_start();
 
 
   <main class="painel">
-    <!-- parte dos comandos -->
     <nav class="menu-lateral">
       <h2>Comandos</h2>
       <ul>
@@ -59,15 +52,14 @@ session_start();
       </ul>
     </nav>
 
-    <!-- seções para serem exibidas dinamicamente -->
-    <!--listas das vacas-->
     <section id="lista" class="conteudo">
       <?php if (isset($_SESSION['mensagem'])): ?>
         <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
       <?php unset($_SESSION['mensagem']);
       endif; ?>
       <h3>Lista de vacas</h3>
-      <input type="text" id="buscaVaca" placeholder="Buscar por nome..." onkeyup="filtrarVacas()" class="input-busca">
+      <input type="text" id="buscaVaca" list="vacasNomesDatalist" placeholder="Buscar por nome..." oninput="filtrarVacasTabela()" class="input-busca">
+      <datalist id="vacasNomesDatalist"></datalist>
       <button onclick="mostrarSecao('cadastro')" class="btn">Cadastrar Nova Vaca</button>
       <table class="tabela" id="id-tabela-vacas">
         <thead>
@@ -84,11 +76,9 @@ session_start();
       </table>
     </section>
 
-    <!--cadastrando vaca-->
     <section id="cadastro" class="conteudo bloco-pagina">
       <h3>Cadastro de vaca</h3>
       <?php include('../mensagem.php') ?>
-      <!--form de inserir a vaca-->
       <form class="form-padrao" method="POST" action="../../BackEnd/inserir_vaca.php">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca">
@@ -96,10 +86,9 @@ session_start();
       </form>
     </section>
 
-    <!--listas das Produção de leite-->
     <section id="producao" class="conteudo">
       <h3>Lista de Produção de leite</h3>
-      <input type="text" id="buscaProducao" placeholder="Buscar por nome..." onkeyup="filtrarProducao()" class="input-busca">
+      <input type="text" id="buscaProducao" list="vacasNomesDatalist" placeholder="Buscar por nome..." onkeyup="filtrarProducao()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
       <table class="tabela" id="id-tabela-producao">
         <thead>
@@ -117,29 +106,23 @@ session_start();
       </table>
     </section>
 
-    <!--cadastro de quantidade de leite-->
     <section id="cadastro_producao" class="conteudo bloco-pagina">
       <h3>Produção de leite</h3>
       <?php include('../mensagem.php') ?>
-      <!--form de inserir produção de leite-->
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
-        <label for="vaca_producao">Vaca:</label>
-        <select id="vaca_producao" name="id_vaca">
-          <option value="1">Alicate</option>
-          <option value="2">Chuvisco</option>
-          <option value="3">Chichita</option>
-          <option value="4">Muriçoca</option>
-        </select>
-        <label for="data">Data:</label>
-        <input type="date" id="data" name="data">
-        <label for="quantidade">Quantidade (litros):</label>
-        <input type="number" id="quantidade" name="quantidade" step="0.1">
+        <label for="vaca_producao_nome">Vaca:</label>
+        <input type="text" id="vaca_producao_nome" name="vaca_producao_nome" list="vacasNomesDatalist" placeholder="Digite ou selecione a vaca" required>
+        <input type="hidden" id="id_vaca_producao_hidden" name="id_vaca">
+
+        <label for="data_producao">Data:</label>
+        <input type="date" id="data_producao" name="data" required>
+        <label for="quantidade_producao">Quantidade (litros):</label>
+        <input type="number" id="quantidade_producao" name="quantidade" step="0.1" required>
         <button type="submit" class="btn">Cadastrar</button>
       </form>
     </section>
 
 
-    <!--listas dos testes de mastite-->
     <section id="teste_mastite" class="conteudo">
       <h3>Lista de Teste de Mastite</h3>
       <input type="text" id="buscaTeste" placeholder="Buscar por nome..." onkeyup="filtrarTeste()" class="input-busca">
@@ -164,21 +147,16 @@ session_start();
       </table>
     </section>
 
-    <!--cadastro dos testes de mastite-->
     <section id="cadastro_teste" class="conteudo bloco-pagina">
       <h3>Cadastro de Teste de Mastite</h3>
       <?php include('../mensagem.php') ?>
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_teste_mastite.php">
-        <label for="vaca_teste">Vaca:</label>
-        <select id="vaca_teste" name="id_vaca" required>
-          <option value="1">Alicate</option>
-          <option value="2">Chuvisco</option>
-          <option value="3">Chichita</option>
-          <option value="4">Muriçoca</option>
-        </select>
+        <label for="vaca_teste_nome">Vaca:</label>
+        <input type="text" id="vaca_teste_nome" name="vaca_teste_nome" list="vacasNomesDatalist" placeholder="Digite ou selecione a vaca" required>
+        <input type="hidden" id="id_vaca_teste_hidden" name="id_vaca">
 
-        <label for="data">Data do Teste:</label>
-        <input type="date" id="data" name="data" required>
+        <label for="data_teste">Data do Teste:</label>
+        <input type="date" id="data_teste" name="data" required>
 
         <label for="resultado">Resultado:</label>
         <select id="resultado" name="resultado" required>
@@ -218,7 +196,6 @@ session_start();
       </form>
     </section>
 
-    <!--relatorio-->
     <section id="relatorios" class="conteudo bloco-pagina">
     <h3>Envio de Relatórios</h3>
     <form action="../../BackEnd/upload_relatorio.php" method="POST" enctype="multipart/form-data">
@@ -233,6 +210,9 @@ session_start();
   <script src="../script_sair.js"></script>
   <script src="script.js"></script>
   <script>
+    // Objeto global para armazenar o mapeamento de nome para ID
+    let vacaNomesParaIds = {};
+
     // Função para mostrar seções
     function mostrarSecao(secao) {
       // Esconder todas as seções
@@ -244,14 +224,65 @@ session_start();
       document.getElementById(secao).style.display = 'block';
     }
 
-    function filtrarVacas() {
+    // NOVA FUNÇÃO: Carregar os nomes e IDs das vacas para o datalist e mapeamento
+    function carregarNomesVacasDatalist() {
+        const vacasNomesDatalist = document.getElementById('vacasNomesDatalist');
+        vacasNomesDatalist.innerHTML = ''; // Limpa as opções existentes
+        vacaNomesParaIds = {}; // Limpa o mapeamento existente
+
+        // Alterar o endpoint para buscar ID e Nome
+        fetch('../../BackEnd/get_vacas_json_com_id.php') // Novo endpoint PHP que retorna ID e Nome
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os nomes das vacas: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(vacas => {
+                vacas.forEach(vaca => {
+                    const option = document.createElement('option');
+                    option.value = vaca.nome;
+                    vacasNomesDatalist.appendChild(option);
+                    vacaNomesParaIds[vaca.nome] = vaca.id_vaca; // Armazena o mapeamento
+                });
+            })
+            .catch(error => {
+                console.error('Erro na requisição para carregar datalist:', error);
+            });
+    }
+
+    // Funções para lidar com os inputs de datalist nos formulários de cadastro
+    function setupDatalistInput(inputElementId, hiddenInputElementId) {
+        const inputElement = document.getElementById(inputElementId);
+        const hiddenInputElement = document.getElementById(hiddenInputElementId);
+
+        if (inputElement && hiddenInputElement) {
+            inputElement.addEventListener('input', function() {
+                const selectedName = this.value;
+                if (vacaNomesParaIds[selectedName]) {
+                    hiddenInputElement.value = vacaNomesParaIds[selectedName];
+                } else {
+                    hiddenInputElement.value = ''; // Limpa se o nome não for válido
+                }
+            });
+
+            // Limpar o input e hidden ao exibir a seção de cadastro
+            // Isso pode ser ajustado dependendo de como você quer que os formulários se comportem ao serem mostrados
+            inputElement.value = '';
+            hiddenInputElement.value = '';
+        }
+    }
+
+
+    // Função para filtrar a tabela de vacas
+    function filtrarVacasTabela() {
       const input = document.getElementById('buscaVaca');
       const filtro = input.value.toUpperCase();
       const tabela = document.getElementById('id-tabela-vacas');
       const linhas = tabela.getElementsByTagName('tr');
 
-      for (let i = 1; i < linhas.length; i++) {
-        const colunaNome = linhas[i].getElementsByTagName('td')[1];
+      for (let i = 1; i < linhas.length; i++) { // Começa do 1 para pular o cabeçalho
+        const colunaNome = linhas[i].getElementsByTagName('td')[1]; // Coluna do nome
 
         if (colunaNome) {
           const textoNome = colunaNome.textContent || colunaNome.innerText;
@@ -306,6 +337,7 @@ session_start();
             button.onclick = function() {
               editarVaca(button);
             };
+            carregarNomesVacasDatalist(); // CHAMADA ADICIONADA AQUI
           } else {
             alert('Erro ao atualizar: ' + data.message);
             location.reload();
@@ -338,6 +370,7 @@ session_start();
               mensagem.textContent = 'Vaca excluída com sucesso!';
               document.body.appendChild(mensagem);
               setTimeout(() => mensagem.remove(), 3000);
+              carregarNomesVacasDatalist(); // CHAMADA ADICIONADA AQUI
             } else {
               alert('Erro ao excluir: ' + data.message);
             }
@@ -356,7 +389,7 @@ session_start();
       const linhas = tabela.getElementsByTagName('tr');
 
       for (let i = 1; i < linhas.length; i++) {
-        const colunaNome = linhas[i].getElementsByTagName('td')[1];
+        const colunaNome = linhas[i].getElementsByTagName('td')[1]; // Coluna do nome da vaca
 
         if (colunaNome) {
           const texto = colunaNome.textContent || colunaNome.innerText;
@@ -452,7 +485,7 @@ session_start();
       const linhas = tabela.getElementsByTagName('tr');
 
       for (let i = 1; i < linhas.length; i++) {
-        const colunaNome = linhas[i].getElementsByTagName('td')[1];
+        const colunaNome = linhas[i].getElementsByTagName('td')[1]; // Coluna do nome da vaca
 
         if (colunaNome) {
           const texto = colunaNome.textContent || colunaNome.innerText;
@@ -553,6 +586,13 @@ session_start();
       const secaoAlvo = document.getElementById(secao);
       secaoAlvo.style.display = 'block';
 
+      // Se for a seção de cadastro de produção ou teste, configure o datalist
+      if (secao === 'cadastro_producao') {
+        setupDatalistInput('vaca_producao_nome', 'id_vaca_producao_hidden');
+      } else if (secao === 'cadastro_teste') {
+        setupDatalistInput('vaca_teste_nome', 'id_vaca_teste_hidden');
+      }
+
       // Se houver uma mensagem global, move ela para o topo da seção ativa
       const mensagem = document.getElementById('mensagem-global');
       if (mensagem && secaoAlvo) {
@@ -567,16 +607,16 @@ session_start();
       }
     }
 
-    // Garante que a seção correta está visível mesmo se houver atraso no carregamento
+    // Garante que a seção correta está visível e carrega o datalist
     window.onload = function() {
       const params = new URLSearchParams(window.location.search);
       const secao = params.get('secao');
       if (secao) {
         mostrarSecao(secao);
       } else {
-        mostrarSecao('lista');
+        mostrarSecao('lista'); // Default para a lista de vacas
       }
-
+      carregarNomesVacasDatalist(); // CHAMADA ADICIONADA AQUI PARA GARANTIR O CARREGAMENTO INICIAL
     };
   </script>
 </body>
