@@ -20,31 +20,6 @@ function confirmarSaida() {
   return confirm("Deseja realmente sair?");
 }
 
-// --- 3. Função para abrir abas (usada via onclick inline) ---
-function abrirAba(evt, nomeAba) {
-  const secoes = document.querySelectorAll("main .aba-conteudo");
-  const botoes = document.querySelectorAll("nav button.btn"); // Botões que ativam abas
-
-  // Oculta todas as seções
-  secoes.forEach(secao => secao.style.display = "none");
-
-  // Remove classe 'ativo' de todos os botões
-  botoes.forEach(botao => botao.classList.remove("ativo"));
-
-  // Exibe a aba selecionada
-  const abaParaAbrir = document.getElementById(nomeAba);
-  if (abaParaAbrir) {
-    abaParaAbrir.style.display = "block";
-  } else {
-    console.error(`Erro: seção com id '${nomeAba}' não encontrada.`);
-  }
-
-  // Marca o botão clicado como ativo
-  if (evt && evt.currentTarget) {
-    evt.currentTarget.classList.add("ativo");
-  }
-}
-
 // --- 4. Função para abrir formulário de cadastro ---
 function mostrarSecao(secao) {
   document.querySelectorAll('.aba-conteudo, .conteudo').forEach(function(sec) {
@@ -60,7 +35,6 @@ function mostrarSecao(secao) {
     console.error(`Seção ${secao} não encontrada.`);
   }
 }
-
 
 // --- 5. Inicialização ao carregar o DOM ---
 document.addEventListener('DOMContentLoaded', function () {

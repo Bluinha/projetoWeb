@@ -54,7 +54,6 @@ if (empty($token)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redefinir Senha</title>
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style/variaveis.css" />
   <link rel="stylesheet" href="style/login.css" />
 </head>
 <body>
@@ -69,6 +68,7 @@ if (empty($token)) {
       <?php endif; ?>
       <?php if (empty($mensagem) || str_contains($mensagem, 'senhas')): ?>
         <form method="POST">
+           <!--Formulário para renovar senha-->
           <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>" />
           <label for="senha">Nova senha</label>
           <input type="password" id="senha" name="senha" placeholder="Digite sua nova senha" required />

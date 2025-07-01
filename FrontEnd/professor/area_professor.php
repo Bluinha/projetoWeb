@@ -1,6 +1,6 @@
 <?php 
-session_start(); // **CRÍTICO: Adicione esta linha no topo para iniciar a sessão**
-include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usado diretamente aqui para exibir mensagens
+session_start();// Inicia a sessão para acessar variáveis de sessão como nome e email do professor
+include("../../BackEnd/criar_alerta.php"); // Inclui o script responsável por gerar alertas, se necessário
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,6 +53,7 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
     <div class="faixa-decorada"></div>
 
   <main class="painel">
+    <!-- Menu lateral com links que mostram diferentes seções da página quando clicados -->
     <nav class="menu-lateral">
       <h2>Comandos</h2>
       <ul>
@@ -61,7 +62,7 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
         <li><a href="#" onclick="mostrarSecao('relatorios')">Relatórios</a></li>
       </ul>
     </nav>
-
+     <!-- Seção que mostra a lista de alertas -->
         <section id="alertas" class="conteudo">
             <h2>Alertas</h2>
               <table class="tabela" id="conteudo-alertas">
@@ -73,11 +74,14 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
                   </tr>
                 </thead>
                 <tbody>
-                  <?php require('../../BackEnd/listar_alertas.php') ?>
+                  <?php 
+                  require('../../BackEnd/listar_alertas.php') //Lista os alertas do banco 
+                  ?> 
                 </tbody>
               </table>
         </section>
 
+        <!-- Seção que mostra a lista de alunos -->
         <section id="alunos" class="conteudo" style="display:none">
             <h2>Alunos</h2>
             <button onclick="mostrarSecao('cadastro_aluno')" class="btn">Cadastrar Novo Aluno</button>
@@ -91,11 +95,14 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
                         </tr>
                   </thead>
                     <tbody>
-                        <?php require('../../BackEnd/listar_alunos.php') ?>
+                        <?php 
+                        require('../../BackEnd/listar_alunos.php') //Lista os alunos do banco 
+                        ?> 
                     </tbody>
                 </table>
          </section>
-
+        
+         <!-- Seção que cadastra novos alunos -->
          <section id="cadastro_aluno" class="conteudo bloco-pagina">
             <h3>Cadastro de Aluno</h3>
             <?php include('../mensagem.php') ?>
@@ -116,7 +123,7 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
             </form>
          </section>
 
-
+        <!-- Seção que lista os relatórios -->
         <section id="relatorios" class="conteudo">
           <h3>Relatórios Recebidos</h3>
             <table class="tabela" id="id-tabela-vacas">
@@ -129,7 +136,7 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
               </thead>
               <tbody>
                 <?php
-                  require('../../BackEnd/listar_relatorio.php');
+                  require('../../BackEnd/listar_relatorio.php'); //lista todos os relatórios do banco 
                 ?>
               </tbody>
             </table>
