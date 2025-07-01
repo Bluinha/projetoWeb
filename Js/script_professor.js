@@ -9,7 +9,7 @@ if (botaoPerfilProf && menuPerfilProf) {
   });
 
   document.addEventListener('click', function (e) {
-    if (!menuPerfilProf.contains(e.target) && e.target !== botaoPerfilProf) {
+    if (!menuPerfilProf.contains(e.target) && e.target !==  botaoPerfilProf) {
       menuPerfilProf.style.display = 'none';
     }
   });
@@ -67,10 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log("DOM carregado e script_professor.js ativo!");
 
   // Define a aba padrão (primeiro botão)
-  const primeiroBotao = document.querySelector('nav button.btn');
-  if (primeiroBotao) {
-    primeiroBotao.click();
-  }
+  mostrarSecao('alertas');
 
   // Botão sair
   const btnSairProf = document.querySelector('button[title="Sair"]');

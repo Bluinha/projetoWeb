@@ -119,7 +119,6 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
 
         <section id="relatorios" class="conteudo">
           <h3>Relatórios Recebidos</h3>
-            <input type="text" id="buscaRelatorios" placeholder="Buscar por nome..." onkeyup="filtrarVacas()" class="input-busca">
             <table class="tabela" id="id-tabela-vacas">
               <thead>
                 <tr>
