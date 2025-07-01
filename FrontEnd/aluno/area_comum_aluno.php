@@ -56,10 +56,11 @@ include("../../BackEnd/gerar_alertas.php");
     <section id="lista" class="conteudo">
       <?php if (isset($_SESSION['mensagem'])): ?>
         <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
-      <?php unset($_SESSION['mensagem']);
+        <?php unset($_SESSION['mensagem']);
       endif; ?>
       <h3>Lista de vacas</h3>
-      <input type="text" id="buscaVaca" list="vacasNomesDatalist" placeholder="Buscar por nome..." oninput="filtrarVacasTabela()" class="input-busca">
+      <input type="text" id="buscaVaca" list="vacasNomesDatalist" placeholder="Buscar por nome..."
+        oninput="filtrarVacasTabela()" class="input-busca">
       <datalist id="vacasNomesDatalist"></datalist>
       <button onclick="mostrarSecao('cadastro')" class="btn">Cadastrar Nova Vaca</button>
       <table class="tabela" id="id-tabela-vacas">
@@ -82,14 +83,15 @@ include("../../BackEnd/gerar_alertas.php");
       <?php include('../mensagem.php') ?>
       <form class="form-padrao" method="POST" action="../../BackEnd/inserir_vaca.php">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca">
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca" required>
         <button type="submit" class="btn">Cadastrar</button>
       </form>
     </section>
 
     <section id="producao" class="conteudo">
       <h3>Lista de Produção de leite</h3>
-      <input type="text" id="buscaProducao" list="vacasNomesDatalist" placeholder="Buscar por nome..." onkeyup="filtrarProducao()" class="input-busca">
+      <input type="text" id="buscaProducao" list="vacasNomesDatalist" placeholder="Buscar por nome..."
+        onkeyup="filtrarProducao()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
       <table class="tabela" id="id-tabela-producao">
         <thead>
@@ -112,7 +114,8 @@ include("../../BackEnd/gerar_alertas.php");
       <?php include('../mensagem.php') ?>
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
         <label for="vaca_producao_nome">Vaca:</label>
-        <input type="text" id="vaca_producao_nome" name="vaca_producao_nome" list="vacasNomesDatalist" placeholder="Digite ou selecione a vaca" required>
+        <input type="text" id="vaca_producao_nome" name="vaca_producao_nome" list="vacasNomesDatalist"
+          placeholder="Digite ou selecione a vaca" required>
         <input type="hidden" id="id_vaca_producao_hidden" name="id_vaca">
 
         <label for="data_producao">Data:</label>
@@ -126,7 +129,7 @@ include("../../BackEnd/gerar_alertas.php");
 
     <section id="teste_mastite" class="conteudo">
       <h3>Lista de Teste de Mastite</h3>
-      <input type="text" id="buscaTeste" placeholder="Buscar por nome..." onkeyup="filtrarTeste()" class="input-busca">
+      <input type="text" id="buscaTeste" list="vacasNomesDatalist" placeholder="Buscar por nome..." onkeyup="filtrarTeste()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_teste')" class="btn">Cadastrar Teste de Mastite</button>
       <table class="tabela" id="id-tabela-teste">
         <thead>
@@ -153,7 +156,8 @@ include("../../BackEnd/gerar_alertas.php");
       <?php include('../mensagem.php') ?>
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_teste_mastite.php">
         <label for="vaca_teste_nome">Vaca:</label>
-        <input type="text" id="vaca_teste_nome" name="vaca_teste_nome" list="vacasNomesDatalist" placeholder="Digite ou selecione a vaca" required>
+        <input type="text" id="vaca_teste_nome" name="vaca_teste_nome" list="vacasNomesDatalist"
+          placeholder="Digite ou selecione a vaca" required>
         <input type="hidden" id="id_vaca_teste_hidden" name="id_vaca">
 
         <label for="data_teste">Data do Teste:</label>
@@ -198,12 +202,12 @@ include("../../BackEnd/gerar_alertas.php");
     </section>
 
     <section id="relatorios" class="conteudo bloco-pagina">
-    <h3>Envio de Relatórios</h3>
-    <form action="../../BackEnd/upload_relatorio.php" method="POST" enctype="multipart/form-data">
+      <h3>Envio de Relatórios</h3>
+      <form action="../../BackEnd/upload_relatorio.php" method="POST" enctype="multipart/form-data">
         <label for="arquivo_relatorio">Selecione o arquivo do relatório:</label>
         <input type="file" name="arquivo" id="arquivo_relatorio" required>
         <button type="submit" class="btn">Enviar Relatório</button>
-    </form>
+      </form>
     </section>
 
 
@@ -217,7 +221,7 @@ include("../../BackEnd/gerar_alertas.php");
     // Função para mostrar seções
     function mostrarSecao(secao) {
       // Esconder todas as seções
-      document.querySelectorAll('.conteudo').forEach(function(sec) {
+      document.querySelectorAll('.conteudo').forEach(function (sec) {
         sec.style.display = 'none';
       });
 
@@ -227,51 +231,51 @@ include("../../BackEnd/gerar_alertas.php");
 
     // NOVA FUNÇÃO: Carregar os nomes e IDs das vacas para o datalist e mapeamento
     function carregarNomesVacasDatalist() {
-        const vacasNomesDatalist = document.getElementById('vacasNomesDatalist');
-        vacasNomesDatalist.innerHTML = ''; // Limpa as opções existentes
-        vacaNomesParaIds = {}; // Limpa o mapeamento existente
+      const vacasNomesDatalist = document.getElementById('vacasNomesDatalist');
+      vacasNomesDatalist.innerHTML = ''; // Limpa as opções existentes
+      vacaNomesParaIds = {}; // Limpa o mapeamento existente
 
-        // Alterar o endpoint para buscar ID e Nome
-        fetch('../../BackEnd/get_vacas_json_com_id.php') // Novo endpoint PHP que retorna ID e Nome
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os nomes das vacas: ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(vacas => {
-                vacas.forEach(vaca => {
-                    const option = document.createElement('option');
-                    option.value = vaca.nome;
-                    vacasNomesDatalist.appendChild(option);
-                    vacaNomesParaIds[vaca.nome] = vaca.id_vaca; // Armazena o mapeamento
-                });
-            })
-            .catch(error => {
-                console.error('Erro na requisição para carregar datalist:', error);
-            });
+      // Alterar o endpoint para buscar ID e Nome
+      fetch('../../BackEnd/get_vacas_json_com_id.php') // Novo endpoint PHP que retorna ID e Nome
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro ao carregar os nomes das vacas: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(vacas => {
+          vacas.forEach(vaca => {
+            const option = document.createElement('option');
+            option.value = vaca.nome;
+            vacasNomesDatalist.appendChild(option);
+            vacaNomesParaIds[vaca.nome] = vaca.id_vaca; // Armazena o mapeamento
+          });
+        })
+        .catch(error => {
+          console.error('Erro na requisição para carregar datalist:', error);
+        });
     }
 
     // Funções para lidar com os inputs de datalist nos formulários de cadastro
     function setupDatalistInput(inputElementId, hiddenInputElementId) {
-        const inputElement = document.getElementById(inputElementId);
-        const hiddenInputElement = document.getElementById(hiddenInputElementId);
+      const inputElement = document.getElementById(inputElementId);
+      const hiddenInputElement = document.getElementById(hiddenInputElementId);
 
-        if (inputElement && hiddenInputElement) {
-            inputElement.addEventListener('input', function() {
-                const selectedName = this.value;
-                if (vacaNomesParaIds[selectedName]) {
-                    hiddenInputElement.value = vacaNomesParaIds[selectedName];
-                } else {
-                    hiddenInputElement.value = ''; // Limpa se o nome não for válido
-                }
-            });
+      if (inputElement && hiddenInputElement) {
+        inputElement.addEventListener('input', function () {
+          const selectedName = this.value;
+          if (vacaNomesParaIds[selectedName]) {
+            hiddenInputElement.value = vacaNomesParaIds[selectedName];
+          } else {
+            hiddenInputElement.value = ''; // Limpa se o nome não for válido
+          }
+        });
 
-            // Limpar o input e hidden ao exibir a seção de cadastro
-            // Isso pode ser ajustado dependendo de como você quer que os formulários se comportem ao serem mostrados
-            inputElement.value = '';
-            hiddenInputElement.value = '';
-        }
+        // Limpar o input e hidden ao exibir a seção de cadastro
+        // Isso pode ser ajustado dependendo de como você quer que os formulários se comportem ao serem mostrados
+        inputElement.value = '';
+        hiddenInputElement.value = '';
+      }
     }
 
 
@@ -315,19 +319,19 @@ include("../../BackEnd/gerar_alertas.php");
       button.textContent = 'Salvar';
       button.classList.remove('btn-editar');
       button.classList.add('btn-salvar');
-      button.onclick = function() {
+      button.onclick = function () {
         salvarEdicaoVaca(id, input.value, nomeCell, button);
       };
     }
 
     function salvarEdicaoVaca(id, novoNome, nomeCell, button) {
       fetch('../../BackEnd/atualizar_vaca.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `id_vaca=${id}&novo_nome=${encodeURIComponent(novoNome)}`
-        })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `id_vaca=${id}&novo_nome=${encodeURIComponent(novoNome)}`
+      })
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -335,7 +339,7 @@ include("../../BackEnd/gerar_alertas.php");
             button.textContent = 'Editar';
             button.classList.remove('btn-salvar');
             button.classList.add('btn-editar');
-            button.onclick = function() {
+            button.onclick = function () {
               editarVaca(button);
             };
             carregarNomesVacasDatalist(); // CHAMADA ADICIONADA AQUI
@@ -356,12 +360,12 @@ include("../../BackEnd/gerar_alertas.php");
         const row = button.closest('tr');
 
         fetch('../../BackEnd/deletar_vaca.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `id_vaca=${id}`
-          })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `id_vaca=${id}`
+        })
           .then(response => response.json())
           .then(data => {
             if (data.success) {
@@ -420,7 +424,7 @@ include("../../BackEnd/gerar_alertas.php");
       button.textContent = 'Salvar';
       button.classList.remove('btn-editar');
       button.classList.add('btn-salvar');
-      button.onclick = function() {
+      button.onclick = function () {
         const novaQtd = quantidadeCell.querySelector('input').value;
         const novaData = dataCell.querySelector('input').value;
         salvarEdicaoProducao(id, novaQtd, novaData, row, button);
@@ -431,12 +435,12 @@ include("../../BackEnd/gerar_alertas.php");
       const idVaca = row.getAttribute('data-id-vaca'); // pegar id da vaca da linha
 
       fetch('../../BackEnd/atualizar_producao_leite.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `id_producao=${id}&id_vaca=${idVaca}&quantidade=${encodeURIComponent(novaQtd)}&data=${encodeURIComponent(novaData)}`
-        })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `id_producao=${id}&id_vaca=${idVaca}&quantidade=${encodeURIComponent(novaQtd)}&data=${encodeURIComponent(novaData)}`
+      })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
@@ -445,7 +449,7 @@ include("../../BackEnd/gerar_alertas.php");
             button.textContent = 'Editar';
             button.classList.remove('btn-salvar');
             button.classList.add('btn-editar');
-            button.onclick = function() {
+            button.onclick = function () {
               editarProducao(button);
             };
           } else {
@@ -461,21 +465,39 @@ include("../../BackEnd/gerar_alertas.php");
     function excluirProducao(id, button) {
       if (confirm('Tem certeza que deseja excluir essa produção?')) {
         const row = button.closest('tr');
+        if (!row) {
+          alert('Erro: não foi possível encontrar a linha da produção para excluir.');
+          return;
+        }
+
         fetch('../../BackEnd/excluir_producao_leite.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `id_producao=${id}`
-          })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `id_producao=${id}`
+        })
           .then(res => res.json())
           .then(data => {
             console.log(data);
             if (data.success) {
               row.remove();
+
+              // Mostra uma mensagem de sucesso, igual na exclusão de vaca
+              const mensagem = document.createElement('div');
+              mensagem.className = 'mensagem-sucesso'; // Use uma classe de CSS para estilizar
+              mensagem.textContent = 'Produção excluída com sucesso!';
+              document.body.appendChild(mensagem);
+              setTimeout(() => mensagem.remove(), 3000); // Remove a mensagem após 3 segundos
+
             } else {
-              alert('Erro ao excluir: ' + data.message);
+              // Exibe a mensagem de erro vinda do PHP
+              alert('Erro ao excluir: ' + (data.message || 'Ocorreu um erro desconhecido.'));
             }
+          })
+          .catch(error => {
+            console.error('Erro na requisição:', error);
+            alert('Erro ao conectar com o servidor para excluir a produção.');
           });
       }
     }
@@ -601,12 +623,12 @@ include("../../BackEnd/gerar_alertas.php");
       if (confirm('Tem certeza que deseja excluir este teste?')) {
         const row = button.closest('tr');
         fetch('../../BackEnd/excluir_teste_mastite.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `id_teste=${id}`
-          })
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `id_teste=${id}`
+        })
           .then(res => res.json())
           .then(data => {
             if (data.success) {
@@ -620,7 +642,7 @@ include("../../BackEnd/gerar_alertas.php");
 
     function mostrarSecao(secao) {
       // Esconde todas as seções
-      document.querySelectorAll('.conteudo').forEach(function(sec) {
+      document.querySelectorAll('.conteudo').forEach(function (sec) {
         sec.style.display = 'none';
       });
 
@@ -650,7 +672,7 @@ include("../../BackEnd/gerar_alertas.php");
     }
 
     // Garante que a seção correta está visível e carrega o datalist
-    window.onload = function() {
+    window.onload = function () {
       const params = new URLSearchParams(window.location.search);
       const secao = params.get('secao');
       if (secao) {
