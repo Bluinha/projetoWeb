@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2025 às 22:51
+-- Tempo de geração: 30/06/2025 às 21:52
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -169,7 +169,13 @@ INSERT INTO `historico_vacas` (`id_historico`, `id_vaca`, `data`, `producao_leit
 (112, 3, '2025-06-26', NULL, 'negativo', '', '', NULL),
 (113, NULL, '2025-06-26', NULL, NULL, NULL, 'Vaca \"vaca654\" cadastrada com descarte = 0', 'Inserção'),
 (114, 3, '2025-06-26', 19.00, NULL, NULL, NULL, NULL),
-(115, 4, '2025-06-26', NULL, 'negativo', '', '', NULL);
+(115, 4, '2025-06-26', NULL, 'negativo', '', '', NULL),
+(116, NULL, '2025-06-30', NULL, NULL, NULL, 'Vaca \"vaca45566\" cadastrada com descarte = 0', 'Inserção'),
+(117, 24, '2025-06-30', NULL, NULL, NULL, 'Vaca \"vaca666\" cadastrada com descarte = 0', 'Inserção'),
+(118, NULL, '2025-06-30', NULL, NULL, NULL, 'Vaca \"\" cadastrada com descarte = 0', 'Inserção'),
+(119, 2, '2025-06-30', 16.00, NULL, NULL, NULL, NULL),
+(120, 6, '2025-06-30', 30.00, NULL, NULL, NULL, NULL),
+(121, 6, '2025-06-30', NULL, 'positivo', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -225,13 +231,11 @@ INSERT INTO `producao_leite` (`id_producao`, `id_vaca`, `quantidade`, `data`) VA
 (34, 1, 14.00, '2025-06-25'),
 (35, 1, 20.00, '2025-06-23'),
 (36, 1, 17.00, '2025-05-26'),
-(37, 2, 30.00, '2025-06-26'),
 (38, 2, 2.00, '2025-06-26'),
 (39, 2, 4.00, '2025-06-26'),
 (40, 2, 7.00, '2025-06-26'),
 (41, 2, 24.00, '2025-06-26'),
 (42, 2, 24.00, '2025-06-26'),
-(43, 1, 14.00, '2025-06-26'),
 (44, 2, 12.00, '2025-06-26'),
 (45, 4, 16.00, '2025-06-26'),
 (49, 3, 25.00, '2025-06-26'),
@@ -241,7 +245,6 @@ INSERT INTO `producao_leite` (`id_producao`, `id_vaca`, `quantidade`, `data`) VA
 (53, 2, 23.00, '2025-06-26'),
 (55, 2, 12.00, '2025-06-26'),
 (56, 3, 17.00, '2025-06-26'),
-(57, 1, 15.00, '2025-06-26'),
 (58, 2, 24.00, '2025-06-26'),
 (59, 3, 17.00, '2025-06-26'),
 (60, 3, 16.00, '2025-06-26'),
@@ -282,7 +285,8 @@ INSERT INTO `recuperacao_senha` (`id_recuperação`, `id_usuario`, `token`, `dat
 (2, 3, '3a95fcebece9e4a1a487d93806f28911', '2025-06-26 21:42:20', 0),
 (3, 3, '9714486c9ce85a51faf7aa2ec20445ed', '2025-06-26 21:46:14', 0),
 (4, 3, '02a935d9705117f7ede561e931f1759c', '2025-06-26 21:56:23', 0),
-(5, 3, '42fe111165d88854e050d8702b5f7ad5', '2025-06-26 22:09:15', 0);
+(5, 3, '42fe111165d88854e050d8702b5f7ad5', '2025-06-26 22:09:15', 0),
+(6, 3, 'e10a777fced9c041b0bf7d116f80b226', '2025-06-30 20:50:50', 0);
 
 -- --------------------------------------------------------
 
@@ -292,10 +296,18 @@ INSERT INTO `recuperacao_senha` (`id_recuperação`, `id_usuario`, `token`, `dat
 
 CREATE TABLE `relatorios` (
   `id_relatorio` int(11) NOT NULL,
+  `id_aluno` int(11) NOT NULL,
   `nome_arquivo` varchar(255) NOT NULL,
   `caminho_arquivo` varchar(255) NOT NULL,
   `data_upload` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `relatorios`
+--
+
+INSERT INTO `relatorios` (`id_relatorio`, `id_aluno`, `nome_arquivo`, `caminho_arquivo`, `data_upload`) VALUES
+(1, 1, 'Questionário.pdf', 'Questionário_6862e8ce1963d.pdf', '2025-06-30 16:43:10');
 
 -- --------------------------------------------------------
 
@@ -348,10 +360,9 @@ INSERT INTO `teste_mastite` (`id_teste`, `id_vaca`, `data`, `resultado`, `quanta
 (27, 6, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
 (28, 7, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
 (29, 1, '2025-06-25', 'positivo', 2, 'D.D, T.E', '', ''),
-(33, 2, '2025-06-26', 'positivo', 1, 'D.D', '', ''),
-(34, 2, '2025-06-26', 'negativo', 0, '', '', ''),
 (35, 2, '2025-06-26', 'negativo', 0, '', '', ''),
-(36, 3, '2025-06-26', 'negativo', 0, '', '', '');
+(36, 3, '2025-06-26', 'negativo', 0, '', '', ''),
+(38, 6, '2025-06-30', 'positivo', 2, '', '', '');
 
 --
 -- Acionadores `teste_mastite`
@@ -386,7 +397,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nome`, `email`, `senha`, `tipo_usuario`) 
 (1, 'Cecília Helena', 'chsna@discente.ifpe.edu.br', '$2y$10$mVTmG2AISbQogZzbUjGRdO9Kh0j6P9NLTnja1xdZ6Iz37GfKw/4yq', 'aluno'),
 (2, 'Isabela de França', 'ifl1@discente.ifpe.edu.br', '$2y$10$rkHPA4T1wncPzKEQlGBOneNENEJqyrmBEI03UUoZomR91NERHcH4.', 'aluno'),
 (3, 'Vitória Melo', 'mvms4@discente.ifpe.edu.br', '$2y$10$WVPO7UaXCczfAODdvCt8m.i.OiylHGabbSHAYqzDXtYcLSaafw1mO', 'professor'),
-(4, 'Alexia Alves', 'ajdsa@discente.ifpe.edu.br', '$2y$10$NimEkKa5fliewp/OpZcgPeSjQUAAjh/o/fYZGLPZV8C85EyggCDCS', 'aluno');
+(4, 'Alexia Alves', 'ajdsa@discente.ifpe.edu.br', '$2y$10$NimEkKa5fliewp/OpZcgPeSjQUAAjh/o/fYZGLPZV8C85EyggCDCS', 'aluno'),
+(5, 'betania', 'betania@gmail.com', '$2y$10$k4kG1MSRuajOLyYdJ50szukQgRKnjzG.VOQX65b2eY/jEJDHUgP1G', 'aluno');
 
 -- --------------------------------------------------------
 
@@ -417,7 +429,8 @@ INSERT INTO `vacas` (`id_vaca`, `nome`, `descarte`) VALUES
 (13, 'vaquinha2', 0),
 (14, 'vaca007', 0),
 (15, 'vaca55', 0),
-(16, 'vacaquinha33', 0);
+(16, 'vacaquinha55', 0),
+(24, 'vaca666', 0);
 
 --
 -- Acionadores `vacas`
@@ -466,7 +479,8 @@ ALTER TABLE `recuperacao_senha`
 -- Índices de tabela `relatorios`
 --
 ALTER TABLE `relatorios`
-  ADD PRIMARY KEY (`id_relatorio`);
+  ADD PRIMARY KEY (`id_relatorio`),
+  ADD KEY `fk_relatorios_id_aluno` (`id_aluno`);
 
 --
 -- Índices de tabela `teste_mastite`
@@ -502,43 +516,43 @@ ALTER TABLE `alertas`
 -- AUTO_INCREMENT de tabela `historico_vacas`
 --
 ALTER TABLE `historico_vacas`
-  MODIFY `id_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id_historico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT de tabela `producao_leite`
 --
 ALTER TABLE `producao_leite`
-  MODIFY `id_producao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_producao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de tabela `recuperacao_senha`
 --
 ALTER TABLE `recuperacao_senha`
-  MODIFY `id_recuperação` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_recuperação` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `relatorios`
 --
 ALTER TABLE `relatorios`
-  MODIFY `id_relatorio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_relatorio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `teste_mastite`
 --
 ALTER TABLE `teste_mastite`
-  MODIFY `id_teste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_teste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `vacas`
 --
 ALTER TABLE `vacas`
-  MODIFY `id_vaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_vaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restrições para tabelas despejadas
@@ -567,6 +581,12 @@ ALTER TABLE `producao_leite`
 --
 ALTER TABLE `recuperacao_senha`
   ADD CONSTRAINT `recuperacao_senha_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
+
+--
+-- Restrições para tabelas `relatorios`
+--
+ALTER TABLE `relatorios`
+  ADD CONSTRAINT `fk_relatorios_id_aluno` FOREIGN KEY (`id_aluno`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Restrições para tabelas `teste_mastite`

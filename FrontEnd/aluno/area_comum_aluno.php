@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../../BackEnd/gerar_alertas.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -167,7 +168,7 @@ session_start();
         <label for="cruzes">Quantidade de Cruzes:</label>
         <input type="number" id="cruzes" name="quantas_cruzes" min="0" max="4" required>
 
-        <fieldset class="grupo-uberes">
+        <fieldset class="uberes-teste">
           <legend>Úbere Afetado:</legend>
           <label class="opcao-ubre">
             <input type="checkbox" name="ubere[]" value="D.E">
@@ -469,6 +470,7 @@ session_start();
           })
           .then(res => res.json())
           .then(data => {
+            console.log(data);
             if (data.success) {
               row.remove();
             } else {
@@ -502,58 +504,98 @@ session_start();
     function editarTeste(button) {
       const row = button.closest('tr');
       const id = row.getAttribute('data-id');
+
       const resultadoCell = row.querySelector('.resultado-teste');
       const cruzesCell = row.querySelector('.cruzes-teste');
+      const ubersCell = row.querySelector('.uberes-teste');
       const tratamentoCell = row.querySelector('.tratamento-teste');
+      const observacoesCell = row.querySelector('.observacoes-teste');
 
       const resultadoAtual = resultadoCell.textContent.trim() === 'Positivo' ? 1 : 0;
       const cruzesAtual = cruzesCell.textContent.trim();
       const tratamentoAtual = tratamentoCell.textContent.trim();
+      const observacoesAtual = observacoesCell.textContent.trim();
+      const ubersAtuais = ubersCell.textContent.split(',').map(u => u.trim());
 
       resultadoCell.innerHTML = `
         <select class="input-edicao">
             <option value="1" ${resultadoAtual == 1 ? 'selected' : ''}>Positivo</option>
             <option value="0" ${resultadoAtual == 0 ? 'selected' : ''}>Negativo</option>
         </select>`;
+
       cruzesCell.innerHTML = `<input type="number" class="input-edicao" value="${cruzesAtual}" min="0" max="4">`;
+
+      // UBERES CHECKBOXES
+      const todasUbers = ['D.E', 'D.D', 'T.E', 'T.D'];
+      ubersCell.innerHTML = todasUbers.map(ubere => {
+        const checked = ubersAtuais.includes(ubere) ? 'checked' : '';
+        return `
+          <label style="margin-right: 8px;">
+            <input type="checkbox" value="${ubere}" class="checkbox-ubere" ${checked}>
+            ${ubere}
+          </label>`;
+      }).join('');
+
       tratamentoCell.innerHTML = `<input type="text" class="input-edicao" value="${tratamentoAtual}">`;
+      observacoesCell.innerHTML = `<textarea class="input-edicao" rows="3">${observacoesAtual}</textarea>`;
 
       button.textContent = 'Salvar';
       button.classList.remove('btn-editar');
       button.classList.add('btn-salvar');
-      button.onclick = function() {
+      button.onclick = function () {
         const novoResultado = resultadoCell.querySelector('select').value;
         const novasCruzes = cruzesCell.querySelector('input').value;
         const novoTratamento = tratamentoCell.querySelector('input').value;
-        salvarEdicaoTeste(id, novoResultado, novasCruzes, novoTratamento, row, button);
+        const novasObservacoes = observacoesCell.querySelector('textarea').value;
+
+        const checkboxes = ubersCell.querySelectorAll('.checkbox-ubere');
+        const novasUbers = Array.from(checkboxes)
+          .filter(c => c.checked)
+          .map(c => c.value)
+
+        salvarEdicaoTeste(id, novoResultado, novasCruzes, novasUbers, novoTratamento, novasObservacoes, row, button);
       };
     }
 
-    function salvarEdicaoTeste(id, resultado, cruzes, tratamento, row, button) {
+    function salvarEdicaoTeste(id, resultado, cruzes, ubersArrayParam, tratamento, observacoes, row, button) {
+      const ubereFormatado = ubersArrayParam.join(', ');
       fetch('../../BackEnd/atualizar_teste_mastite.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `id_teste=${id}&resultado=${resultado}&quantas_cruzes=${cruzes}&tratamento=${encodeURIComponent(tratamento)}`
-        })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        // Monta o body da requisição com todos os parâmetros que o PHP espera
+        body: `id_teste=${id}&resultado=${resultado}&quantas_cruzes=${cruzes}&tratamento=${encodeURIComponent(tratamento)}&observacoes=${encodeURIComponent(observacoes)}&ubere=${encodeURIComponent(ubereFormatado)}`
+      })
         .then(res => res.json())
         .then(data => {
-          if (data.success) {
-            row.querySelector('.resultado-teste').textContent = resultado == 1 ? 'Positivo' : 'Negativo';
-            row.querySelector('.cruzes-teste').textContent = cruzes;
-            row.querySelector('.tratamento-teste').textContent = tratamento;
-            button.textContent = 'Editar';
-            button.classList.remove('btn-salvar');
-            button.classList.add('btn-editar');
-            button.onclick = function() {
-              editarTeste(button);
-            };
-          } else {
-            alert('Erro ao atualizar: ' + data.message);
-          }
-        });
+        console.log(data); // Sempre bom para depurar a resposta do backend
+        if (data.success) {
+          // Atualiza as células da tabela com os novos valores
+          row.querySelector('.resultado-teste').textContent = resultado == 1 ? 'Positivo' : 'Negativo';
+          row.querySelector('.cruzes-teste').textContent = cruzes;
+          row.querySelector('.tratamento-teste').textContent = tratamento;
+          row.querySelector('.observacoes-teste').textContent = observacoes;
+          row.querySelector('.uberes-teste').textContent = ubereFormatado; // Atualiza o texto dos úberes na tabela
+
+          // Volta o botão para o estado "Editar"
+          button.textContent = 'Editar';
+          button.classList.remove('btn-salvar');
+          button.classList.add('btn-editar');
+          button.onclick = function () {
+            editarTeste(button);
+          };
+        } else {
+          alert('Erro ao atualizar: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Erro na requisição:', error);
+        alert('Erro na requisição: ' + error);
+      });
     }
+
+
 
     function excluirTeste(id, button) {
       if (confirm('Tem certeza que deseja excluir este teste?')) {

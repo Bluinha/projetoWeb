@@ -12,7 +12,7 @@ try {
         echo "<td>" . htmlspecialchars($producao['id_producao']) . "</td>";
         echo "<td>" . htmlspecialchars($producao['nome_vaca']) . " (ID: " . htmlspecialchars($producao['id_vaca']) . ")</td>";
         echo "<td class=\"quantidade-producao\">" . htmlspecialchars($producao['quantidade']) . " L</td>";
-        echo "<td class=\"data-producao\">" . htmlspecialchars($producao['data']) . "</td>";
+        echo "<td class=\"data-producao\">" . date("d/m/Y", strtotime($producao['data'])) . "</td>";
         echo "<td>";
         echo "<button onclick=\"editarProducao(this)\" class=\"btn-editar\">Editar</button>";
         echo "<button onclick=\"excluirProducao({$producao['id_producao']}, this)\" class=\"btn-excluir\">Excluir</button>";
