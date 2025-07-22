@@ -4,7 +4,7 @@ require('conexao.php');
 $usuarios = $banco->query("SELECT id_usuario, senha FROM usuarios")->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($usuarios as $user) {
-    // Só atualizar se a senha não for um hash (exemplo simples: verifica o tamanho)
+    // Só atualizar se a senha não for um hash 
     if (strlen($user['senha']) < 60) { 
         $novaHash = password_hash($user['senha'], PASSWORD_DEFAULT);
 

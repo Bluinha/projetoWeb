@@ -1,7 +1,4 @@
 <?php
-// Este arquivo DEVE conter APENAS a definição da função criar_alerta().
-// NENHUMA outra lógica de execução de código deve estar aqui.
-
 /**
  * Define uma mensagem de alerta na sessão para ser exibida posteriormente.
  * @param string $mensagem A mensagem a ser exibida.
@@ -15,6 +12,4 @@ function criar_alerta($mensagem, $tipo = 'info') {
     $_SESSION['mensagem'] = $mensagem;
     $_SESSION['mensagem_tipo'] = $tipo; // Armazena o tipo para estilização
 }
-
-// FIM do arquivo. Não coloque mais nada executável aqui.
 ?>

@@ -3,7 +3,6 @@ session_start();
 include __DIR__ . "/criar_alerta.php";
 require_once __DIR__ . "/conexao.php"; // Este arquivo define $banco
 
-// Todas as variáveis que dependem de $_FILES DEVEM ser definidas DENTRO deste bloco IF.
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['arquivo'])) {
     // 1. Definição do diretório de upload
     $uploadDir = __DIR__ . '../../uploads/';
@@ -60,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['arquivo'])) {
     // 5. Gerar um nome de arquivo único e definir o caminho completo para salvar
     $originalFileNameWithoutExt = pathinfo($fileName, PATHINFO_FILENAME);
     $uniqueFileName = uniqid($originalFileNameWithoutExt . '_') . '.' . $fileType;
-    $uploadFilePath = $uploadDir . $uniqueFileName; // DEFINIÇÃO AGORA DENTRO DO IF
+    $uploadFilePath = $uploadDir . $uniqueFileName;
 
     // 6. Tentar mover o arquivo enviado para o destino final
     if (move_uploaded_file($fileTmpName, $uploadFilePath)) {
@@ -69,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['arquivo'])) {
         // 7. Lógica para SALVAR INFORMAÇÕES no Banco de Dados
         if (isset($banco) && isset($_SESSION['id_usuario'])) {
             try {
-                // Adapte para o NOME REAL DA SUA TABELA e COLUNAS se necessário
                 $stmt = $banco->prepare("INSERT INTO relatorios (id_aluno, nome_arquivo, caminho_arquivo, data_upload) VALUES (:id_aluno, :nome_original, :nome_salvo, NOW())");
                 $stmt->bindValue(':id_aluno', $_SESSION['id_usuario'], PDO::PARAM_INT);
                 $stmt->bindValue(':nome_original', $fileName, PDO::PARAM_STR);

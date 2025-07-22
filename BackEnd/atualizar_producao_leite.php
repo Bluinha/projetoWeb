@@ -3,10 +3,12 @@ require("conexao.php");
 header('Content-Type: application/json');
 
 if (isset($_POST['id_producao'], $_POST['id_vaca'], $_POST['quantidade'], $_POST['data'])) {
+    //Delcarando variaveis
     $id_producao = $_POST['id_producao'];
     $id_vaca = $_POST['id_vaca'];
     $quantidade = $_POST['quantidade'];
     $data = $_POST['data'];
+
 
     try {
         $stmt = $banco->prepare("UPDATE producao_leite SET id_vaca = :id_vaca, quantidade = :quantidade, data = :data WHERE id_producao = :id_producao");

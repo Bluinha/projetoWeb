@@ -1,11 +1,12 @@
 <?php
-require("conexao.php");
+require("conexao.php"); // falha se não houver conexao com o banco de dados
 
 try {
-    $stmt = $banco->query("SELECT * FROM vacas");
-    $vacas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $banco->query("SELECT * FROM vacas"); //realiza um select para carregar todas as vacas do banco de dados
+    $vacas = $stmt->fetchAll(PDO::FETCH_ASSOC); //carrega os animais em um array associativo
 
-    if (count($vacas) > 0) {
+    //tabela de vacas
+    if (count($vacas) > 0) {//verifica se há vacas para listar
         foreach ($vacas as $vaca) {
             echo "<tr data-id='{$vaca['id_vaca']}'>";
             echo "<td>{$vaca['id_vaca']}</td>";

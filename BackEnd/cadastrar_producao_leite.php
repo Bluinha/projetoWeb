@@ -1,28 +1,27 @@
 <?php
-session_start(); 
-include('conexao.php'); 
+require("conexao.php");
+header('Content-Type: application/json');
 
-if (isset($_POST['id_vaca'], $_POST['quantidade'], $_POST['data'])) {
-    // Captura os dados do formulário
-    $id_vaca = $_POST['id_vaca'];
-    $quantidade = $_POST['quantidade'];
-    $data = $_POST['data'];
+//definindo variaveis e caso não as encontre defina null por padrao
+$id_vaca = $_POST['id_vaca'] ?? null;
+$novo_nome = $_POST['novo_nome'] ?? null;
 
-   
-    $stmt = $banco->prepare("INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (:id_vaca, :quantidade, :data)");
+// verifica se os dados foram enviados
+if (!$id_vaca || !$novo_nome) {
+    echo json_encode(['success' => false, 'message' => 'Dados incompletos']);
+    exit;
+}
 
-    $stmt->bindValue(':id_vaca', $id_vaca, PDO::PARAM_INT);
-    $stmt->bindValue(':quantidade', $quantidade); 
-    $stmt->bindValue(':data', $data);
-
-    if ($stmt->execute()) {
-        $_SESSION['mensagem'] = "Produção de leite adicionada com Sucesso!";
-        header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro_producao");
-        exit; 
-    } else {
-        $_SESSION['mensagem'] = "Erro ao adicionar Produção de Leite!";
-        header("Location:../FrontEnd/aluno/area_comum_aluno.php?secao=cadastro_producao");
-        exit; 
-    }
+try {
+    // Atualiza o nome da vaca no banco
+    $stmt = $banco->prepare("UPDATE vacas SET nome = :nome WHERE id_vaca = :id");
+    $stmt->bindParam(':nome', $novo_nome);
+    $stmt->bindParam(':id', $id_vaca);
+    $stmt->execute();
+    
+    echo json_encode(['success' => true]);
+} catch (PDOException $e) {
+    // Retorna erro do banco
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
 ?>

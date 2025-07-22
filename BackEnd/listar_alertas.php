@@ -8,10 +8,12 @@ $sql = "
     INNER JOIN vacas v ON a.id_vaca = v.id_vaca
     ORDER BY a.id_alerta DESC
 ";
-$stmt = $banco->query($sql);
-$alertas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$stmt = $banco->query($sql); // Executa a query SQL diretamente no banco
+$alertas = $stmt->fetchAll(PDO::FETCH_ASSOC); // Busca todos os resultados como array associativo
 
 if (count($alertas) > 0) {
+    //printa a tabela com os alertas na tela
     foreach ($alertas as $alerta) {
         echo "<tr>";
         echo "<td>{$alerta['nome_vaca']}</td>";

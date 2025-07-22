@@ -5,8 +5,9 @@ require("conexao.php");
 $stmt = $banco->query("SELECT * FROM usuarios WHERE tipo_usuario = 'aluno'");
 $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (count($alunos) > 0) {
+if (count($alunos) > 0) { //verifica se existem alunos
     foreach ($alunos as $aluno) {
+        //exibe a tabela com os alunos
         echo "<tr data-id='{$aluno['id_usuario']}'>";
         echo "<td>{$aluno['id_usuario']}</td>";
         echo "<td>{$aluno['nome']}</td>";
@@ -17,7 +18,7 @@ if (count($alunos) > 0) {
               </td>";
         echo "</tr>";
     }
-} else {
+} else { //caso não haja alunos exibe mensagem
     echo "<tr><td colspan='4'><strong>Nenhum aluno encontrado</strong></td></tr>";
 }
 ?>

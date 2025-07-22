@@ -2,6 +2,7 @@
 require("conexao.php");
 header('Content-Type: application/json');
 
+//definindo variaveis e caso não as encontre define null por padrao
 $id_vaca = $_POST['id_vaca'] ?? null;
 $novo_nome = $_POST['novo_nome'] ?? null;
 

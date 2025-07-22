@@ -8,6 +8,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style/variaveis.css" />
   <link rel="stylesheet" href="style/login.css" />
 </head>
 <body>
@@ -15,7 +16,7 @@ session_start();
       </figure>
       <h1 class="titulo-recuperacao">Login</h1> <p>Digite os seus dados de acesso no campo abaixo.</p>
       <?php include('mensagem.php'); ?> <form action="../BackEnd/logar.php" method="POST">
-        <!-- Formulário de login -->
+        <!--formulário de login-->
         <label for="email">E-mail</label>
         <input id="email" name="email" type="email" placeholder="Digite seu e-mail" required autofocus />
         <label for="senha">Senha</label>

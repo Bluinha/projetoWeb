@@ -10,7 +10,7 @@ function alertaExiste($banco, $id_vaca, $mensagem) {
     return $check->fetchColumn() > 0;
 }
 
-// 1. PRODUÇÃO SEMANAL = 0 (somente a mais recente de cada vaca)
+// 1. PRODUÇÃO DIARIA = 0 (somente a mais recente de cada vaca)
 $prod = $banco->query("
     SELECT pl.id_vaca, pl.quantidade 
     FROM producao_leite pl

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../BackEnd/gerar_alertas.php");
+include("../../BackEnd/gerar_alertas.php")
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,6 +15,7 @@ include("../../BackEnd/gerar_alertas.php");
 </head>
 
 <body>
+  <!--barra superior-->
   <div class="faixa-decorada"></div>
   <header id="menu">
     <div class="logo-container">
@@ -24,11 +25,12 @@ include("../../BackEnd/gerar_alertas.php");
         <h2 class="barlow-regular">Controle de Qualidade do Leite</h2>
       </div>
     </div>
+    <!--botões de logout e informações do perfil-->
     <div class="caixa-perfil">
       <button id="btnPerfil" title="<?php echo htmlspecialchars($_SESSION['nome'] ?? 'Usuário'); ?>">
         <img src="../imgs/perfil.png" alt="Perfil de <?php echo htmlspecialchars($_SESSION['nome'] ?? 'usuário'); ?>">
       </button>
-      
+      <!-- caixa flutuando com informações do usuario logado-->
       <section id="menuPerfil" class="info-do-usuario" style="display: none;">
         <p><strong><?php echo htmlspecialchars($_SESSION['nome'] ?? 'Sem nome'); ?></strong></p>
         <p><?php echo htmlspecialchars($_SESSION['email'] ?? 'Sem email'); ?></p>
@@ -41,7 +43,7 @@ include("../../BackEnd/gerar_alertas.php");
   </header>
   <div class="faixa-decorada"></div>
 
-
+  <!--Menu de comandos-->
   <main class="painel">
     <nav class="menu-lateral">
       <h2>Comandos</h2>
@@ -53,13 +55,14 @@ include("../../BackEnd/gerar_alertas.php");
       </ul>
     </nav>
 
-    <!-- Seção que lista as vacas do banco -->
     <section id="lista" class="conteudo">
+      <!--Mensagem de bem vindo com o nome do usuario logado-->
       <?php if (isset($_SESSION['mensagem'])): ?>
         <p class="mensagem" role="alert" id="mensagem-global"><?= $_SESSION['mensagem']; ?></p>
         <?php unset($_SESSION['mensagem']);
       endif; ?>
       <h3>Lista de vacas</h3>
+       <!--sistema de busca na lista de vacas-->
       <input type="text" id="buscaVaca" list="vacasNomesDatalist" placeholder="Buscar por nome..."
         oninput="filtrarVacasTabela()" class="input-busca">
       <datalist id="vacasNomesDatalist"></datalist>
@@ -79,10 +82,10 @@ include("../../BackEnd/gerar_alertas.php");
       </table>
     </section>
     
-    <!-- Seção de cadastro das novas vacas -->
     <section id="cadastro" class="conteudo bloco-pagina">
       <h3>Cadastro de vaca</h3>
-      <?php include('../mensagem.php') ?>
+      <!--formulario de cadastro de vacas-->
+      <?php include('../mensagem.php') ?> <!-- inclue mensagem de vaca cadastrada com sucesso ou não-->
       <form class="form-padrao" method="POST" action="../../BackEnd/inserir_vaca.php">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca" required>
@@ -90,9 +93,9 @@ include("../../BackEnd/gerar_alertas.php");
       </form>
     </section>
 
-    <!-- Seção que lista a produção de leite do banco -->
     <section id="producao" class="conteudo">
       <h3>Lista de Produção de leite</h3>
+      <!--sistema de busca na produção de leite-->
       <input type="text" id="buscaProducao" list="vacasNomesDatalist" placeholder="Buscar por nome..."
         onkeyup="filtrarProducao()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
@@ -112,10 +115,10 @@ include("../../BackEnd/gerar_alertas.php");
       </table>
     </section>
 
-    <!-- Seção de cadastro de novas produções de leite -->
     <section id="cadastro_producao" class="conteudo bloco-pagina">
       <h3>Produção de leite</h3>
       <?php include('../mensagem.php') ?>
+       <!--formulario de cadastro de producao de leite-->
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
         <label for="vaca_producao_nome">Vaca:</label>
         <input type="text" id="vaca_producao_nome" name="vaca_producao_nome" list="vacasNomesDatalist"
@@ -130,10 +133,12 @@ include("../../BackEnd/gerar_alertas.php");
       </form>
     </section>
 
-    <!-- Seção que lista os testes de mastite do banco -->
+
     <section id="teste_mastite" class="conteudo">
       <h3>Lista de Teste de Mastite</h3>
-      <input type="text" id="buscaTeste" list="vacasNomesDatalist" placeholder="Buscar por nome..." onkeyup="filtrarTeste()" class="input-busca">
+       <!--Busca na area do teste de mastite-->
+      <input type="text" id="buscaTeste" list="vacasNomesDatalist" placeholder="Buscar por nome..."
+        onkeyup="filtrarTeste()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_teste')" class="btn">Cadastrar Teste de Mastite</button>
       <table class="tabela" id="id-tabela-teste">
         <thead>
@@ -155,10 +160,10 @@ include("../../BackEnd/gerar_alertas.php");
       </table>
     </section>
 
-    <!-- Seção de cadastro de novos testes de mastite -->
     <section id="cadastro_teste" class="conteudo bloco-pagina">
       <h3>Cadastro de Teste de Mastite</h3>
       <?php include('../mensagem.php') ?>
+      <!--formulario do casdastro da mastite-->
       <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_teste_mastite.php">
         <label for="vaca_teste_nome">Vaca:</label>
         <input type="text" id="vaca_teste_nome" name="vaca_teste_nome" list="vacasNomesDatalist"
@@ -177,7 +182,7 @@ include("../../BackEnd/gerar_alertas.php");
         <label for="cruzes">Quantidade de Cruzes:</label>
         <input type="number" id="cruzes" name="quantas_cruzes" min="0" max="4" required>
 
-        <fieldset class="uberes-teste">
+        <fieldset class="grupo-uberes">
           <legend>Úbere Afetado:</legend>
           <label class="opcao-ubre">
             <input type="checkbox" name="ubere[]" value="D.E">
@@ -205,10 +210,10 @@ include("../../BackEnd/gerar_alertas.php");
         <button type="submit" class="btn">Cadastrar</button>
       </form>
     </section>
-    
-    <!-- Seção que realiza o envio dos relatórios -->
+
     <section id="relatorios" class="conteudo bloco-pagina">
       <h3>Envio de Relatórios</h3>
+      <!--formulario de envio de arquivos para relatório-->
       <form action="../../BackEnd/upload_relatorio.php" method="POST" enctype="multipart/form-data">
         <label for="arquivo_relatorio">Selecione o arquivo do relatório:</label>
         <input type="file" name="arquivo" id="arquivo_relatorio" required>
@@ -218,8 +223,7 @@ include("../../BackEnd/gerar_alertas.php");
 
 
   </main>
-  <script src="../../Js/script_aluno.js"></script>
-  
+  <script src="script_Aluno.js"></script>
 </body>
 
 </html>
