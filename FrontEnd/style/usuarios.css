@@ -545,6 +545,55 @@ header {
   text-decoration: none;
 }
 
+/* Estilo para a célula de status (Lido/Marcar) */
+.status-celula {
+  white-space: nowrap; /* Impede que o conteúdo quebre a linha */
+}
+
+/* Estilo para o ícone de "visualizado" (dois V's azuis) */
+.icon-visualizado {
+  color: #007bff; /* Cor azul */
+  font-size: 1.5em; /* Tamanho maior */
+  margin-left: 5px;
+}
+
+/* Estilo para o botão "Marcar como lido" */
+.btn-marcar-lido {
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: white; /* Cor do texto */
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-marcar-lido:hover {
+  background-color: #2e6230; /* Escurece a cor no hover */
+}
+
+/* Garante que o ícone de visualizado e o botão fiquem alinhados */
+.tabela td {
+  vertical-align: middle;
+}
+
+#conteudo-alertas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+#conteudo-alertas thead {
+  background-color: #94BD09;
+  color: white;
+}
+
+#conteudo-alertas th,
+#conteudo-alertas td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) { /* estilos pra telas menores (celulares, tablets) */
   header { /* cabeçalho em telas menores */

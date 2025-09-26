@@ -204,3 +204,23 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE fila_emails (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    destinatario VARCHAR(255) NOT NULL,
+    assunto VARCHAR(255) NOT NULL,
+    corpo TEXT NOT NULL,
+    status ENUM('pendente','enviado','erro') DEFAULT 'pendente',
+    tentativas INT DEFAULT 0,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    enviado_em TIMESTAMP NULL
+);
+
+
+-- Índice para acelerar buscas na produção de leite
+CREATE INDEX idx_producao_vaca_data
+ON producao_leite (id_vaca, data);
+
+-- Índice para acelerar buscas no teste de mastite
+CREATE INDEX idx_mastite_vaca_data
+ON teste_mastite (id_vaca, data);

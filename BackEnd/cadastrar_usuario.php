@@ -20,12 +20,12 @@ if (isset($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['tipo_usuario
     if ($stmt->execute()) {
         $_SESSION['mensagem'] = "Aluno adicionado com Sucesso";
         session_write_close(); // Fecha a sessão para garantir salvamento
-        header("Location:../FrontEnd/professor/area_professor.php?secao=cadastro_aluno");
+        header("Location:../FrontEnd/professor/area_professor.php?secao=alunos");
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao adicionar aluno";
         session_write_close();
-        header("Location:../FrontEnd/professor/area_professor.php?secao=cadastro_aluno");
+        header("Location:../FrontEnd/professor/area_professor.php?secao=alunos");
         exit; 
     }
 }

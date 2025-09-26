@@ -1,27 +1,24 @@
 <?php
-require("conexao.php");
-header('Content-Type: application/json');
+require('conexao.php'); // Inclui a conexão com o banco de dados
 
-//definindo variaveis e caso não as encontre defina null por padrao
-$id_vaca = $_POST['id_vaca'] ?? null;
-$novo_nome = $_POST['novo_nome'] ?? null;
+// Se o formulário foi enviado com os campos necessários
+if (isset($_POST['id_vaca'], $_POST['quantidade'], $_POST['data'])) {
+    $id_vaca = $_POST['id_vaca']; // ID da vaca
+    $quantidade = $_POST['quantidade']; // Quantidade de leite
+    $data = $_POST['data']; // Data da produção
 
-// verifica se os dados foram enviados
-if (!$id_vaca || !$novo_nome) {
-    echo json_encode(['success' => false, 'message' => 'Dados incompletos']);
-    exit;
-}
+    // Prepara a query de inserção
+    $stmt = $banco->prepare("INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (:id_vaca, :quantidade, :data)");
+    $stmt->bindValue(':id_vaca', $id_vaca, PDO::PARAM_INT);
+    $stmt->bindValue(':quantidade', $quantidade);
+    $stmt->bindValue(':data', $data);
 
-try {
-    // Atualiza o nome da vaca no banco
-    $stmt = $banco->prepare("UPDATE vacas SET nome = :nome WHERE id_vaca = :id");
-    $stmt->bindParam(':nome', $novo_nome);
-    $stmt->bindParam(':id', $id_vaca);
-    $stmt->execute();
-    
-    echo json_encode(['success' => true]);
-} catch (PDOException $e) {
-    // Retorna erro do banco
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    // Executa a query e trata o resultado
+    if ($stmt->execute()) {
+        echo "<p>Dados da produção de leite inseridos com sucesso!</p>";
+    } else {
+        echo "<p>Erro ao inserir os dados.</p>";
+        print_r($stmt->errorInfo()); // Mostra detalhes do erro
+    }
 }
 ?>

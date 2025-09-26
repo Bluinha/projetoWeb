@@ -182,7 +182,7 @@ include("../../BackEnd/gerar_alertas.php")
         <label for="cruzes">Quantidade de Cruzes:</label>
         <input type="number" id="cruzes" name="quantas_cruzes" min="0" max="4" required>
 
-        <fieldset class="grupo-uberes">
+        <fieldset class="uberes-teste">
           <legend>Úbere Afetado:</legend>
           <label class="opcao-ubre">
             <input type="checkbox" name="ubere[]" value="D.E">

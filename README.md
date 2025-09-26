@@ -1,4 +1,3 @@
-![Logo do Projeto](https://i.imgur.com/EiYsTfo.png)
 # 🐄 Controle de Qualidade do Leite
 
 Sistema web desenvolvido para gerenciar e avaliar dados relacionados à produção e qualidade do leite, saúde reprodutiva das vacas e desempenho do rebanho. O projeto foi realizado durante a disciplina de **Desenvolvimento Web** no curso de Engenharia de Software do **IFPE - Campus Belo Jardim**, tendo como cliente o **Programa Institucional de Bolsas de Iniciação Científica (PIBIC)** no curso subsequente de Agropecuária de mesma instituição.

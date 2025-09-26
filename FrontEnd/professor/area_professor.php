@@ -18,9 +18,10 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
     }
 
     /* Mostra apenas a lista inicialmente */
-    #lista {
+    #alertas {
       display: block;
     }
+
   </style>
 </head>
 
@@ -63,19 +64,20 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
     </nav>
 
         <section id="alertas" class="conteudo">
-            <h2>Alertas</h2>
-              <table class="tabela" id="conteudo-alertas">
-                <thead>
-                  <tr>
-                    <th>Vaca</th>
-                    <th>Alerta</th>
-                    <th>Data</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php require('../../BackEnd/listar_alertas.php') ?>
-                </tbody>
-              </table>
+          <h2>Alertas</h2>
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Vaca</th>
+                <th>Alerta</th>
+                <th>Data</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="conteudo-alertas">
+              <!-- Aqui o JS vai colocar as linhas -->
+            </tbody>
+          </table>
         </section>
 
         <section id="alunos" class="conteudo" style="display:none">
@@ -119,7 +121,6 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
 
         <section id="relatorios" class="conteudo">
           <h3>Relatórios Recebidos</h3>
-            <input type="text" id="buscaRelatorios" placeholder="Buscar por nome..." onkeyup="filtrarVacas()" class="input-busca">
             <table class="tabela" id="id-tabela-vacas">
               <thead>
                 <tr>
