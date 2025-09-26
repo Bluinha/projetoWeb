@@ -49,28 +49,96 @@ CREATE TABLE `producao_leite` (
 --
 -- Despejando dados para a tabela `producao_leite`
 --
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 11.5, '2025-09-17');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 9.9, '2025-09-14');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 15.7, '2025-09-05');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 8.2, '2025-09-20');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 15.6, '2025-09-24');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 15.6, '2025-09-01');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 13.3, '2025-09-22');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 6.8, '2025-09-26');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 10.0, '2025-09-26');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 13.5, '2025-09-27');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 11.7, '2025-09-04');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 10.9, '2025-09-29');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 14.8, '2025-09-09');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 13.0, '2025-09-09');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 11.0, '2025-09-18');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 11.2, '2025-09-23');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 15.3, '2025-09-13');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 10.6, '2025-09-03');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 7.9, '2025-09-12');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 10.8, '2025-09-28');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 12.6, '2025-09-20');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 13.9, '2025-09-04');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 12.0, '2025-09-01');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 13.9, '2025-09-24');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 9.7, '2025-09-30');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 11.5, '2025-09-18');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 8.7, '2025-09-06');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 15.2, '2025-09-12');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 11.5, '2025-09-19');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 16.8, '2025-09-11');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 10.6, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 9.7, '2025-09-07');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 9.8, '2025-09-08');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 12.9, '2025-09-16');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 9.9, '2025-09-15');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 12.1, '2025-09-11');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 12.4, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 7.9, '2025-09-21');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 11.7, '2025-09-25');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 11.9, '2025-09-27');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 16.2, '2025-09-08');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 8.7, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 12.3, '2025-09-06');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 13.9, '2025-09-16');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 11.7, '2025-09-03');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 8.7, '2025-09-30');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 9.8, '2025-09-10');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 13.1, '2025-09-18');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 14.7, '2025-09-05');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 11.7, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 12.3, '2025-09-14');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 10.8, '2025-09-11');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 8.6, '2025-09-21');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 13.7, '2025-09-23');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 14.0, '2025-09-23');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 10.1, '2025-09-03');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 12.2, '2025-09-19');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 11.2, '2025-09-08');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 12.2, '2025-09-06');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 12.2, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 9.2, '2025-09-10');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 15.0, '2025-09-14');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 13.8, '2025-09-07');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 14.2, '2025-09-28');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 9.2, '2025-09-25');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 11.9, '2025-09-12');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 10.4, '2025-09-26');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 8.0, '2025-09-04');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 16.1, '2025-09-02');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 12.6, '2025-09-21');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 10.5, '2025-09-13');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 15.4, '2025-09-08');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 10.6, '2025-09-19');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 10.9, '2025-09-15');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 9.4, '2025-09-18');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 14.3, '2025-09-10');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 11.0, '2025-09-17');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 10.3, '2025-09-26');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 11.1, '2025-09-08');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 14.4, '2025-09-27');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 12.9, '2025-09-29');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 8.9, '2025-09-09');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (1, 13.6, '2025-09-21');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (2, 12.8, '2025-09-13');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (3, 11.4, '2025-09-16');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (4, 9.1, '2025-09-04');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (5, 13.2, '2025-09-22');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (6, 11.1, '2025-09-07');
+INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 9.1, '2025-09-20');
 
-INSERT INTO `producao_leite` (`id_producao`, `id_vaca`, `quantidade`, `data`) VALUES
-(1, 1, 7.00, '2025-02-10'),
-(2, 3, 8.00, '2025-02-10'),
-(3, 6, 8.00, '2025-02-10'),
-(4, 4, 8.00, '2025-02-10'),
-(5, 7, 10.00, '2025-02-10'),
-(6, 1, 9.00, '2025-02-11'),
-(7, 2, 6.00, '2025-02-11'),
-(8, 6, 11.00, '2025-02-11'),
-(9, 4, 7.00, '2025-02-11'),
-(10, 7, 12.00, '2025-02-11'),
-(11, 1, 8.00, '2025-02-12'),
-(12, 2, 6.00, '2025-02-12'),
-(13, 6, 10.00, '2025-02-12'),
-(14, 4, 9.00, '2025-02-12'),
-(15, 7, 11.00, '2025-02-12'),
-(16, 1, 7.00, '2025-02-13'),
-(17, 2, 9.00, '2025-02-13'),
-(18, 6, 12.00, '2025-02-13'),
-(19, 4, 6.00, '2025-02-13'),
-(20, 7, 13.00, '2025-02-13');
 
 -- --------------------------------------------------------
 
@@ -121,35 +189,43 @@ CREATE TABLE `teste_mastite` (
 -- Despejando dados para a tabela `teste_mastite`
 --
 
-INSERT INTO `teste_mastite` (`id_teste`, `id_vaca`, `data`, `resultado`, `quantas_cruzes`, `ubere`, `tratamento`, `observacoes`) VALUES
-(1, 1, '2025-03-11', 'positivo', 1, 'P.E', 'Nenhum', ''),
-(2, 2, '2025-03-11', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(3, 3, '2025-03-11', 'positivo', 3, 'P.D P.E', 'Nenhum', ''),
-(4, 4, '2025-03-11', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(5, 5, '2025-03-11', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(6, 6, '2025-03-11', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(7, 7, '2025-03-11', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(8, 1, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(9, 2, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(10, 3, '2025-03-14', 'positivo', 2, 'P.D A.D', 'Nenhum', ''),
-(11, 4, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(12, 5, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(13, 6, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(14, 7, '2025-03-14', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(15, 1, '2025-03-18', 'positivo', 2, 'P.E A.D', 'Nenhum', ''),
-(16, 2, '2025-03-18', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(17, 3, '2025-03-18', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(18, 4, '2025-03-18', 'positivo', 2, 'A.D P.D', 'Nenhum', ''),
-(19, 5, '2025-03-18', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(20, 6, '2025-03-18', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(21, 7, '2025-03-18', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(22, 1, '2025-03-25', 'positivo', 4, 'A.D P.D P.E A.E', 'Nenhum', ''),
-(23, 2, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(24, 3, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(25, 4, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(26, 5, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(27, 6, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', ''),
-(28, 7, '2025-03-25', 'negativo', 0, 'Especificado', 'Nenhum', '');
+INSERT INTO `teste_mastite` 
+(`id_teste`, `id_vaca`, `data`, `resultado`, `quantas_cruzes`, `ubere`, `tratamento`, `observacoes`) VALUES
+-- Semana 1 (05/09)
+(1, 1, '2025-09-05', 'positivo', 1, 'P.E', 'Nenhum', ''),
+(2, 2, '2025-09-05', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(3, 3, '2025-09-05', 'positivo', 2, 'P.D A.D', 'Nenhum', ''),
+(4, 4, '2025-09-05', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(5, 5, '2025-09-05', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(6, 6, '2025-09-05', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(7, 7, '2025-09-05', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+
+-- Semana 2 (12/09)
+(8, 1, '2025-09-12', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(9, 2, '2025-09-12', 'positivo', 1, 'A.D', 'Nenhum', ''),
+(10, 3, '2025-09-12', 'positivo', 3, 'P.E A.E P.D', 'Nenhum', ''),
+(11, 4, '2025-09-12', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(12, 5, '2025-09-12', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(13, 6, '2025-09-12', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(14, 7, '2025-09-12', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+
+-- Semana 3 (19/09)
+(15, 1, '2025-09-19', 'positivo', 2, 'A.D P.E', 'Nenhum', ''),
+(16, 2, '2025-09-19', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(17, 3, '2025-09-19', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(18, 4, '2025-09-19', 'positivo', 2, 'P.D A.E', 'Nenhum', ''),
+(19, 5, '2025-09-19', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(20, 6, '2025-09-19', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(21, 7, '2025-09-19', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+
+-- Semana 4 (26/09)
+(22, 1, '2025-09-26', 'positivo', 4, 'A.D P.D P.E A.E', 'Nenhum', ''),
+(23, 2, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(24, 3, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(25, 4, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(26, 5, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(27, 6, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', ''),
+(28, 7, '2025-09-26', 'negativo', 0, 'Especificado', 'Nenhum', '');
 
 -- --------------------------------------------------------
 

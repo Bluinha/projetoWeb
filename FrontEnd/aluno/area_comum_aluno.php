@@ -1,6 +1,8 @@
 <?php
 session_start();
-include("../../BackEnd/gerar_alertas.php")
+include("../../BackEnd/gerar_alertas.php");
+
+require("../../BackEnd/get_resultados_mensais.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,6 +54,7 @@ include("../../BackEnd/gerar_alertas.php")
         <li><a href="#" onclick="mostrarSecao('producao')">Produção de leite</a></li>
         <li><a href="#" onclick="mostrarSecao('teste_mastite')">Teste de Mastite</a></li>
         <li><a href="#" onclick="mostrarSecao('relatorios')">Relatórios</a></li>
+        <li><a href="#" onclick="mostrarSecao('resultados-mensais')">Resultados Mensais</a></li>
       </ul>
     </nav>
 
@@ -220,7 +223,54 @@ include("../../BackEnd/gerar_alertas.php")
         <button type="submit" class="btn">Enviar Relatório</button>
       </form>
     </section>
+    
+    <section id="resultados-mensais" class="conteudo bloco-pagina">
+      <h3>Resultados mensais</h3>
+        <p>Resumo dos principais indicadores do rebanho neste mês.</p>
 
+    <ul class="cards-grid">
+      <li class="card">
+        <h4>Produção média semanal</h4>
+        <p><strong><?= number_format($mediaSemanal, 2) . " Litros"?></strong></p>
+      </li>
+
+      <li class="card">
+        <h4>Incidência de mastite</h4>
+        <p><strong><?= number_format($incidencia, 2) . " Positivos"?></strong></p>
+      </li>
+
+      <li class="card">
+        <h4>Uberes mais afetadas</h4>
+        <p><strong><?= $ubereMaisAfetada ?></strong></p>
+      </li>
+
+      <li class="card">
+        <h4>Animais abatidos</h4>
+        <p><strong><?= $totalAbates ?></strong></p>
+      </li>
+      </ul>
+
+      <!--
+      <table class="tabela-medias">
+        <thead>
+          <tr>
+          <th>ID</th>
+          <th>Vaca</th>
+          <th>Média semanal (L)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($mediasPorVaca as $linha): ?>
+            <tr>
+            <td><?php echo $linha['id_vaca']; ?></td>
+            <td><?php echo htmlspecialchars($linha['nome_vaca']); ?></td>
+            <td><?php echo round($linha['media_semanal'], 2); ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+      -->
+    </section>
 
   </main>
   <script src="script_Aluno.js"></script>
