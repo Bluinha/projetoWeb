@@ -171,7 +171,7 @@ require("../../BackEnd/get_resultados_mensais.php");
       <h3>Cadastro de Teste de Mastite</h3>
       <?php include('../mensagem.php') ?>
       <!--formulario do casdastro da mastite-->
-      <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_teste_mastite.php">
+      <form class="form-padrao" method="POST" action="../../BackEnd/mastite/cadastrar_teste_mastite.php">
         <label for="vaca_teste_nome">Vaca:</label>
         <input type="text" id="vaca_teste_nome" name="vaca_teste_nome" list="vacasNomesDatalist"
           placeholder="Digite ou selecione a vaca" required>
