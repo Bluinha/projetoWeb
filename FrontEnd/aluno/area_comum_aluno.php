@@ -89,19 +89,23 @@ require("../../BackEnd/get_resultados_mensais.php");
       <h3>Cadastro de vaca</h3>
       <!--formulario de cadastro de vacas-->
       <?php include('../mensagem.php') ?> <!-- inclue mensagem de vaca cadastrada com sucesso ou não-->
-      <form class="form-padrao" method="POST" action="../../BackEnd/inserir_vaca.php">
+
+      <form class="form-padrao" method="POST" action="../../BackEnd/vacas/cadastrar_vaca.php">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" placeholder="Digite o nome da vaca" required>
         <button type="submit" class="btn">Cadastrar</button>
       </form>
+
     </section>
 
     <section id="producao" class="conteudo">
       <h3>Lista de Produção de leite</h3>
+
       <!--sistema de busca na produção de leite-->
       <input type="text" id="buscaProducao" list="vacasNomesDatalist" placeholder="Buscar por nome..."
         onkeyup="filtrarProducao()" class="input-busca">
       <button onclick="mostrarSecao('cadastro_producao')" class="btn">Cadastrar Produção de Leite</button>
+
       <table class="tabela" id="id-tabela-producao">
         <thead>
           <tr>
@@ -236,7 +240,7 @@ require("../../BackEnd/get_resultados_mensais.php");
 
       <li class="card">
         <h4>Incidência de mastite</h4>
-        <p><strong><?= number_format($incidencia, 2) . " Positivos"?></strong></p>
+        <p><strong><?= number_format($incidencia, 0) . " Positivos"?></strong></p>
       </li>
 
       <li class="card">
@@ -249,8 +253,7 @@ require("../../BackEnd/get_resultados_mensais.php");
         <p><strong><?= $totalAbates ?></strong></p>
       </li>
       </ul>
-
-      <!--
+<!--
       <table class="tabela-medias">
         <thead>
           <tr>
@@ -269,7 +272,7 @@ require("../../BackEnd/get_resultados_mensais.php");
           <?php endforeach; ?>
         </tbody>
       </table>
-      -->
+          -->
     </section>
 
   </main>

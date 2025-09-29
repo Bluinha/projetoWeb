@@ -1,5 +1,5 @@
 <?php
-    require_once 'conexao.php'; // sua conexão PDO
+    require_once 'conexao.php'; 
 
     try {
         // === 1. Produção média semanal (geral do rebanho) ===
@@ -49,5 +49,5 @@
         $mediasPorVaca = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         die("Erro ao carregar resultados mensais: " . htmlspecialchars($e->getMessage()));
-    }
+    } 
 ?>

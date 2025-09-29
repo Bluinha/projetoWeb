@@ -1,5 +1,5 @@
 <?php
-require("conexao.php"); // falha se não houver conexao com o banco de dados
+require("conexao.php"); 
 
 try {
     $stmt = $banco->query("SELECT * FROM vacas"); //realiza um select para carregar todas as vacas do banco de dados
