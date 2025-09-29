@@ -1,7 +1,7 @@
 <?php
 session_start();
 include __DIR__ . "/criar_alerta.php";
-require_once __DIR__ . "/conexao.php"; // Este arquivo define $banco
+require_once __DIR__ . "core/conexao.php"; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['arquivo'])) {
     // 1. Definição do diretório de upload

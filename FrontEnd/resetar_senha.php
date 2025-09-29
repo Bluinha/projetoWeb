@@ -1,5 +1,5 @@
 <?php
-require('../BackEnd/conexao.php');
+require('../BackEnd/core/conexao.php');
 $mensagem = '';
 
 // Captura o token tanto do GET quanto do POST

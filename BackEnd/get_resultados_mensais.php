@@ -1,5 +1,5 @@
 <?php
-    require_once 'conexao.php'; 
+    require_once 'core/conexao.php'; 
 
     try {
         // === 1. Produção média semanal (geral do rebanho) ===

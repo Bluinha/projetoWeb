@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/conexao.php"; // Inclui o arquivo que define a conexão $banco
+require_once __DIR__ . '/core/conexao.php';
 
 $uploadBaseUrl = '../../uploads/'; // Caminho base para arquivos enviados
 

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../conexao.php';
+require_once __DIR__ . '/../core/conexao.php';
 
 function inserirMastite($id_vaca, $resultado, $quantas_cruzes, $ubere, $tratamento, $observacoes, $data) {
     global $banco;

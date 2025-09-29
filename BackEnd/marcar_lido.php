@@ -1,5 +1,5 @@
 <?php
-require("conexao.php");
+require('core/conexao.php');
 
 // Aceita id tanto via POST quanto GET (para garantir)
 $id = $_POST['id'] ?? $_GET['id'] ?? null;

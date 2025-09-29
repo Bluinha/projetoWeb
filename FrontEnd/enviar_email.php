@@ -1,5 +1,5 @@
 <?php
-require '../BackEnd/conexao.php';
+require '../BackEnd/core/conexao.php';
 require '../BackEnd/PHPMailer-master/src/PHPMailer.php';
 require '../BackEnd/PHPMailer-master/src/SMTP.php';
 require '../BackEnd/PHPMailer-master/src/Exception.php';

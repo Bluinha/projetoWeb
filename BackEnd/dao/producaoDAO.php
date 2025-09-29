@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../conexao.php';
+require_once __DIR__ . '/../core/conexao.php';
 
 function inserirProducao($id_vaca, $quantidade, $data) {
     global $banco;

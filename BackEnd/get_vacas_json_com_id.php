@@ -1,6 +1,6 @@
 <?php
 
-require("conexao.php");
+require('core/conexao.php');
 
 
 header('Content-Type: application/json');

@@ -1,5 +1,5 @@
 <?php
-require("conexao.php");
+require('core/conexao.php');
 
 $sql = "
     SELECT a.id_alerta, a.id_vaca, v.nome AS nome_vaca, a.mensagem, a.lido, a.data_criacao

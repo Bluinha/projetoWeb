@@ -1,5 +1,5 @@
 <?php
-require("conexao.php");
+require('core/conexao.php');
 
 // Pega alertas que ainda não expiraram
 // Alertas só podem sumir se tiverem sido lidos

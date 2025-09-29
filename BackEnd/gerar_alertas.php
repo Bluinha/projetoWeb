@@ -1,5 +1,5 @@
 <?php
-require('conexao.php');
+require('core/conexao.php');
 
 // Função auxiliar para evitar alertas duplicados
 function alertaExiste($banco, $id_vaca, $mensagem) {

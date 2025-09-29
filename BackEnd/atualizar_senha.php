@@ -1,5 +1,5 @@
 <?php
-require('conexao.php');
+require('core/conexao.php');
 
 $usuarios = $banco->query("SELECT id_usuario, senha FROM usuarios")->fetchAll(PDO::FETCH_ASSOC);
 

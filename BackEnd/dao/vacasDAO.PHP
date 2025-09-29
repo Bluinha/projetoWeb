@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../conexao.php';
+require_once __DIR__ . '/../core/conexao.php';
 
 function inserirVaca($nome, $descarte = 0) {
     global $banco;

@@ -1,5 +1,5 @@
 <?php
-require '../BackEnd/conexao.php';
+require '../BackEnd/core/conexao.php';
 include("../BackEnd/criar_alerta.php"); 
 
 $mensagem = '';

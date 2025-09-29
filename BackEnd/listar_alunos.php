@@ -1,5 +1,5 @@
 <?php
-require("conexao.php");
+require('core/conexao.php');
 
 // Busca apenas os usuários com tipo_usuario igual a 'aluno'
 $stmt = $banco->query("SELECT * FROM usuarios WHERE tipo_usuario = 'aluno'");
