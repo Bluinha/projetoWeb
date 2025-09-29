@@ -80,7 +80,7 @@ require("../../BackEnd/get_resultados_mensais.php");
           </tr>
         </thead>
         <tbody>
-          <?php require("../../BackEnd/listar_vacas.php") ?>
+          <?php require("../../BackEnd/vacas/listar_vacas.php") ?>
         </tbody>
       </table>
     </section>

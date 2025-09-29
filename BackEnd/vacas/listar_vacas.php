@@ -1,12 +1,10 @@
 <?php
-require("conexao.php"); 
+require_once __DIR__ . '/../dao/vacasDAO.php'; 
 
 try {
-    $stmt = $banco->query("SELECT * FROM vacas"); //realiza um select para carregar todas as vacas do banco de dados
-    $vacas = $stmt->fetchAll(PDO::FETCH_ASSOC); //carrega os animais em um array associativo
-
-    //tabela de vacas
-    if (count($vacas) > 0) {//verifica se há vacas para listar
+    $vacas = listarVacas();
+   
+    if (count($vacas) > 0) {
         foreach ($vacas as $vaca) {
             echo "<tr data-id='{$vaca['id_vaca']}'>";
             echo "<td>{$vaca['id_vaca']}</td>";
