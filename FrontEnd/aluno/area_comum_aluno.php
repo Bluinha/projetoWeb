@@ -117,7 +117,7 @@ require("../../BackEnd/get_resultados_mensais.php");
           </tr>
         </thead>
         <tbody>
-          <?php require("../../BackEnd/listar_producao_leite.php") ?>
+          <?php require("../../BackEnd/producao/listar_producao_leite.php") ?>
         </tbody>
       </table>
     </section>

@@ -1,20 +1,10 @@
 <?php
-require_once 'conexao.php'; // Inclui a conexão com o banco
-require_once 'ordenar.php'; // Inclui o arquivo com a função de ordenação
+require_once __DIR__ . '/../dao/producaoDAO.php'; 
 
 try {
-    // Executa a query para obter dados da produção de leite junto com o nome da vaca
-    // Agora a ordenação é feita no próprio banco (usando índice em id_vaca, data), em vez do PHP
-    $stmt = $banco->query("SELECT pl.id_producao, pl.id_vaca, v.nome AS nome_vaca, pl.quantidade, pl.data 
-                           FROM producao_leite pl 
-                           JOIN vacas v ON pl.id_vaca = v.id_vaca
-                           ORDER BY pl.data DESC");
     
-    // Busca todos os resultados como array associativo
-    $producoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $producoes = listarProducao();
 
-    
-    // Loop para exibir cada produção na tabela HTML
     foreach ($producoes as $producao) {
         echo "<tr data-id=\"{$producao['id_producao']}\" data-id-vaca=\"{$producao['id_vaca']}\">";
         echo "<td>" . htmlspecialchars($producao['id_producao']) . "</td>";
@@ -28,7 +18,7 @@ try {
         echo "</tr>";
     }
 } catch (PDOException $e) {
-    // Caso ocorra erro na query, exibe mensagem na tabela
+
     echo "<tr><td colspan='5'>Erro ao carregar produções de leite: " . htmlspecialchars($e->getMessage()) . "</td></tr>";
 }
 ?>
