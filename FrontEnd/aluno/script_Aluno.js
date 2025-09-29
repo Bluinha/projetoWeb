@@ -161,7 +161,7 @@ function excluirVaca(id, button) {
   if (confirm('Tem certeza que deseja excluir esta vaca?')) {
     const row = button.closest('tr');
 
-    fetch('../../BackEnd/deletar_vaca.php', {
+    fetch('../../BackEnd/vacas/excluir_vaca.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

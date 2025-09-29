@@ -23,6 +23,7 @@ function excluirVaca($id) {
     global $banco;
     $stmt = $banco->prepare("DELETE FROM vacas WHERE id_vaca = :id");
     $stmt->execute([':id' => $id]);
+    
     return $stmt->rowCount();
 }
 

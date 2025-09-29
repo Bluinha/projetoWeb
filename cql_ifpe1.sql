@@ -257,25 +257,26 @@ INSERT INTO `usuarios` (`id_usuario`, `nome`, `email`, `senha`, `tipo_usuario`) 
 -- Estrutura para tabela `vacas`
 --
 
+-- Criar tabela vacas com id auto-increment
 CREATE TABLE `vacas` (
-  `id_vaca` int(11) NOT NULL,
+  `id_vaca` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `descarte` tinyint(1) NOT NULL DEFAULT 0
+  `descarte` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_vaca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `vacas`
---
+-- Inserir dados iniciais (IDs serão gerados automaticamente)
+INSERT INTO `vacas` (`nome`, `descarte`) VALUES
+('Alicate', 0),
+('Chuvisco', 0),
+('Chichita', 0),
+('Muriçoca', 0),
+('Morena', 0),
+('Mococa', 0),
+('Tanajura', 0);
 
-INSERT INTO `vacas` (`id_vaca`, `nome`, `descarte`) VALUES
-(1, 'Alicate', 0),
-(2, 'Chuvisco', 0),
-(3, 'Chichita', 0),
-(4, 'Muriçoca', 0),
-(5, 'Morena', 0),
-(6, 'Mococa', 0),
-(7, 'Tanajura', 0);
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
