@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/dao/producaoDAO.php'; 
+session_start(); 
+require_once __DIR__ . '/../dao/producaoDAO.php'; 
 
 
 if (isset($_POST['id_vaca'], $_POST['quantidade'], $_POST['data'])) {

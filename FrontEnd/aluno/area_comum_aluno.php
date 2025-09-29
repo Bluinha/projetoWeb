@@ -126,7 +126,7 @@ require("../../BackEnd/get_resultados_mensais.php");
       <h3>Produção de leite</h3>
       <?php include('../mensagem.php') ?>
        <!--formulario de cadastro de producao de leite-->
-      <form class="form-padrao" method="POST" action="../../BackEnd/cadastrar_producao_leite.php">
+      <form class="form-padrao" method="POST" action="../../BackEnd/producao/cadastrar_producao_leite.php">
         <label for="vaca_producao_nome">Vaca:</label>
         <input type="text" id="vaca_producao_nome" name="vaca_producao_nome" list="vacasNomesDatalist"
           placeholder="Digite ou selecione a vaca" required>
