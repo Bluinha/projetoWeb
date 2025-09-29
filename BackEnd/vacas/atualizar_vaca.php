@@ -1,5 +1,5 @@
 <?php
-require("conexao.php");
+require_once __DIR__ . '/../dao/vacasDAO.php'; 
 header('Content-Type: application/json');
 
 $id_vaca = $_POST['id_vaca'] ?? null;
@@ -11,12 +11,10 @@ if (!$id_vaca || !$novo_nome) {
 }
 
 try {
-    $stmt = $banco->prepare("UPDATE vacas SET nome = :nome WHERE id_vaca = :id");
-    $stmt->bindParam(':nome', $novo_nome);
-    $stmt->bindParam(':id', $id_vaca);
-    $stmt->execute();
+    atualizarVaca($id_vaca, $novo_nome);
     
     echo json_encode(['success' => true]);
+    
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }

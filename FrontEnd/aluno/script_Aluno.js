@@ -127,7 +127,7 @@ function editarVaca(button) {
 }
 
 function salvarEdicaoVaca(id, novoNome, nomeCell, button) {
-  fetch('../../BackEnd/atualizar_vaca.php', {
+  fetch('../../BackEnd/vacas/atualizar_vaca.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

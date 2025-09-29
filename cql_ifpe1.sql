@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alertas` (
-  `id_alerta` int(11) NOT NULL,
+  `id_alerta` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `id_vaca` int(11) DEFAULT NULL,
   `mensagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -40,7 +40,7 @@ CREATE TABLE `alertas` (
 --
 
 CREATE TABLE `producao_leite` (
-  `id_producao` int(11) NOT NULL,
+  `id_producao` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `id_vaca` int(11) NOT NULL,
   `quantidade` decimal(5,2) NOT NULL,
   `data` date NOT NULL
@@ -147,7 +147,7 @@ INSERT INTO producao_leite (id_vaca, quantidade, data) VALUES (7, 9.1, '2025-09-
 --
 
 CREATE TABLE `recuperacao_senha` (
-  `id_recuperação` int(11) NOT NULL,
+  `id_recuperação` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `id_usuario` int(11) NOT NULL,
   `token` varchar(255) NOT NULL,
   `data_expiracao` datetime NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE `recuperacao_senha` (
 --
 
 CREATE TABLE `relatorios` (
-  `id_relatorio` int(11) NOT NULL,
+  `id_relatorio` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `id_aluno` int(11) NOT NULL,
   `nome_arquivo` varchar(255) NOT NULL,
   `caminho_arquivo` varchar(255) NOT NULL,
@@ -175,7 +175,7 @@ CREATE TABLE `relatorios` (
 --
 
 CREATE TABLE `teste_mastite` (
-  `id_teste` int(11) NOT NULL,
+  `id_teste` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `id_vaca` int(11) NOT NULL,
   `data` date NOT NULL,
   `resultado` enum('positivo','negativo') NOT NULL,
@@ -234,7 +234,7 @@ INSERT INTO `teste_mastite`
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(255) NOT NULL,
@@ -259,10 +259,10 @@ INSERT INTO `usuarios` (`id_usuario`, `nome`, `email`, `senha`, `tipo_usuario`) 
 
 -- Criar tabela vacas com id auto-increment
 CREATE TABLE `vacas` (
-  `id_vaca` int(11) NOT NULL AUTO_INCREMENT,
+  `id_vaca` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `nome` varchar(100) NOT NULL,
-  `descarte` tinyint(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id_vaca`)
+  `descarte` tinyint(1) NOT NULL DEFAULT 0
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Inserir dados iniciais (IDs serão gerados automaticamente)
