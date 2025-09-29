@@ -24,7 +24,7 @@ function listarMastite() {
             JOIN vacas v ON tm.id_vaca = v.id_vaca
             ORDER BY tm.data DESC";
     $stmt = $banco->query($sql);
-    
+
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -49,6 +49,7 @@ function excluirMastite($id) {
     global $banco;
     $stmt = $banco->prepare("DELETE FROM teste_mastite WHERE id_teste = :id");
     $stmt->execute([':id' => $id]);
+    
     return $stmt->rowCount();
 }
 ?>

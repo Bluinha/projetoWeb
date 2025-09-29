@@ -475,7 +475,8 @@ function salvarEdicaoTeste(
 function excluirTeste(id, button) {
   if (confirm("Tem certeza que deseja excluir este teste?")) {
     const row = button.closest("tr");
-    fetch("../../BackEnd/excluir_teste_mastite.php", {
+
+    fetch("../../BackEnd/mastite/excluir_teste_mastite.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
