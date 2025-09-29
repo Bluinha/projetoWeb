@@ -272,7 +272,7 @@ function excluirProducao(id, button) {
       return;
     }
 
-    fetch('../../BackEnd/excluir_producao_leite.php', {
+    fetch('../../BackEnd/producao/excluir_producao_leite.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
