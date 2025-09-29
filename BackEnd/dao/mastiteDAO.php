@@ -28,28 +28,29 @@ function listarMastite() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function atualizarMastite($id, $resultado, $quantas_cruzes, $ubere, $tratamento, $observacoes, $data) {
+function atualizarMastite($id, $resultado, $quantas_cruzes, $ubere, $tratamento, $observacoes) {
     global $banco;
     $stmt = $banco->prepare("UPDATE teste_mastite 
                              SET resultado = :resultado, quantas_cruzes = :quantas_cruzes, ubere = :ubere, 
-                                 tratamento = :tratamento, observacoes = :observacoes, data = :data
+                                 tratamento = :tratamento, observacoes = :observacoes
                              WHERE id_teste = :id");
-    return $stmt->execute([
+    $stmt->execute([
         ':resultado' => $resultado,
         ':quantas_cruzes' => $quantas_cruzes,
         ':ubere' => $ubere,
         ':tratamento' => $tratamento,
         ':observacoes' => $observacoes,
-        ':data' => $data,
         ':id' => $id
     ]);
+
+    return $stmt->rowCount();
 }
 
 function excluirMastite($id) {
     global $banco;
     $stmt = $banco->prepare("DELETE FROM teste_mastite WHERE id_teste = :id");
     $stmt->execute([':id' => $id]);
-    
+
     return $stmt->rowCount();
 }
 ?>

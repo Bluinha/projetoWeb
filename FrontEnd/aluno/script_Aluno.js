@@ -431,7 +431,7 @@ function salvarEdicaoTeste(
   button
 ) {
   const ubereFormatado = ubersArrayParam.join(", ");
-  fetch("../../BackEnd/atualizar_teste_mastite.php", {
+  fetch("../../BackEnd/mastite/atualizar_teste_mastite.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
