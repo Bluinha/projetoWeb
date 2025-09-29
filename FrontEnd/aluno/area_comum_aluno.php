@@ -162,7 +162,7 @@ require("../../BackEnd/get_resultados_mensais.php");
           </tr>
         </thead>
         <tbody>
-          <?php require("../../BackEnd/listar_teste_mastite.php") ?>
+          <?php require("../../BackEnd/mastite/listar_teste_mastite.php") ?>
         </tbody>
       </table>
     </section>

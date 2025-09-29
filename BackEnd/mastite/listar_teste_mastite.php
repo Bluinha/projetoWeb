@@ -1,10 +1,8 @@
 <?php
-require_once 'conexao.php';
-require_once 'ordenar.php';
+require_once __DIR__ . '/../dao/mastiteDAO.php';  
 
 try {
-    $stmt = $banco->query("SELECT tm.id_teste, tm.id_vaca, v.nome AS nome_vaca, tm.data, tm.resultado, tm.quantas_cruzes, tm.ubere, tm.tratamento, tm.observacoes FROM teste_mastite tm JOIN vacas v ON tm.id_vaca = v.id_vaca  ORDER BY tm.id_vaca, tm.data DESC");
-    $testes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $testes = listarMastite();
 
     foreach ($testes as $teste) {
         echo "<tr data-id=\"{$teste['id_teste']}\">";

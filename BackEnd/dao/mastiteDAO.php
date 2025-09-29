@@ -24,6 +24,7 @@ function listarMastite() {
             JOIN vacas v ON tm.id_vaca = v.id_vaca
             ORDER BY tm.data DESC";
     $stmt = $banco->query($sql);
+    
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
