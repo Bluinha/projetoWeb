@@ -2,7 +2,7 @@
 session_start();
 include("../../BackEnd/gerar_alertas.php");
 
-require("../../BackEnd/get_resultados_mensais.php");
+require("../../BackEnd/get_estatisticas_rebanho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
