@@ -262,7 +262,7 @@ require("../../BackEnd/get_estatisticas_rebanho.php");
         <p><strong><?= $totalAbates ?></strong></p>
       </li>
       </ul>
-<!--
+
       <table class="tabela-medias">
         <thead>
           <tr>
@@ -281,7 +281,7 @@ require("../../BackEnd/get_estatisticas_rebanho.php");
           <?php endforeach; ?>
         </tbody>
       </table>
-          -->
+        
     </section>
 
   </main>

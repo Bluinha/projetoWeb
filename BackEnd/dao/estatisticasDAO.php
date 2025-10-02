@@ -55,4 +55,5 @@ function getMediaSemanalPorVaca() {
     $stmt = $banco->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 ?>

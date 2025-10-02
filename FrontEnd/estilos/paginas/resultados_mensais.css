@@ -1,87 +1,134 @@
-/* === RESULTADOS MENSAIS - CARDS MODERNOS === */
+/* === RESULTADOS MENSAIS - DASHBOARD MODERNO COM MAIS COR === */
+
+/* Container Principal do "Widget" */
 #resultados-mensais {
+  background-color: #ffffff; /* Fundo branco para um visual mais limpo */
+  border-radius: 16px;
+  padding: 1.5rem; /* Aumenta o espaçamento interno */
   margin-top: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra um pouco mais visível para o container geral */
 }
 
 #resultados-mensais h3 {
-  margin-bottom: 0.5rem;
-  color: #222;
+  margin-bottom: 1.5rem; /* Mais espaço após o título */
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 /* Grid dos cards */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem; /* Aumenta o espaço entre os cards */
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0 0 2rem 0; /* Espaçamento abaixo dos cards */
 }
 
-/* Cards */
+/* --- CARDS MODERNIZADOS E COLORIDOS --- */
 #resultados-mensais .card {
+  /* Fundo dos cards com seus gradientes originais, mas ajustados para suavidade */
+  color: #ffffff; /* Texto branco para maior contraste nos gradientes */
   border-radius: 12px;
-  padding: 1.2rem;
-  text-align: center;
-  color: #fff;
+  padding: 1.5rem;
+  text-align: left;
   font-weight: 500;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-  background: linear-gradient(135deg, #81d4fa, #42a5f5); /* default azul */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para cada card */
+  border: none; /* Remove a borda, a cor virá do background */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Hover moderno */
-#resultados-mensais .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Cores individuais mais harmônicas */
+/* Cores individuais dos cards com gradientes mais modernos */
 #resultados-mensais .card:nth-child(1) {
-    background: linear-gradient(135deg, #81c784, #33b339); /* verde */
-  
+  background: linear-gradient(135deg, #4CAF50, #81C784); /* Verde mais vivo */
 }
 
 #resultados-mensais .card:nth-child(2) {
-    background: linear-gradient(135deg, #64b5f6, #569dd8); /* azul */
- 
+  background: linear-gradient(135deg, #2196F3, #64B5F6); /* Azul mais vivo */
 }
 
 #resultados-mensais .card:nth-child(3) {
-    background: linear-gradient(135deg, #77e14d, #26c6da); /* azul esverdeado */
-  
+  background: linear-gradient(135deg, #00BCD4, #4DD0E1); /* Ciano mais vivo */
 }
 
 #resultados-mensais .card:nth-child(4) {
-    background: linear-gradient(135deg, #4d77ff, #ffa726); /* laranja suave */
-  
+  background: linear-gradient(135deg, #FF9800, #FFB74D); /* Laranja mais vivo */
 }
 
+/* Efeito de hover */
+#resultados-mensais .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra de hover mais pronunciada */
+}
+
+/* Título do card */
 #resultados-mensais .card h4 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8); /* Cor mais suave para o rótulo no fundo colorido */
+  text-transform: uppercase;
 }
 
+/* Valor principal do card */
 #resultados-mensais .card p {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
+  color: #ffffff; /* Valor em branco */
+  margin: 0;
 }
 
-/* === RESPONSIVIDADE === */
-@media (max-width: 768px) {
-  #resultados-mensais .cards-grid {
-    grid-template-columns: 1fr; /* cards empilhados */
-  }
-
-  #resultados-mensais .card {
-    padding: 1rem;
-  }
-
-  #resultados-mensais .card h4 {
-    font-size: 0.95rem;
-  }
-
-  #resultados-mensais .card p {
-    font-size: 1.15rem;
-  }
+/* --- TABELA INTEGRADA AO DASHBOARD --- */
+.tabela-medias {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra para a tabela também */
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0; /* Borda sutil */
 }
+
+/* Cabeçalho da Tabela - Agora com gradiente de cor */
+.tabela-medias thead th {
+  background: #4ba5ff; /* Fundo do header sutil, sem gradiente */
+  color: #ffffff;
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-bottom: none; /* A cor do gradiente já separa o cabeçalho */
+}
+
+/* Corpo da Tabela */
+.tabela-medias tbody tr {
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #eceff1; /* Linha sutil entre as linhas */
+}
+
+.tabela-medias tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tabela-medias tbody tr:nth-child(even) {
+  background-color: #f9fbfd; /* Adiciona um zebrado suave de volta */
+}
+
+.tabela-medias tbody tr:hover {
+  background-color: #e3f2fd; /* Hover mais pronunciado */
+  transform: none;
+}
+
+.tabela-medias tbody td {
+  padding: 14px 20px;
+  font-size: 0.9rem;
+  color: #34495e;
+  border-bottom: none;
+}
+
+/* Destaques mantidos */
+.tabela-medias tbody td.valor-alto { color: #27ae60; font-weight: 600; }
+.tabela-medias tbody td.valor-baixo { color: #e74c3c; font-weight: 600; }
