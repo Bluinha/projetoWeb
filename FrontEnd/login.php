@@ -8,8 +8,10 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style/variaveis.css" />
-  <link rel="stylesheet" href="style/login.css" />
+  
+  <link rel="stylesheet" href="estilos/base.css" />
+  <link rel="stylesheet" href="estilos/paginas/login.css" />
+
 </head>
 <body>
   <main class="fundo-login"> <section class="caixa-login"> <figure class="imagem-vaca"> <img src="imgs/vacalogin.png" alt="Imagem decorativa de vacas" />

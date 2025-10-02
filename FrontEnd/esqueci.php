@@ -55,8 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['email'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recuperar Senha</title>
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style/login.css" />
+  
+  <link rel="stylesheet" href="estilos/base.css" />
+  <link rel="stylesheet" href="estilos/paginas/login.css" />
 </head>
+
 <body>
   <main class="fundo-login">
     <section class="caixa-login">
