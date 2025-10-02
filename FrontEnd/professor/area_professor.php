@@ -9,8 +9,14 @@ include("../../BackEnd/criar_alerta.php"); // Inclua criar_alerta.php se for usa
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../imgs/IconeProjeto.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../style/usuarios.css" />
     <title>Página do Professor</title>
+
+    <link rel="stylesheet" href="../estilos/base.css" />
+    <link rel="stylesheet" href="../estilos/layout.css" />
+    <link rel="stylesheet" href="../estilos/componentes.css" />
+    <link rel="stylesheet" href="../estilos/responsividade.css" />
+    <link rel="stylesheet" href="../estilos/paginas/relatorios.css" />
+    
     <style>
     /* Garante que todas as seções estejam escondidas por padrão */
     .conteudo {

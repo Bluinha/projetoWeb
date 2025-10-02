@@ -1,0 +1,243 @@
+/*== BOTÕES DO HEADER ==*/
+.caixa-perfil button {
+  /* botões de perfil no cabeçalho */
+  all: unset; /* remove todos os estilos padrão do botão */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.caixa-perfil button:hover {
+  /* efeito no hover */
+  animation: botaoHover 0.3s ease forwards;
+}
+
+.caixa-perfi button:active {
+  /* efeito no clique */
+  animation: botaoClick 0.2s ease forwards;
+}
+
+/*== BOTÕES DE PERFIL E LOGOUT==*/
+.caixa-perfil {
+  /* container dos botões de perfil e sair */
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.caixa-perfil button img {
+  /* imagem dentro dos botões de perfil/sair */
+  width: 48px;
+  height: 48px;
+}
+
+.info-do-usuario {
+  /* a caixinha que aparece com as infos do usuário */
+  position: absolute;
+  top: 58px; /* posiciona abaixo do ícone do perfil */
+  right: 0;
+  background-color: rgba(
+    28,
+    28,
+    30,
+    0.95
+  ); /* fundo escuro quase transparente */
+  padding: 14px 18px;
+  border-radius: 12px;
+  min-width: 220px;
+  font-size: 14px;
+  z-index: 999;
+  text-align: left;
+  color: #f2f2f2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px); /* efeito de desfoque no fundo */
+  animation: aparecerPerfil 0.3s ease; /* animação pra caixinha aparecer */
+}
+
+.info-do-usuario p {
+  /* parágrafos dentro da caixinha de info */
+  margin: 6px 0;
+}
+
+.info-do-usuario p:first-child {
+  /* primeiro parágrafo da info do usuário (nome) */
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+}
+.info-do-usuario p:last-child {
+  /* último parágrafo da info do usuário (email) */
+  font-size: 13px;
+  color: #c5c5c5;
+}
+
+/* === BOTÕES === */
+.btn {
+  /* botões gerais */
+  padding: 12px 20px;
+  background-color: var(--cor-destaque1); /* cor de destaque verde */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  /* efeito no hover */
+  background-color: var(--cor-destaque2); /* cor de destaque azul */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  /* efeito no clique */
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para todos os botões de ação */
+.btn-editar,
+.btn-salvar,
+.btn-excluir {
+  /* botões de ação da tabela */
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin: 0 2px;
+}
+
+/* Botão Editar */
+.btn-editar {
+  background-color: var(--cor-destaque2); /* azul */
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: var(--cor-destaque2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Salvar */
+.btn-salvar {
+  background-color: var(--cor-destaque1); /* verde */
+  color: white;
+}
+
+.btn-salvar:hover {
+  background-color: var(--cor-destaque1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Excluir (se aplicável) */
+.btn-excluir {
+  background-color: red;
+  color: white;
+}
+
+.btn-excluir:hover {
+  background-color: var(--cor-botao-excluir);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito ao clicar */
+.btn-editar:active,
+.btn-salvar:active,
+.btn-excluir:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* === TABELA === */
+.tabela {
+  /* estilo das tabelas (lista de vacas, produção, etc.) */
+  width: 100%;
+  border-collapse: separate; /* bordas da célula separadas */
+  border-spacing: 0;
+  margin-top: 16px;
+  font-family: var(
+    --fonte-padrao
+  ); /* aplicando a barlow semi condensed à tabela */
+  font-size: clamp(13px, 1.2vw, 16px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden; /* esconde o que passar da borda arredondada */
+}
+
+.tabela thead {
+  /* cabeçalho da tabela */
+  background-color: var(--cor-destaque1); /* fundo verde */
+  color: white;
+}
+
+.tabela th,
+.tabela td {
+  /* células do cabeçalho e do corpo da tabela */
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.tabela tbody tr:nth-child(even) {
+  /* linhas pares da tabela */
+  background-color: #f9f9f9; /* fundo cinza claro */
+}
+
+.tabela tbody tr:nth-child(odd) {
+  /* linhas ímpares da tabela */
+  background-color: #ffffff; /* fundo branco */
+}
+
+.tabela tbody tr:hover {
+  /* efeito no passar do mouse na linha da tabela */
+  background-color: rgba(80, 143, 246, 0.1); /* fundo azul bem clarinho */
+  transition: background-color 0.3s ease;
+}
+
+/* === FORMULÁRIOS PADRÃO === */
+.form-padrao {
+  /* estilo geral dos formulários */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-padrao label {
+  /* labels dos campos do formulário */
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-padrao input:not([type="checkbox"]), /* inputs que não são checkbox, select e textarea */
+.form-padrao select,
+.form-padrao textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* === MENSAGEM DE SUCESSO === */
+.mensagem {
+  /* estilo das mensagens de sucesso/erro */
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}

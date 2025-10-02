@@ -1,0 +1,249 @@
+/* === RESPONSIVIDADE INDEX === */
+
+/* === RESPONSIVO === */
+/* ajustes de layout para telas menores, como tablets e celulares. */
+@media (max-width: 768px) {
+    /* ajustes do cabeçalho em telas menores. */
+    header {
+        flex-direction: column; /* itens do cabeçalho em coluna */
+        height: auto; /* altura automática */
+        padding-bottom: 10px;
+        padding-top: 10px;
+        gap: 15px;
+    }
+    /* faixas decorativas do cabeçalho em telas menores. */
+    header::before, header::after {
+        height: 5px; /* faixas mais finas */
+    }
+
+    /* alinhamento dos elementos do cabeçalho em mobile. */
+    header .logo-container,
+    header .navegacao-principal,
+    header .area-login {
+        width: 100%;
+        justify-content: center; /* centraliza */
+        margin: 0;
+    }
+
+    /* alinhamento do container do logo em mobile. */
+    .logo-container {
+        justify-content: center;
+    }
+
+    /* alinhamento da navegação principal em mobile. */
+    .navegacao-principal {
+        justify-content: center;
+    }
+
+    /* estilo do menu em coluna para mobile. */
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        align-items: center;
+    }
+
+    /* alinhamento da área de login em mobile. */
+    .area-login {
+        justify-content: center;
+    }
+
+    /* introdução responsiva. */
+    .introducao {
+        padding: 20px;
+        min-height: auto; /* altura mínima automática */
+    }
+
+    /* container da imagem da introdução responsivo. */
+    .introducao-imagem-container {
+        margin-bottom: 20px;
+    }
+
+    /* título da introdução responsivo. */
+    .introducao-texto h2 {
+        font-size: 1.5rem;
+    }
+
+    /* parágrafos da introdução responsivos. */
+    .introducao-texto p {
+        font-size: 0.9rem;
+    }
+
+    /* separador de seções responsivo. */
+    .separador-fino {
+        margin: 20px 0; /* menos margem em mobile. */
+    }
+
+    /* seção de serviços oferecidos responsiva. */
+    .servicos-oferecidos {
+        padding: 40px 5%;
+    }
+
+    /* título da seção de serviços responsivo. */
+    .titulo-servicos {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    /* cartão de serviço responsivo. */
+    .cartao-servico {
+        min-height: 250px;
+        padding: 30px 20px;
+    }
+
+    /* imagem da vaca nos cartões de serviço responsiva. */
+    .icone-vaca-servico {
+        max-width: 100px;
+    }
+
+    /* título do cartão de serviço responsivo. */
+    .cartao-servico h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+    }
+
+    /* sobre o leite responsivo. */
+    .sobre-leite .leite-item {
+        flex-basis: 100%; /* ocupa a largura total em mobile. */
+        padding: 0 10px;
+    }
+
+    /* seção "nosso propósito" responsiva. */
+    .secao-proposito {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    /* container da imagem do propósito responsivo. */
+    .container-imagem-proposito {
+        margin-bottom: 20px;
+    }
+
+    /* título do propósito responsivo. */
+    .texto-conteudo-proposito h2 {
+        font-size: 1.5rem;
+    }
+
+    /* parágrafos do propósito responsivos. */
+    .texto-conteudo-proposito p {
+        font-size: 0.9rem;
+    }
+
+    /* ajustes gerais de layout em colunas para seções. */
+    .secao-proposito {
+        flex-direction: column;
+        padding: 60px 5%;
+    }
+
+    /* layout da seção "sobre o leite" em mobile. */
+    .sobre-leite {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* padding dos cartões de serviço em mobile. */
+    .cartao-servico {
+        padding: 30px 20px;
+    }
+
+    /* seção final e rodapé em mobile. */
+    .texto-fim {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* informações do ifpe em mobile. */
+    .ifpe-info {
+        max-width: 100%;
+    }
+
+    /* logo do ifpe em mobile. */
+    .logo-ifpe {
+        width: 80px;
+    }
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) { /* estilos pra telas menores (celulares, tablets) */
+  header { /* cabeçalho em telas menores */
+    height: auto; /* deixa a altura automática pelo padding */
+    padding: 10px 15px;
+  }
+  .faixa-decorada { /* faixa decorada em telas menores */
+    /* não é fixa, então top não se aplica da mesma forma */
+  }
+  .painel { /* painel principal em telas menores */
+    margin-top: 0; /* não tem cabeçalho fixo pra compensar */
+  }
+
+  .menu-lateral { /* menu lateral em telas menores */
+    width: 150px;
+    padding: 10px;
+    height: auto; /* altura automática */
+    /* não é fixo */
+  }
+  .menu-lateral h2 {
+    font-size: 18px;
+    padding: 8px;
+  }
+  .menu-lateral a {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+  .conteudo { /* área de conteúdo em telas menores */
+    margin-left: 0; /* não tem menu lateral fixo pra compensar */
+    width: 100%; /* ocupa largura total */
+    padding: 15px;
+  }
+
+  .tabela th,
+  .tabela td { /* tabela em telas menores */
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .tabela {
+    font-size: 14px;
+  }
+
+  .bloco-pagina { /* blocos de página em telas menores */
+    padding: 10px;
+    margin: 15px 5px;
+  }
+
+  .bloco-pagina h3 {
+    font-size: 16px;
+  }
+
+  .btn,
+  #relatorios .btn { /* botões em telas menores */
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .relatorio-item { /* itens de relatório em telas menores */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .relatorio-item a {
+    align-self: flex-end;
+  }
+
+  .logo-container .logo { /* logo em telas menores */
+    width: 80px;
+  }
+  .texto-logo h1 { /* texto da logo "cql" em telas menores */
+    font-size: clamp(20px, 4vw, 36px);
+  }
+  .texto-logo h2 { /* texto da logo "controle de qualidade..." em telas menores */
+    font-size: clamp(10px, 1.5vw, 16px);
+  }
+  .caixa-perfil button img { /* ícones de perfil em telas menores */
+    width: 38px;
+    height: 38px;
+  }
+}

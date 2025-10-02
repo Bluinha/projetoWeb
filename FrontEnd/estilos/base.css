@@ -1,0 +1,112 @@
+/* importando fontes. */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap'); /* importa a fonte barlow normal, usada pra logo cql */
+
+
+:root { /* aqui a gente define variáveis que podem ser usadas em todo o css */
+  --fonte-padrao: "Barlow Semi Condensed", sans-serif; /* define a fonte principal do site */
+  --fonte-titulo: 'Edu SA Hand', cursive;
+  --cor-header: white; 
+  --decoracao-header: linear-gradient(to right, #94BD09, #508FF6); /* gradiente de cor pra faixa de cima */
+  --cor-fundo: rgba(80, 143, 246, 0.2); /* cor de fundo geral do body, um azul clarinho */
+  --cor-caixa-login: #f6f6f6;          /* fundo branco da caixa */
+  --cor-fundo-forte: #508FF6;          /* fundo azul */
+  --cor-destaque1: #94BD09; /* cor verde principal pros destaques */
+  --cor-destaque2: #508FF6; /* cor azul secundária pros destaques */
+  --cor-botao-excluir: #d32f2fd3; /* cor pro botão de excluir */
+  --cor-texto-link-menu: #222; /* cor do texto dos links do menu lateral */
+  --cor-texto-link-menu-hover: #4a6b4d; /* cor do texto do link do menu no passar do mouse */
+  --cor-link-ativo-fundo: #4CAF50; /* cor de fundo do link do menu que está ativo (verde) */
+  --cor-link-ativo-texto: #fff; /* cor do texto do link do menu que está ativo (branco) */
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --card-radius: 1rem;
+  --card-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/*configurando a fonte do nome do site CQL*/
+.barlow-regular { /* essa classe é específica pra fonte da logo "cql" */
+  font-family: "Barlow", sans-serif; /* usa a barlow normal pra logo, conforme o design */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes aparecerPerfil { /* animação pra caixinha de info do usuário */
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* === Animações Globais === */
+@keyframes cairSuave {
+  0% {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/*animação dos botões mais genericos*/
+@keyframes botaoHover { /* animação pro botão levantar um pouquinho no hover */
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes botaoClick { /* animação pro botão dar uma afundada no clique */
+  0% {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes aparecerPerfil { /* animação pra caixinha de info do usuário */
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+
+body,
+html {
+  min-height: 100vh; /* altura mínima da página é 100% da tela */
+  margin: 0; /* remove margem padrão do navegador */
+}
+
+body {
+  font-family: var(--fonte-padrao); 
+  font-size: clamp(16px, 2vw, 20px); 
+  opacity: 0;
+
+  animation: cairSuave 0.8s ease-out forwards; /* aplica a animação de cair suave */
+}
+
+/* === Tipografia Básica === */
+h1, h2, h3, h4, h5 {
+  font-family: var(--fonte-padrao);
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* === Imagens Globais === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

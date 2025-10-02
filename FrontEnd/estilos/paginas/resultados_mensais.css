@@ -1,0 +1,87 @@
+/* === RESULTADOS MENSAIS - CARDS MODERNOS === */
+#resultados-mensais {
+  margin-top: 2rem;
+}
+
+#resultados-mensais h3 {
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+/* Grid dos cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+/* Cards */
+#resultados-mensais .card {
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  background: linear-gradient(135deg, #81d4fa, #42a5f5); /* default azul */
+}
+
+/* Hover moderno */
+#resultados-mensais .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Cores individuais mais harmônicas */
+#resultados-mensais .card:nth-child(1) {
+    background: linear-gradient(135deg, #81c784, #33b339); /* verde */
+  
+}
+
+#resultados-mensais .card:nth-child(2) {
+    background: linear-gradient(135deg, #64b5f6, #569dd8); /* azul */
+ 
+}
+
+#resultados-mensais .card:nth-child(3) {
+    background: linear-gradient(135deg, #77e14d, #26c6da); /* azul esverdeado */
+  
+}
+
+#resultados-mensais .card:nth-child(4) {
+    background: linear-gradient(135deg, #4d77ff, #ffa726); /* laranja suave */
+  
+}
+
+#resultados-mensais .card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+#resultados-mensais .card p {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  #resultados-mensais .cards-grid {
+    grid-template-columns: 1fr; /* cards empilhados */
+  }
+
+  #resultados-mensais .card {
+    padding: 1rem;
+  }
+
+  #resultados-mensais .card h4 {
+    font-size: 0.95rem;
+  }
+
+  #resultados-mensais .card p {
+    font-size: 1.15rem;
+  }
+}
