@@ -11,9 +11,18 @@ require("../../BackEnd/get_estatisticas_rebanho.php");
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" href="imgs/vacaFavicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../style/usuarios.css" />
   <link rel="shortcut icon" href="../imgs/IconeProjeto.png" type="image/x-icon" />
   <title>Página do Aluno</title>
+
+   <!-- todo: organizar melhor os imports com sacss diminuir a fonte de volta ao normal-->
+    <link rel="stylesheet" href="../estilos/base.css" />
+    <link rel="stylesheet" href="../estilos/layout.css" />
+    <link rel="stylesheet" href="../estilos/componentes.css" />
+    <link rel="stylesheet" href="../estilos/responsividade.css" />
+    <link rel="stylesheet" href="../estilos/paginas/vacas.css" />
+    <link rel="stylesheet" href="../estilos/paginas/relatorios.css" />
+    <link rel="stylesheet" href="../estilos/paginas/resultados_mensais.css" />
+
 </head>
 
 <body>
